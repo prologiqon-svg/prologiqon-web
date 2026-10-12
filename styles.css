@@ -54,7 +54,7 @@ margin: 0;
 footer .footer-brand-group p {
 position: absolute;
 left: 50%;
-top: 28px;
+top: 50%;
 transform: translate(-50%, -50%);
 width: max-content;
 max-width: 60%;
