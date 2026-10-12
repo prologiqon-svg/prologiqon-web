@@ -21,3 +21,7 @@ object-fit: contain !important;
   letter-spacing: 2px;
   white-space: nowrap;
 }
+/* Svetlé pozadie hlavičky ProLogIQon */
+.site-header {
+  background-color: #F4F7F9 !important;
+}
