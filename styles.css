@@ -3,11 +3,11 @@
 @media(max-width:850px){.links{gap:15px}.links a{font-size:11px}.nav-call{padding:10px}.hero-side{min-width:150px}.about-grid{grid-template-columns:1fr 1fr}.about blockquote{grid-column:2;border-left:0;padding:0}.service{padding:0 15px}.contact-grid{gap:40px}}
 @media(max-width:650px){.wrap{width:calc(100% - 34px)}.site-header{height:66px}.bolt{font-size:40px}.brand b{font-size:20px}.menu{display:flex;flex-direction:column;gap:5px;background:none;border:0}.menu i{display:block;width:24px;height:2px;background:white}.links{display:none;position:absolute;top:66px;left:0;right:0;background:#061320;padding:16px 22px 22px;flex-direction:column;align-items:stretch;gap:0}.links.open{display:flex}.links a{padding:12px 0}.links .active:after{display:none}.links .nav-call{padding:12px 15px;margin-top:8px}.hero{height:auto;min-height:560px}.hero-photo{inset:0;background-position:center;background-image:linear-gradient(90deg,#061523ed,#06152399),url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80')}.hero-shade{background:linear-gradient(0deg,#061523 0%,#06152360 80%,#06152355)}.hero-inner{align-items:flex-start}.hero-copy{padding:55px 0 180px}.hero h1{font-size:40px}.hero-copy p{font-size:13px}.hero-side{position:absolute;bottom:0;right:0;height:170px;width:100%}.camera{top:5px;right:5px;transform:scale(.8)}.handwritten{bottom:35px;right:10px;font-size:19px}.service-grid{grid-template-columns:1fr 1fr;gap:0}.service{padding:18px 12px;border-bottom:1px solid #1b3447}.service:first-child{padding-left:12px}.service:nth-child(2){border-right:0}.service:nth-child(3){padding-left:12px}.service h2{font-size:13px}.service p{min-height:70px;font-size:10px}.line-icon{font-size:30px}.about{padding:38px 0}.about-grid{grid-template-columns:1fr;gap:25px}.work-photo{height:235px}.about-copy h2{font-size:27px}.about blockquote{grid-column:auto;border-left:1px solid #d7dfe5;padding-left:20px}.steps-grid{grid-template-columns:1fr 1fr;gap:28px 12px}.steps h2{font-size:22px}.step-icon{left:calc(50% + 23px);width:30px;height:30px}.step-number{width:32px;height:32px}.contact{padding:45px 0}.contact-grid{grid-template-columns:1fr;gap:30px}.contact h2{font-size:38px}.contact-facts{flex-direction:column;gap:17px}.contact form{padding:20px}.footer-top{flex-wrap:wrap;gap:14px}.footer-top p{order:3;width:100%}.footer-bottom{flex-direction:column;gap:8px}}
 .site-header .brand img.logo {
-width: 90px !important;
-height: 36px !important;
-max-width: 90px !important;
-max-height: 36px !important;
-object-fit: contain !important;
+  width: 220px !important;
+  height: 75px !important;
+  max-width: 220px !important;
+  max-height: 75px !important;
+  object-fit: contain !important;
 }
 .brand {
   display: inline-flex;
