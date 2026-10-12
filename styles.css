@@ -9,3 +9,15 @@ max-width: 90px !important;
 max-height: 36px !important;
 object-fit: contain !important;
 }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-slogan {
+  color: #b4c0cc;
+  font-size: 9px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
