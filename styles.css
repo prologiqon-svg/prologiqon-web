@@ -25,3 +25,9 @@
 .site-header {
   background-color: #737E86 !important;
 }
+.contact-facts a,
+.contact-facts a:visited,
+.contact-facts a:hover {
+  color: inherit !important;
+  text-decoration: none;
+}
