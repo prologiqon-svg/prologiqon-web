@@ -94,6 +94,7 @@ margin: 0;
 justify-self: center;
 }
 
+/* Mobilné rozloženie pätičky */
 @media (max-width: 650px) {
 footer .footer-top {
 display: flex !important;
@@ -101,8 +102,13 @@ flex-direction: column;
 align-items: flex-start;
 }
 
-footer .footer-top p {
+footer .footer-top > p {
 text-align: left !important;
+width: 100%;
 margin: 0;
+}
+
+footer .footer-top > a {
+align-self: flex-start;
 }
 }
