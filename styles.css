@@ -49,8 +49,7 @@
 }
 
 footer .footer-top > a.brand {
-  justify-self: start !important;
-  margin-left: 0 !important;
+  margin-left: -8px !important;
   padding-left: 0 !important;
-  transform: translateX(-8px);
+  transform: none !important;
 }
