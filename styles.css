@@ -64,3 +64,21 @@ footer .footer-top > a.brand {
 .about-copy p {
   text-align: left;
 }
+/* Zarovnanie textu v úvodnej sekcii */
+.hero-copy {
+  text-align: center;
+}
+
+.hero-copy .eyebrow {
+  justify-content: center;
+}
+
+.hero-copy p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-copy .btn {
+  margin-left: auto;
+  margin-right: auto;
+}
