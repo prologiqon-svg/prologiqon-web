@@ -51,5 +51,5 @@
 footer .footer-top > a.brand {
   margin-left: -8px !important;
   padding-left: 0 !important;
-  transform: none !important;
+  transform: translateX(0) !important;
 }
