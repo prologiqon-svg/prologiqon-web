@@ -38,3 +38,12 @@
   max-height: 50px !important;
   object-fit: contain !important;
 }
+.footer-top .brand {
+  margin-left: 0 !important;
+  justify-self: start;
+}
+
+.footer-top .brand img.logo {
+  display: block;
+  margin-left: 0 !important;
+}
