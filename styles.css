@@ -47,3 +47,29 @@
   display: block;
   margin-left: 0 !important;
 }
+.footer-top {
+  display: grid !important;
+  grid-template-columns: 1fr auto;
+  justify-content: initial !important;
+  align-items: center;
+}
+
+.footer-top .brand {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  margin: 0 !important;
+}
+
+.footer-top p {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  margin-top: 10px;
+}
+
+.footer-top > a:last-child {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-self: end;
+}
