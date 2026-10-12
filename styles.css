@@ -82,8 +82,27 @@ footer .footer-top > a.brand {
   margin-left: auto;
   margin-right: auto;
 }
-.footer-top p {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+footer .footer-top {
+display: grid !important;
+grid-template-columns: 1fr 1fr 1fr;
+align-items: center;
+}
+
+footer .footer-top p {
+text-align: center !important;
+margin: 0;
+justify-self: center;
+}
+
+@media (max-width: 650px) {
+footer .footer-top {
+display: flex !important;
+flex-direction: column;
+align-items: flex-start;
+}
+
+footer .footer-top p {
+text-align: left !important;
+margin: 0;
+}
 }
