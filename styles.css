@@ -47,12 +47,7 @@
   display: block;
   margin-left: 0 !important;
 }
-.footer-top {
-  display: grid !important;
-  grid-template-columns: 1fr auto;
-  justify-content: initial !important;
-  align-items: center;
-}
+
 
 .footer-top .brand {
   grid-column: 1;
