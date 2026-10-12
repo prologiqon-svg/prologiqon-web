@@ -31,3 +31,10 @@
   color: inherit !important;
   text-decoration: none;
 }
+.footer-top .brand img.logo {
+  width: 150px !important;
+  height: 50px !important;
+  max-width: 150px !important;
+  max-height: 50px !important;
+  object-fit: contain !important;
+}
