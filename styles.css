@@ -53,3 +53,11 @@ footer .footer-top > a.brand {
   padding-left: 0 !important;
   transform: translateX(0) !important;
 }
+.steps .eyebrow {
+  justify-content: center;
+  text-align: center;
+}
+
+.steps h2 {
+  text-align: center;
+}
