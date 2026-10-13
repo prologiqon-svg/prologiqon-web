@@ -67,11 +67,20 @@
   padding: 20px;
   box-shadow: 0 3px 12px rgba(22, 128, 58, 0.15);
 }
-/* Obrázok inteligentnej domácnosti v sekcii O nás */
+/* Ostrý obrázok inteligentnej domácnosti v sekcii O nás */
 .work-photo {
-background: url('photo.png') center center / cover no-repeat !important;
+  background-image: url('photo.png') !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.work-photo::before {
+  display: none !important;
 }
 
 .work-photo > * {
-display: none !important;
+  display: none !important;
 }
