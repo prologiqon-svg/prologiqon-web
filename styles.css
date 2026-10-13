@@ -67,3 +67,11 @@
   padding: 20px;
   box-shadow: 0 3px 12px rgba(22, 128, 58, 0.15);
 }
+/* Obrázok inteligentnej domácnosti v sekcii O nás */
+.work-photo {
+background: url('photo.png') center center / cover no-repeat !important;
+}
+
+.work-photo > * {
+display: none !important;
+}
