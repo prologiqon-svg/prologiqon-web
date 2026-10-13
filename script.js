@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contact-form");
   const formNote = document.getElementById("form-note");
 
-  if (!form || !formNote) return;
+  if (!form || !formNote) {
+    return;
+  }
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -22,8 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await response.json();
 
       if (response.ok && result.success) {
-        formNote.textContent =
-          "Ďakujeme! Správa bola úspešne odoslaná.";
+        formNote.textContent = "Ďakujeme! Správa bola úspešne odoslaná.";
         form.reset();
       } else {
         formNote.textContent =
