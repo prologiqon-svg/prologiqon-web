@@ -18,3 +18,10 @@
   height: auto;
   max-width: 100%;
 }
+.site-header .brand img {
+  display: block;
+  width: 180px;
+  height: auto;
+  max-height: 58px;
+  object-fit: contain;
+}
