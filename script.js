@@ -1,21 +1,40 @@
-  }
-    );
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+  const formNote = document.getElementById("form-note");
 
-    const result = await response.json();
+  if (!form || !formNote) return;
 
-    if (response.ok && result.success) {
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const button = form.querySelector('button[type="submit"]');
+    const originalText = button.textContent;
+
+    formNote.textContent = "Odosielam správu...";
+    button.disabled = true;
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: new FormData(form)
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        formNote.textContent =
+          "Ďakujeme! Správa bola úspešne odoslaná.";
+        form.reset();
+      } else {
+        formNote.textContent =
+          "Správu sa nepodarilo odoslať. Skontrolujte nastavenie formulára alebo nám zavolajte.";
+      }
+    } catch (error) {
       formNote.textContent =
-        'Ďakujeme za váš dopyt. Správa bola úspešne odoslaná.';
-      form.reset();
-    } else {
-      formNote.textContent =
-        'Správu sa nepodarilo odoslať. Skúste to znova alebo nám zavolajte.';
+        "Nepodarilo sa pripojiť k službe. Skúste to znova alebo nám zavolajte.";
+    } finally {
+      button.disabled = false;
+      button.textContent = originalText;
     }
-  } catch (error) {
-    formNote.textContent =
-      'Nepodarilo sa pripojiť k službe. Skúste to znova alebo nám zavolajte.';
-  } finally {
-    button.disabled = false;
-    button.innerText = originalText;
-  }
+  });
 });
