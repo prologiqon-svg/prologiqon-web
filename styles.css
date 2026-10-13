@@ -26,3 +26,26 @@
   max-height: 58px;
   object-fit: contain;
 }
+/* Výrazné potvrdenie odoslania kontaktného formulára */
+.contact .form-note {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  background: #e5f7e9;
+  border: 2px solid #248a45;
+  color: #176b32;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Po úspešnom odoslaní */
+.contact .form-note.success {
+  background: #d9fbe2;
+  border: 2px solid #16803a;
+  color: #125c2c;
+  font-size: 17px;
+  font-weight: 800;
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(22, 128, 58, 0.15);
+}
