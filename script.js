@@ -24,7 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await response.json();
 
       if (response.ok && result.success) {
-        formNote.textContent = "Ďakujeme! Správa bola úspešne odoslaná.";
+       formNote.classList.add("success");
+formNote.textContent = "✓ DOPYT ÚSPEŠNE ODOSLANÝ! Ďakujeme za správu. Čoskoro sa vám ozveme.";
+formNote.scrollIntoView({ behavior: "smooth", block: "center" });
         form.reset();
       } else {
         formNote.textContent =
