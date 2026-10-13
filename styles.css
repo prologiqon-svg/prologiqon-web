@@ -12,3 +12,9 @@
 .contact-facts strong {
   white-space: nowrap;
 }
+.footer-logo img {
+  display: block;
+  width: 180px;
+  height: auto;
+  max-width: 100%;
+}
