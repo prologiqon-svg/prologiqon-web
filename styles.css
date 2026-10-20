@@ -115,3 +115,7 @@
     max-height: 54px;
   }
 }
+/* Jednotná farba hlavičky na mobile aj počítači */
+.site-header {
+  background-color: #737E86 !important;
+}
