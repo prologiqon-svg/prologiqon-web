@@ -1,0 +1,426 @@
+  <meta name="description" content="Smart ochrana pred únikom vody v dome alebo byte. Senzory úniku, upozornenia do mobilu a možnosť automatického uzavretia vody. Martin a okolie.">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
+
+  <style>
+    .water-hero {
+      background: #071725;
+      color: #fff;
+      padding: 70px 24px;
+    }
+
+    .water-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .water-label {
+      color: #C5F35D;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .water-hero h1 {
+      max-width: 850px;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.12;
+      margin: 18px 0;
+    }
+
+    .water-hero p {
+      max-width: 760px;
+      color: #d5dee5;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .water-button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 14px 22px;
+      border-radius: 6px;
+      background: #C5F35D;
+      color: #071725;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .water-section {
+      padding: 65px 24px;
+      background: #fff;
+      color: #071725;
+    }
+
+    .water-section.alt {
+      background: #f3f6f8;
+    }
+
+    .water-section h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 0 0 16px;
+    }
+
+    .water-intro {
+      max-width: 780px;
+      color: #52616d;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .water-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .water-card {
+      border: 1px solid #dce4e9;
+      border-radius: 12px;
+      padding: 26px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .water-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background: #f0f6df;
+      color: #071725;
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    .water-card h3 {
+      font-size: 22px;
+      line-height: 1.35;
+      margin: 0 0 12px;
+    }
+
+    .water-card p {
+      color: #52616d;
+      line-height: 1.75;
+      margin: 0 0 14px;
+    }
+
+    .water-card ul {
+      color: #52616d;
+      line-height: 1.8;
+      padding-left: 20px;
+      margin: 0 0 20px;
+      list-style-type: disc;
+    }
+
+    .water-card li::marker {
+      color: #C5F35D;
+    }
+
+    .water-price {
+      border-top: 1px solid #dce4e9;
+      padding-top: 18px;
+      margin-top: auto;
+      width: 100%;
+    }
+
+    .water-price span {
+      display: block;
+      color: #52616d;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .water-price strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #071725;
+    }
+
+    .water-price a {
+      color: #071725;
+      text-decoration: underline;
+      text-decoration-color: #9abf30;
+      text-underline-offset: 4px;
+    }
+
+    .water-note {
+      margin-top: 28px;
+      padding: 22px;
+      background: #edf2e4;
+      border-left: 4px solid #C5F35D;
+      border-radius: 6px;
+      color: #33414b;
+      line-height: 1.8;
+    }
+
+    .water-cta {
+      background: #071725;
+      color: #fff;
+      padding: 65px 24px;
+      text-align: center;
+    }
+
+    .water-cta h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 0 0 15px;
+    }
+
+    .water-cta p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #d5dee5;
+      line-height: 1.8;
+    }
+
+    .water-footer {
+      background: #071725;
+      color: #d5dee5;
+      padding: 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .water-footer a {
+      color: #C5F35D;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .water-hero {
+        padding: 50px 20px;
+      }
+
+      .water-section {
+        padding: 45px 20px;
+      }
+
+      .water-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html#domov">
+        <img src="prologiqon%20logo%20final.png" alt="PrologIQon">
+      </a>
+
+      <button class="menu" aria-label="Otvoriť menu" aria-expanded="false">
+        <i></i><i></i><i></i>
+      </button>
+
+      <nav class="links">
+        <a href="index.html#domov">Domov</a>
+        <a href="index.html#sluzby">Služby</a>
+        <a href="index.html#onas">O nás</a>
+        <a href="index.html#postup">Postup</a>
+        <a class="active" href="smart-domacnost.html">Smart domácnosť</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a class="nav-call" href="index.html#kontakt">Kontaktujte nás <b>↗</b></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="water-hero">
+      <div class="water-inner">
+        <div class="water-label">PrologIQon · Smart riešenia</div>
+
+        <h1>Ochrana pred únikom vody. Aj keď nie ste doma.</h1>
+
+        <p>
+          Malý únik vody môže spôsobiť veľké škody.
+          So smart senzorom môžete dostať upozornenie do mobilu
+          pri zistení vody napríklad pri práčke, umývačke riadu,
+          bojleri alebo v technickej miestnosti.
+          Podľa zvoleného riešenia možno doplniť aj automatické
+          uzavretie prívodu vody.
+        </p>
+
+        <a class="water-button" href="#balicky">
+          Pozrieť ponuku balíkov
+        </a>
+      </div>
+    </section>
+
+    <section class="water-section">
+      <div class="water-inner">
+        <h2>Vyberte si úroveň ochrany</h2>
+
+        <p class="water-intro">
+          Od jednoduchého senzora až po systém, ktorý pri zistení
+          úniku dokáže uzavrieť prívod vody. Navrhneme riešenie
+          podľa miesta inštalácie, dostupnej smart domácnosti
+          a vašich požiadaviek.
+        </p>
+
+        <div class="water-grid" id="balicky">
+
+          <article class="water-card">
+            <div class="water-icon" aria-hidden="true">●</div>
+
+            <h3>SMART VODA – Senzor</h3>
+
+            <p>
+              Jednoduchá detekcia vody na miestach, kde môže
+              dôjsť k nechcenému úniku.
+            </p>
+
+            <ul>
+              <li>Senzor úniku vody</li>
+              <li>Umiestnenie pri rizikovom zariadení</li>
+              <li>Kontrola funkčnosti senzora</li>
+              <li>Upozornenie podľa možností zariadenia</li>
+            </ul>
+
+            <div class="water-price">
+              <span>CENA</span>
+              <strong><a href="index.html#kontakt">Pre cenu nás kontaktujte</a></strong>
+            </div>
+          </article>
+
+          <article class="water-card">
+            <div class="water-icon" aria-hidden="true">↗</div>
+
+            <h3>SMART VODA – Upozornenie</h3>
+
+            <p>
+              Detekcia úniku vody s upozornením do mobilu,
+              aby ste sa o probléme dozvedeli čo najskôr.
+            </p>
+
+            <ul>
+              <li>Senzor úniku vody</li>
+              <li>Prepojenie s kompatibilnou smart aplikáciou</li>
+              <li>Upozornenie pri zistení vody</li>
+              <li>Nastavenie a otestovanie systému</li>
+            </ul>
+
+            <div class="water-price">
+              <span>CENA</span>
+              <strong><a href="index.html#kontakt">Pre cenu nás kontaktujte</a></strong>
+            </div>
+          </article>
+
+          <article class="water-card">
+            <div class="water-icon" aria-hidden="true">✓</div>
+
+            <h3>SMART VODA – Komplet</h3>
+
+            <p>
+              Rozšírená ochrana s detekciou úniku a možnosťou
+              automatického uzavretia prívodu vody.
+            </p>
+
+            <ul>
+              <li>Senzor alebo viac senzorov podľa potreby</li>
+              <li>Upozornenie do mobilu</li>
+              <li>Možnosť automatického uzavretia vody</li>
+              <li>Testovanie reakcie systému</li>
+            </ul>
+
+            <div class="water-price">
+              <span>CENA</span>
+              <strong><a href="index.html#kontakt">Pre cenu nás kontaktujte</a></strong>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="water-note">
+          <strong>Dôležité:</strong> Dostupné funkcie závisia od
+          konkrétneho senzora, smart systému a internetového pripojenia.
+          Upozornenie do mobilu vyžaduje kompatibilné zariadenia
+          a správne nastavenie. Automatické uzavretie vody si vyžaduje
+          vhodný uzatvárací ventil a kompatibilné riadenie.
+          Konkrétne možnosti overíme pred realizáciou.
+        </div>
+      </div>
+    </section>
+
+    <section class="water-section alt">
+      <div class="water-inner">
+        <h2>Ako to prebieha?</h2>
+
+        <div class="water-grid">
+
+          <article class="water-card">
+            <div class="water-icon" aria-hidden="true">1</div>
+
+            <h3>Určíme rizikové miesta</h3>
+
+            <p>
+              Dohodneme sa, kde potrebujete únik vody sledovať —
+              napríklad pri práčke, umývačke alebo bojleri.
+            </p>
+          </article>
+
+          <article class="water-card">
+            <div class="water-icon" aria-hidden="true">2</div>
+
+            <h3>Vyberieme vhodné riešenie</h3>
+
+            <p>
+              Zohľadníme požadované upozornenia, dostupné pripojenie
+              a prípadnú možnosť uzatvorenia prívodu vody.
+            </p>
+          </article>
+
+          <article class="water-card">
+            <div class="water-icon" aria-hidden="true">3</div>
+
+            <h3>Nainštalujeme a otestujeme</h3>
+
+            <p>
+              Zariadenia umiestnime, nastavíme a preveríme,
+              či systém správne reaguje na zistenie vody.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="water-cta">
+      <div class="water-inner">
+        <h2>Chcete mať únik vody pod kontrolou?</h2>
+
+        <p>
+          Ozvite sa nám. Navrhneme vhodnú ochranu pre váš dom,
+          byt alebo technickú miestnosť. Pôsobíme v Martine a okolí.
+        </p>
+
+        <a class="water-button" href="index.html#kontakt">
+          Kontaktovať PrologIQon
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="water-footer">
+    <p>© PrologIQon · Martin a okolie</p>
+    <p><a href="smart-domacnost.html">Späť na Smart domácnosť</a></p>
+    <p><a href="index.html#kontakt">Kontakt</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
