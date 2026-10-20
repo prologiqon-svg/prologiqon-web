@@ -84,3 +84,34 @@
 .work-photo > * {
   display: none !important;
 }
+/* Oprava horného loga PrologIQon */
+.site-header .nav {
+  position: relative;
+}
+
+.site-header .nav > .brand {
+  display: flex !important;
+  flex: 0 0 auto;
+  margin-left: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 2;
+}
+
+.site-header .nav > .brand img {
+  display: block !important;
+  width: 180px !important;
+  height: auto !important;
+  max-height: 58px;
+  object-fit: contain;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 650px) {
+  .site-header .nav > .brand img {
+    width: 150px !important;
+    max-height: 54px;
+  }
+}
