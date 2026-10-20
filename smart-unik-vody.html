@@ -7,7 +7,7 @@
 
   <title>Ochrana pred únikom vody | PrologIQon</title>
 
-  <meta name="description" content="Smart ochrana pred únikom vody v dome alebo byte. Monitoring s upozornením do mobilu alebo kompletné riešenie s automatickým uzavretím vody. Martin a okolie.">
+  <meta name="description" content="Smart ochrana pred únikom vody v dome alebo byte. Monitoring, upozornenia do mobilu a automatické uzavretie vody vrátane záložného napájania. Martin a okolie.">
 
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
@@ -86,6 +86,12 @@
       margin-top: 32px;
     }
 
+    /* Tri balíky vedľa seba na širokých obrazovkách */
+    .water-packages {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
     .water-card {
       border: 1px solid #dce4e9;
       border-radius: 12px;
@@ -94,6 +100,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      min-width: 0;
     }
 
     .water-icon {
@@ -102,6 +109,7 @@
       justify-content: center;
       width: 48px;
       height: 48px;
+      flex-shrink: 0;
       margin-bottom: 20px;
       border-radius: 10px;
       background: #f0f6df;
@@ -206,6 +214,12 @@
       text-decoration: none;
     }
 
+    @media (max-width: 900px) {
+      .water-packages {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 600px) {
       .water-hero {
         padding: 50px 20px;
@@ -217,6 +231,10 @@
 
       .water-card {
         padding: 22px;
+      }
+
+      .water-packages {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -256,11 +274,9 @@
 
         <p>
           Malý únik vody môže spôsobiť veľké škody.
-          So smart senzorom môžete dostať upozornenie do mobilu
-          pri zistení vody napríklad pri práčke, umývačke riadu,
-          bojleri alebo v technickej miestnosti.
-          Ak chcete vyššiu úroveň ochrany, systém môže pri zistení
-          úniku automaticky uzavrieť hlavný prívod vody.
+          Vyberte si jednoduché sledovanie úniku s upozornením
+          do mobilu, automatické uzavretie vody alebo kompletnú
+          ochranu s centrálnym Zigbee riadením a záložným napájaním.
         </p>
 
         <a class="water-button" href="#balicky">
@@ -274,14 +290,15 @@
         <h2>Vyberte si úroveň ochrany</h2>
 
         <p class="water-intro">
-          Ponúkame dve riešenia: monitoring s upozornením do mobilu
-          alebo kompletný systém, ktorý dokáže pri zistení úniku
-          automaticky uzavrieť hlavný prívod vody.
-          Riešenie navrhneme podľa vašej domácnosti a požiadaviek.
+          Tri úrovne ochrany podľa vašich potrieb:
+          od základného monitoringu až po automatické uzavretie
+          hlavného prívodu vody s doplneným záložným napájaním.
+          Konkrétne zariadenia vyberieme podľa podmienok vašej domácnosti.
         </p>
 
-        <div class="water-grid" id="balicky">
+        <div class="water-grid water-packages" id="balicky">
 
+          <!-- BALÍK 1 -->
           <article class="water-card">
             <div class="water-icon" aria-hidden="true">●</div>
 
@@ -307,14 +324,15 @@
             </div>
           </article>
 
+          <!-- BALÍK 2 -->
           <article class="water-card">
             <div class="water-icon" aria-hidden="true">✓</div>
 
-            <h3>SMART VODA – Kompletné riešenie</h3>
+            <h3>SMART VODA – Automatické uzavretie</h3>
 
             <p>
-              Komplexnejšia ochrana domácnosti. Pri zistení úniku
-              systém upozorní na problém a automaticky uzavrie
+              Pri zistení úniku systém upozorní na problém
+              a prostredníctvom kompatibilného riadenia uzavrie
               hlavný prívod vody, aby obmedzil ďalšie škody.
             </p>
 
@@ -322,8 +340,39 @@
               <li>Senzory úniku vody na vhodných rizikových miestach</li>
               <li>Upozornenie do mobilu pri zistení vody</li>
               <li>Motorický ventil na hlavnom prívode vody</li>
-              <li>Automatické uzavretie prívodu pri detekcii úniku</li>
-              <li>Montáž, nastavenie a otestovanie celého systému</li>
+              <li>Automatizácia uzavretia pri detekcii úniku</li>
+              <li>Montáž, nastavenie a funkčný test systému</li>
+            </ul>
+
+            <div class="water-price">
+              <span>CENA</span>
+              <strong><a href="index.html#kontakt">Pre cenu nás kontaktujte</a></strong>
+            </div>
+          </article>
+
+          <!-- BALÍK 3 -->
+          <article class="water-card">
+            <div class="water-icon" aria-hidden="true">◆</div>
+
+            <h3>SMART VODA – Kompletná ochrana</h3>
+
+            <p>
+              Rozšírené riešenie s centrálnou Zigbee bránou,
+              automatizáciou a záložným napájaním vybraných
+              komponentov. Cieľom je zachovať funkčnosť systému
+              aj pri výpadku internetu alebo elektriny v rozsahu,
+              ktorý umožní zvolené zálohovanie.
+            </p>
+
+            <ul>
+              <li>Zigbee senzory úniku vody</li>
+              <li>Kompatibilná Zigbee brána a nastavená automatizácia</li>
+              <li>Motorický ventil na hlavnom prívode vody</li>
+              <li>Automatické uzavretie pri detekcii úniku</li>
+              <li>Záložné napájanie Zigbee brány a routera</li>
+              <li>Zálohovanie napájania ventilu podľa zvoleného modelu</li>
+              <li>Upozornenia do mobilu podľa možností systému</li>
+              <li>Montáž, konfigurácia a test funkčnosti</li>
             </ul>
 
             <div class="water-price">
@@ -336,11 +385,13 @@
 
         <div class="water-note">
           <strong>Dôležité:</strong> Dostupné funkcie závisia od
-          konkrétneho senzora, smart systému a internetového pripojenia.
-          Upozornenie do mobilu vyžaduje kompatibilné zariadenia
-          a správne nastavenie. Automatické uzavretie vody si vyžaduje
-          vhodný uzatvárací ventil a kompatibilné riadenie.
-          Pred realizáciou overíme možnosti inštalácie a rozsah ochrany.
+          konkrétnych senzorov, Zigbee brány, ventilu a spôsobu riadenia.
+          Pre automatické uzavretie musí byť ventil kompatibilný
+          s použitou automatizáciou. Záložný zdroj treba navrhnúť
+          podľa príkonu zariadení a požadovanej doby prevádzky.
+          Zálohovanie brány a routera samo osebe nezaručuje napájanie
+          motorického ventilu. Pri návrhu preto overíme aj napájanie
+          ventilu a možnosť lokálneho fungovania automatizácie bez internetu.
         </div>
       </div>
     </section>
@@ -368,9 +419,9 @@
             <h3>Vyberieme vhodné riešenie</h3>
 
             <p>
-              Zohľadníme požadované upozornenia, dostupné pripojenie
-              a prípadnú možnosť automatického uzatvorenia hlavného
-              prívodu vody.
+              Zohľadníme požadované upozornenia, dostupné pripojenie,
+              možnosť automatického uzatvorenia vody a pri kompletnej
+              ochrane aj požiadavky na záložné napájanie.
             </p>
           </article>
 
@@ -383,6 +434,8 @@
               Zariadenia umiestnime, nastavíme a preveríme,
               či systém správne reaguje na zistenie vody a či
               automatické uzavretie funguje, ak je súčasťou riešenia.
+              Pri zálohovanom systéme otestujeme aj jeho navrhnuté
+              záložné napájanie.
             </p>
           </article>
 
