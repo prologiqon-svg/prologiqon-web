@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071725">
+
+  <title>Inteligentná garáž | PrologIQon</title>
+  <meta name="description" content="Doplňte existujúcu garáž o inteligentné ovládanie, kontrolu stavu a osvetlenie. Smart riešenia v Martine a okolí.">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
+
+  <style>
+    .garage-hero {
+      background: #071725;
+      color: #fff;
+      padding: 80px 24px;
+    }
+
+    .garage-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .garage-label {
+      color: #C5F35D;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .garage-hero h1 {
+      max-width: 850px;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.12;
+      margin: 18px 0;
+    }
+
+    .garage-hero p {
+      max-width: 760px;
+      color: #d5dee5;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .garage-button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 14px 22px;
+      border-radius: 6px;
+      background: #C5F35D;
+      color: #071725;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .garage-section {
+      padding: 65px 24px;
+      background: #fff;
+      color: #071725;
+    }
+
+    .garage-section.alt {
+      background: #f3f6f8;
+    }
+
+    .garage-section h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 0 0 16px;
+    }
+
+    .garage-intro {
+      max-width: 780px;
+      color: #52616d;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .garage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .garage-card {
+      border: 1px solid #dce4e9;
+      border-radius: 12px;
+      padding: 26px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .garage-card h3 {
+      font-size: 22px;
+      margin: 0 0 12px;
+    }
+
+    .garage-card p {
+      color: #52616d;
+      line-height: 1.75;
+      margin: 0 0 14px;
+    }
+
+    .garage-card ul {
+      color: #52616d;
+      line-height: 1.8;
+      padding-left: 20px;
+      margin: 0 0 20px;
+    }
+
+    .garage-price {
+      border-top: 1px solid #dce4e9;
+      padding-top: 18px;
+      margin-top: auto;
+      width: 100%;
+    }
+
+    .garage-price span {
+      display: block;
+      color: #52616d;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .garage-price strong {
+      display: block;
+      font-size: 19px;
+      color: #071725;
+    }
+
+    .garage-price a {
+      color: #071725;
+      text-decoration: underline;
+      text-decoration-color: #9abf30;
+      text-underline-offset: 4px;
+    }
+
+    .garage-note {
+      margin-top: 28px;
+      padding: 22px;
+      background: #edf2e4;
+      border-left: 4px solid #C5F35D;
+      border-radius: 6px;
+      color: #33414b;
+      line-height: 1.8;
+    }
+
+    .garage-cta {
+      background: #071725;
+      color: #fff;
+      padding: 65px 24px;
+      text-align: center;
+    }
+
+    .garage-cta h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 0 0 15px;
+    }
+
+    .garage-cta p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #d5dee5;
+      line-height: 1.8;
+    }
+
+    .garage-footer {
+      background: #071725;
+      color: #d5dee5;
+      padding: 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .garage-footer a {
+      color: #C5F35D;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .garage-hero {
+        padding: 58px 20px;
+      }
+
+      .garage-section {
+        padding: 45px 20px;
+      }
+
+      .garage-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html#domov">
+        <img src="prologiqon%20logo%20final.png" alt="PrologIQon">
+      </a>
+
+      <button class="menu" aria-label="Otvoriť menu" aria-expanded="false">
+        <i></i><i></i><i></i>
+      </button>
+
+      <nav class="links">
+        <a href="index.html#domov">Domov</a>
+        <a href="index.html#sluzby">Služby</a>
+        <a href="index.html#onas">O nás</a>
+        <a href="index.html#postup">Postup</a>
+        <a class="active" href="smart-domacnost.html">Smart domácnosť</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a class="nav-call" href="index.html#kontakt">Kontaktujte nás <b>↗</b></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="garage-hero">
+      <div class="garage-inner">
+        <div class="garage-label">PrologIQon · Smart riešenia</div>
+
+        <h1>Inteligentná garáž bez výmeny garážovej brány.</h1>
+
+        <p>
+          Doplňte svoju existujúcu garáž o praktické smart funkcie.
+          Ovládajte bránu cez mobil, kontrolujte jej stav alebo si
+          doprajte inteligentné osvetlenie. Využijeme existujúci pohon,
+          ak je kompatibilný s navrhnutým riešením.
+        </p>
+
+        <a class="garage-button" href="#balicky">
+          Pozrieť ponuku balíkov
+        </a>
+      </div>
+    </section>
+
+    <section class="garage-section">
+      <div class="garage-inner">
+        <h2>Vyberte si balík podľa svojich potrieb</h2>
+
+        <p class="garage-intro">
+          Začnite jednoduchým ovládaním alebo si vyberte kombináciu
+          viacerých smart funkcií. Konkrétne možnosti vždy overíme
+          podľa typu pohonu, dostupného ovládacieho vstupu a podmienok
+          v garáži.
+        </p>
+
+        <div class="garage-grid" id="balicky">
+
+          <article class="garage-card">
+            <h3>SMART GARÁŽ – Ovládanie</h3>
+            <p>
+              Pohodlné ovládanie existujúcej garážovej brány
+              pomocou mobilnej aplikácie.
+            </p>
+            <ul>
+              <li>Smart ovládanie cez mobil</li>
+              <li>Využitie kompatibilného existujúceho pohonu</li>
+              <li>Nastavenie a odskúšanie funkcie</li>
+            </ul>
+            <div class="garage-price">
+              <span>CENA</span>
+              <strong><a href="index.html#kontakt">Pre cenu nás kontaktujte</a></strong>
+            </div>
+          </article>
+
+          <article class="garage-card">
+            <h3>SMART GARÁŽ – Kontrola</h3>
+            <p>
+              Ovládanie doplnené o informáciu, či je garážová brána
+              otvorená alebo zatvorená.
+            </p>
+            <ul>
+              <li>Smart ovládanie cez mobil</li>
+              <li>Snímač polohy podľa vhodnosti inštalácie</li>
+              <li>Kontrola stavu v aplikácii, ak ju systém podporuje</li>
+            </ul>
+            <div class="garage-price">
+              <span>CENA</span>
+              <strong><a href="index.html#kontakt">Pre cenu nás kontaktujte</a></strong>
+            </div>
+          </article>
+
+          <article class="garage-card">
+            <h3>SMART GARÁŽ – Komfort</h3>
+            <p>
+              Viac pohodlia pri každodennom používaní vďaka
+              inteligentnému ovládaniu a osvetleniu.
+            </p>
+            <ul>
+              <li>Smart ovládanie cez mobil</li>
+              <li>Inteligentné osvetlenie garáže</li>
+              <li>Možnosť automatického rozsvietenia vhodným senzorom</li>
+            </ul>
+            <div class="garage-price">
+              <span>CENA</span>
+              <strong><a href="index.html#kontakt">Pre cenu nás kontaktujte</a></strong>
+            </div>
+          </article>
+
+          <article class="garage-card">
+            <h3>SMART GARÁŽ – Komplet</h3>
+            <p>
+              Kombinácia smart ovládania, kontroly stavu a osvetlenia
+              podľa možností existujúcej garáže.
+            </p>
+            <ul>
+              <li>Smart ovládanie cez mobil</li>
+              <li>Kontrola otvorenia a zatvorenia</li>
+              <li>Inteligentné osvetlenie</li>
+              <li>Možnosť ďalších kompatibilných automatizácií</li>
+            </ul>
+            <div class="garage-price">
+              <span>CENA</span>
+              <strong><a href="index.html#kontakt">Pre cenu nás kontaktujte</a></strong>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="garage-note">
+          <strong>Dôležité:</strong> Nevykonávame montáž garážovej brány
+          ani zásahy do jej mechaniky. Dopĺňame smart funkcie k existujúcemu
+          pohonu po overení kompatibility. Pôvodné bezpečnostné prvky
+          a funkcie pohonu musia zostať zachované. Dostupné funkcie závisia
+          od konkrétneho zariadenia a zapojenia.
+        </div>
+      </div>
+    </section>
+
+    <section class="garage-section alt">
+      <div class="garage-inner">
+        <h2>Ako to prebieha?</h2>
+
+        <div class="garage-grid">
+          <article class="garage-card">
+            <h3>1. Zistíme možnosti</h3>
+            <p>
+              Dohodneme sa na type existujúceho pohonu a požadovaných
+              funkciách.
+            </p>
+          </article>
+
+          <article class="garage-card">
+            <h3>2. Navrhneme riešenie</h3>
+            <p>
+              Overíme kompatibilitu a vyberieme vhodné zariadenia
+              pre vašu garáž.
+            </p>
+          </article>
+
+          <article class="garage-card">
+            <h3>3. Doplníme smart funkcie</h3>
+            <p>
+              Po dohode zariadenia nainštalujeme, nastavíme a
+              otestujeme bez zásahu do mechaniky brány.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="garage-cta">
+      <div class="garage-inner">
+        <h2>Chcete inteligentnú garáž?</h2>
+
+        <p>
+          Ozvite sa nám a spoločne preveríme, ktoré funkcie možno
+          doplniť do vašej existujúcej garáže. Pôsobíme v Martine
+          a okolí.
+        </p>
+
+        <a class="garage-button" href="index.html#kontakt">
+          Kontaktovať PrologIQon
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="garage-footer">
+    <p>© PrologIQon · Martin a okolie</p>
+    <p><a href="smart-domacnost.html">Späť na Smart domácnosť</a></p>
+    <p><a href="index.html#kontakt">Kontakt</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
