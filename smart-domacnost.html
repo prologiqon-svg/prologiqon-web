@@ -1,373 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="sk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071725">
 
   <title>Smart domácnosť | PrologIQon</title>
-  <meta name="description" content="Smart domácnosť na mieru. Inteligentné ovládanie osvetlenia, kúrenia, zabezpečenia, spotreby energie a garáže. Martin a okolie.">
+  <meta name="description" content="Inteligentná domácnosť od PrologIQon. Smart garáž, ochrana pred únikom vody a praktické riešenia pre váš dom.">
 
-  <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
+  <link rel="stylesheet" href="styles.css">
 
   <style>
-    .smart-hero {
+    .smart-home-page {
       background: #071725;
-      color: #ffffff;
-      padding: 90px 24px;
+      color: #fff;
+      min-height: 100vh;
     }
 
-    .smart-hero-inner,
-    .smart-content {
-      max-width: 1120px;
-      margin: 0 auto;
+    .smart-home-hero {
+      padding: 75px 20px 45px;
+      text-align: center;
     }
 
-    .smart-label {
+    .smart-home-hero h1 {
       color: #C5F35D;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 13px;
+      font-size: clamp(32px, 5vw, 54px);
+      margin: 0 0 20px;
     }
 
-    .smart-hero h1 {
+    .smart-home-hero p {
       max-width: 760px;
-      font-size: clamp(36px, 5vw, 60px);
-      line-height: 1.12;
-      margin: 18px 0;
-    }
-
-    .smart-hero p {
-      max-width: 680px;
-      color: #d5dee5;
-      font-size: 18px;
+      margin: 0 auto;
+      color: #dce5ec;
       line-height: 1.8;
+      font-size: 18px;
     }
 
-    .smart-button {
+    .smart-home-cards {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 28px;
+    }
+
+    .smart-home-card {
+      background: #102536;
+      border: 1px solid #294153;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .smart-home-card img {
+      display: block;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .smart-home-card-content {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .smart-home-card h2 {
+      color: #C5F35D;
+      font-size: 25px;
+      margin: 0 0 14px;
+    }
+
+    .smart-home-card p {
+      color: #dce5ec;
+      line-height: 1.75;
+      margin: 0 0 22px;
+    }
+
+    .smart-home-card ul {
+      padding-left: 20px;
+      margin: 0 0 25px;
+      line-height: 1.9;
+      color: #fff;
+    }
+
+    .smart-home-card li::marker {
+      color: #C5F35D;
+    }
+
+    .smart-home-button {
       display: inline-block;
-      margin-top: 20px;
-      padding: 15px 24px;
-      border-radius: 6px;
+      margin-top: auto;
+      padding: 13px 20px;
+      border-radius: 8px;
       background: #C5F35D;
       color: #071725;
       text-decoration: none;
       font-weight: 700;
-    }
-
-    .smart-button:hover {
-      opacity: 0.88;
-    }
-
-    .smart-section {
-      padding: 70px 24px;
-      background: #ffffff;
-      color: #071725;
-    }
-
-    .smart-section.alt {
-      background: #f3f6f8;
-    }
-
-    .smart-section h2 {
-      font-size: clamp(28px, 4vw, 40px);
-      margin: 0 0 16px;
-    }
-
-    .smart-intro {
-      max-width: 760px;
-      line-height: 1.8;
-      color: #52616d;
-      margin-bottom: 32px;
-    }
-
-    .smart-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-      margin-top: 32px;
-    }
-
-    .smart-card {
-      padding: 26px;
-      border: 1px solid #dce4e9;
-      border-radius: 10px;
-      background: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .smart-card .smart-icon {
-      font-size: 30px;
-      margin-bottom: 14px;
-    }
-
-    .smart-card h3 {
-      font-size: 20px;
-      margin: 0 0 10px;
-    }
-
-    .smart-card p {
-      color: #52616d;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .smart-card .smart-button {
-      margin-top: auto;
-      margin-top: 20px;
-    }
-
-    .smart-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 24px;
-      margin-top: 30px;
-    }
-
-    .smart-step strong {
-      display: block;
-      color: #071725;
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .smart-step p {
-      color: #52616d;
-      line-height: 1.7;
-    }
-
-    .smart-cta {
-      background: #071725;
-      color: #ffffff;
-      padding: 65px 24px;
       text-align: center;
     }
 
-    .smart-cta h2 {
-      font-size: clamp(28px, 4vw, 40px);
-      margin: 0 0 15px;
+    .smart-home-button:hover {
+      background: #d7ff78;
     }
 
-    .smart-cta p {
-      max-width: 680px;
-      margin: 0 auto;
-      color: #d5dee5;
-      line-height: 1.8;
-    }
-
-    .smart-cta .smart-content {
-      max-width: 800px;
-    }
-
-    .smart-footer {
-      background: #071725;
-      color: #d5dee5;
-      padding: 24px;
+    .smart-home-footer {
+      border-top: 1px solid #294153;
       text-align: center;
-      font-size: 14px;
+      padding: 25px 20px;
+      color: #dce5ec;
     }
 
-    .smart-footer a {
+    .smart-home-footer a {
       color: #C5F35D;
       text-decoration: none;
     }
-
-    @media (max-width: 600px) {
-      .smart-hero {
-        padding: 60px 20px;
-      }
-
-      .smart-section {
-        padding: 48px 20px;
-      }
-
-      .smart-card {
-        padding: 22px;
-      }
-    }
   </style>
+
 </head>
 
-<body>
+<body class="smart-home-page">
 
   <header class="site-header">
     <div class="wrap nav">
-      <a class="brand" href="index.html#domov">
-        <img src="prologiqon%20logo%20final.png" alt="PrologIQon">
+      <a class="brand" href="index.html" aria-label="PrologIQon – hlavná stránka">
+        <img src="prologiqon%20logo%20final.png" alt="PrologIQon" class="logo">
       </a>
 
-      <button class="menu" aria-label="Otvoriť menu" aria-expanded="false">
-        <i></i><i></i><i></i>
-      </button>
+  <button class="menu-toggle" aria-label="Otvoriť menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-      <nav class="links">
-        <a href="index.html#domov">Domov</a>
-        <a href="index.html#sluzby">Služby</a>
-        <a href="index.html#onas">O nás</a>
-        <a href="index.html#postup">Postup</a>
-        <a class="active" href="smart-domacnost.html">Smart domácnosť</a>
-        <a href="index.html#kontakt">Kontakt</a>
-        <a class="nav-call" href="index.html#kontakt">Kontaktujte nás <b>↗</b></a>
-      </nav>
-    </div>
+  <nav class="links">
+    <a href="index.html">Domov</a>
+    <a href="index.html#sluzby">Služby</a>
+    <a href="smart-domacnost.html">Smart domácnosť</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </nav>
+</div>
+
   </header>
 
   <main>
-
-    <section class="smart-hero">
-      <div class="smart-hero-inner">
-        <div class="smart-label">Inteligentné riešenia pre váš domov</div>
-
-        <h1>Smart domácnosť, ktorá pracuje za vás.</h1>
-
-        <p>
-          Ovládajte osvetlenie, kúrenie aj vybrané elektrické zariadenia
-          pohodlnejšie. Navrhneme riešenie podľa vašich potrieb, existujúcej
-          elektroinštalácie a rozpočtu.
-        </p>
-
-        <a class="smart-button" href="index.html#kontakt">
-          Nezáväzne sa poradiť
-        </a>
-      </div>
+    <section class="smart-home-hero">
+      <h1>Inteligentná domácnosť</h1>
+      <p>
+        Praktické smart riešenia, ktoré vám uľahčia každodenný život,
+        zvýšia bezpečnosť domácnosti a pomôžu vám mať dôležité veci pod kontrolou.
+      </p>
     </section>
 
-    <section class="smart-section">
-      <div class="smart-content">
-        <h2>Čo môže zvládnuť vaša smart domácnosť?</h2>
+<section class="smart-home-cards">
 
-        <p class="smart-intro">
-          Nemusíte automatizovať celý dom naraz. Začať môžete jedným zariadením
-          a systém postupne rozširovať podľa toho, čo vám dáva zmysel.
-        </p>
+  <article class="smart-home-card">
+    <img
+      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=80"
+      alt="Automatizácia a ovládanie garáže"
+      loading="lazy"
+    >
 
-        <div class="smart-grid">
+    <div class="smart-home-card-content">
+      <h2>Inteligentná garáž</h2>
+      <p>
+        Ovládajte garážovú bránu pohodlne cez mobil a získajte prehľad
+        o jej stave. Smart riešenie môže zvýšiť komfort pri každodennom
+        používaní garáže.
+      </p>
 
-          <article class="smart-card">
-            <div class="smart-icon">💡</div>
-            <h3>Inteligentné osvetlenie</h3>
-            <p>
-              Ovládanie svetiel, vybraných LED pásov a nastavenie svetelných
-              scén podľa miestnosti a vašich potrieb.
-            </p>
-          </article>
+      <ul>
+        <li>Ovládanie cez mobil</li>
+        <li>Prehľad o stave garáže</li>
+        <li>Možnosti automatizácie</li>
+      </ul>
 
-          <article class="smart-card">
-            <div class="smart-icon">🌡️</div>
-            <h3>Ovládanie kúrenia</h3>
-            <p>
-              Pohodlnejšie riadenie kúrenia a časových režimov tam, kde to
-              konkrétne zariadenie a jeho zapojenie umožňujú.
-            </p>
-          </article>
+      <a class="smart-home-button" href="smart-garaz.html">
+        Zobraziť riešenie garáže
+      </a>
+    </div>
+  </article>
 
-          <article class="smart-card">
-            <div class="smart-icon">🔒</div>
-            <h3>Zabezpečenie a dohľad</h3>
-            <p>
-              Možnosti prepojenia vybraných senzorov, detekcie pohybu,
-              zabezpečenia a kamerových systémov.
-            </p>
-          </article>
+  <article class="smart-home-card">
+    <img
+      src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80"
+      alt="Voda v domácnosti a ochrana pred únikom"
+      loading="lazy"
+    >
 
-          <article class="smart-card">
-            <div class="smart-icon">⚡</div>
-            <h3>Meranie spotreby</h3>
-            <p>
-              Prehľad o spotrebe vybraných zariadení a možnosť sledovať,
-              koľko energie využívajú.
-            </p>
-          </article>
+    <div class="smart-home-card-content">
+      <h2>Ochrana pred únikom vody</h2>
+      <p>
+        Včasné upozornenie na neželaný únik vody pomáha chrániť
+        domácnosť pred zbytočnými škodami. Vyberte si riešenie podľa
+        svojich potrieb – od senzora až po komplexnejšiu ochranu.
+      </p>
 
-          <article class="smart-card">
-            <div class="smart-icon">💧</div>
-            <h3>Ochrana pred únikom vody</h3>
-            <p>
-              S vhodným senzorom môžete dostať upozornenie pri zistení úniku
-              vody, napríklad v technickej miestnosti.
-            </p>
-          </article>
+      <ul>
+        <li>Detekcia vody pri senzore</li>
+        <li>Možnosť upozornenia do mobilu</li>
+        <li>Výber z viacerých balíčkov</li>
+      </ul>
 
-          <article class="smart-card">
-            <div class="smart-icon">📱</div>
-            <h3>Ovládanie na diaľku</h3>
-            <p>
-              Podľa použitých zariadení môžete vybrané funkcie ovládať
-              cez mobilnú aplikáciu alebo automatizovať podľa pravidiel.
-            </p>
-          </article>
+      <a class="smart-home-button" href="smart-unik-vody.html">
+        Zobraziť balíčky ochrany
+      </a>
+    </div>
+  </article>
 
-          <article class="smart-card">
-            <div class="smart-icon">🚗</div>
-            <h3>Inteligentná garáž</h3>
-            <p>
-              Doplňte existujúcu garáž o ovládanie cez mobil,
-              kontrolu otvorenia a inteligentné osvetlenie.
-              Možnosti overíme podľa vášho existujúceho pohonu.
-              Bez zásahu do mechaniky garážovej brány.
-            </p>
-            <a class="smart-button" href="smart-garaz.html">
-              Zistiť viac →
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="smart-section alt">
-      <div class="smart-content">
-        <h2>Riešenie podľa vašej domácnosti</h2>
-
-        <p class="smart-intro">
-          Každý dom a byt je iný. Preto vyberáme riešenie podľa existujúcej
-          elektroinštalácie, požadovaných funkcií a kompatibility zariadení.
-        </p>
-
-        <div class="smart-steps">
-          <div class="smart-step">
-            <strong>1. Povieme si, čo potrebujete</strong>
-            <p>Vyberieme funkcie, ktoré vám skutočne uľahčia každodenný život.</p>
-          </div>
-
-          <div class="smart-step">
-            <strong>2. Navrhneme riešenie</strong>
-            <p>Overíme vhodné zariadenia, ich kompatibilitu a možnosti zapojenia.</p>
-          </div>
-
-          <div class="smart-step">
-            <strong>3. Zrealizujeme inštaláciu</strong>
-            <p>Po dohode zabezpečíme montáž, nastavenie a odskúšanie funkcií.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="smart-cta">
-      <div class="smart-content">
-        <h2>Začnime vašou predstavou.</h2>
-
-        <p>
-          Plánujete novostavbu, rekonštrukciu alebo chcete inteligentné
-          funkcie doplniť do existujúceho domu či bytu? Ozvite sa nám.
-          Pôsobíme v Martine a okolí.
-        </p>
-
-        <a class="smart-button" href="index.html#kontakt">
-          Kontaktovať PrologIQon
-        </a>
-      </div>
-    </section>
+</section>
 
   </main>
 
-  <footer class="smart-footer">
+  <footer class="smart-home-footer">
     <p>© PrologIQon · Martin a okolie</p>
     <p><a href="index.html">Späť na hlavnú stránku</a></p>
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
