@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="sk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071725">
 
   <title>Smart domácnosť | PrologIQon</title>
-  <meta name="description" content="Smart domácnosť na mieru. Inteligentné ovládanie osvetlenia, kúrenia, zabezpečenia a spotreby energie. Martin a okolie.">
+  <meta name="description" content="Smart domácnosť na mieru. Inteligentné ovládanie osvetlenia, kúrenia, zabezpečenia, spotreby energie a garáže. Martin a okolie.">
 
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
@@ -57,6 +55,10 @@
       font-weight: 700;
     }
 
+    .smart-button:hover {
+      opacity: 0.88;
+    }
+
     .smart-section {
       padding: 70px 24px;
       background: #ffffff;
@@ -91,6 +93,9 @@
       border: 1px solid #dce4e9;
       border-radius: 10px;
       background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .smart-card .smart-icon {
@@ -107,6 +112,11 @@
       color: #52616d;
       line-height: 1.7;
       margin: 0;
+    }
+
+    .smart-card .smart-button {
+      margin-top: auto;
+      margin-top: 20px;
     }
 
     .smart-steps {
@@ -205,6 +215,7 @@
   </header>
 
   <main>
+
     <section class="smart-hero">
       <div class="smart-hero-inner">
         <div class="smart-label">Inteligentné riešenia pre váš domov</div>
@@ -233,6 +244,7 @@
         </p>
 
         <div class="smart-grid">
+
           <article class="smart-card">
             <div class="smart-icon">💡</div>
             <h3>Inteligentné osvetlenie</h3>
@@ -286,6 +298,21 @@
               cez mobilnú aplikáciu alebo automatizovať podľa pravidiel.
             </p>
           </article>
+
+          <article class="smart-card">
+            <div class="smart-icon">🚗</div>
+            <h3>Inteligentná garáž</h3>
+            <p>
+              Doplňte existujúcu garáž o ovládanie cez mobil,
+              kontrolu otvorenia a inteligentné osvetlenie.
+              Možnosti overíme podľa vášho existujúceho pohonu.
+              Bez zásahu do mechaniky garážovej brány.
+            </p>
+            <a class="smart-button" href="smart-garaz.html">
+              Zistiť viac →
+            </a>
+          </article>
+
         </div>
       </div>
     </section>
@@ -333,23 +360,9 @@
         </a>
       </div>
     </section>
+
   </main>
-<section class="smart-garage-card" style="max-width:1100px;margin:40px auto;padding:32px;background:#071725;color:#ffffff;border-radius:14px;">
-  <div style="max-width:700px;">
-    <p style="color:#C5F35D;font-weight:700;letter-spacing:1px;">PROLOGIQON / SMART RIEŠENIA</p>
-    <h2 style="margin-bottom:12px;">Inteligentná garáž</h2>
-    <p style="line-height:1.7;">
-      Doplňte svoju existujúcu garáž o inteligentné funkcie.
-      Ovládanie cez mobil, kontrola stavu otvorenia, inteligentné
-      osvetlenie a praktické automatizácie – podľa možností vášho
-      existujúceho pohonu.
-    </p>
-    <a href="smart-garaz.html"
-       style="display:inline-block;margin-top:12px;padding:13px 22px;background:#C5F35D;color:#071725;text-decoration:none;font-weight:700;border-radius:6px;">
-      ZISTIŤ VIAC →
-    </a>
-  </div>
-</section>
+
   <footer class="smart-footer">
     <p>© PrologIQon · Martin a okolie</p>
     <p><a href="index.html">Späť na hlavnú stránku</a></p>
