@@ -130,16 +130,37 @@
       margin: 0 0 14px;
     }
 
+    /* Fajky v limetkových krúžkoch – rovnaký štýl ako na garáži */
     .water-card ul {
       color: #52616d;
       line-height: 1.8;
-      padding-left: 20px;
+      padding-left: 0;
       margin: 0 0 20px;
-      list-style-type: disc;
+      list-style: none;
+      width: 100%;
     }
 
-    .water-card li::marker {
-      color: #9abf30;
+    .water-card li {
+      position: relative;
+      padding-left: 24px;
+      margin: 7px 0;
+    }
+
+    .water-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 4px;
+      display: inline-grid;
+      place-items: center;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #C5F35D;
+      color: #071725;
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1;
     }
 
     .water-price {
