@@ -12,6 +12,35 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
+    /* Hlavička – úpravy platia iba pre túto stránku */
+    .privacy-page-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .privacy-page-header .logo {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 1 auto;
+      min-width: 0;
+    }
+
+    .privacy-page-header .logo img {
+      display: block;
+      width: 190px;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .privacy-page-header .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
     .privacy-page {
       background: #f5f7f9;
       color: #102237;
@@ -77,6 +106,41 @@
       font-weight: 700;
     }
 
+    .privacy-page-footer {
+      background: #071725;
+      color: #fff;
+      padding: 24px 20px;
+    }
+
+    .privacy-page-footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .privacy-page-footer p {
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .privacy-page-footer a {
+      color: #c5f35d;
+    }
+
+    @media (max-width: 768px) {
+      .privacy-page-header .logo img {
+        width: 160px;
+      }
+
+      .privacy-page-header .container {
+        gap: 12px;
+      }
+
+      .privacy-page-header .main-nav {
+        gap: 14px;
+      }
+    }
+
     @media (max-width: 600px) {
       .privacy-page {
         padding: 25px 12px 40px;
@@ -95,13 +159,17 @@
       .privacy-container li {
         font-size: 15px;
       }
+
+      .privacy-page-header .logo img {
+        width: 145px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header class="site-header">
+  <header class="site-header privacy-page-header">
     <div class="container">
       <a href="index.html" class="logo" aria-label="PrologIQon – úvodná stránka">
         <img
@@ -149,9 +217,7 @@
 
       <h2>1. Prevádzkovateľ osobných údajov</h2>
 
-      <p>
-        Prevádzkovateľom osobných údajov je:
-      </p>
+      <p>Prevádzkovateľom osobných údajov je:</p>
 
       <ul>
         <li><strong>Obchodné meno:</strong> Peter Valášek – PrologIQon</li>
@@ -182,12 +248,12 @@
         <li>obec alebo miesto realizácie,</li>
         <li>informácie uvedené v texte správy,</li>
         <li>vybraný balík alebo službu a údaje potrebné na vybavenie dopytu,</li>
-        <li>technické údaje, ktoré môžu byť zaznamenané pri komunikácii so serverom alebo službou zabezpečujúcou odoslanie formulára.</li>
+        <li>technické údaje zaznamenané pri komunikácii so serverom alebo službou zabezpečujúcou odoslanie formulára.</li>
       </ul>
 
       <p>
-        Žiadame vás, aby ste do formulárov nevkladali údaje, ktoré nie sú
-        potrebné na vybavenie vášho dopytu, ani citlivé osobné údaje.
+        Do formulárov nevkladajte údaje, ktoré nie sú potrebné na vybavenie
+        vášho dopytu, ani citlivé osobné údaje.
       </p>
 
       <h2>3. Na aké účely údaje používame</h2>
@@ -197,7 +263,7 @@
       <ul>
         <li>prijatie a vybavenie otázky alebo kontaktného dopytu,</li>
         <li>vypracovanie cenovej ponuky a komunikácia o požadovanej službe,</li>
-        <li>vybavenie nezáväzného dopytu na balík Smart domácnosti alebo Inteligentnej garáže,</li>
+        <li>vybavenie dopytu na balík Smart domácnosti alebo Inteligentnej garáže,</li>
         <li>príprava a plnenie zmluvy, ak sa rozhodnete službu objednať,</li>
         <li>plnenie povinností, ktoré nám ukladajú právne predpisy,</li>
         <li>ochrana webovej stránky a prevencia zneužitia formulárov.</li>
@@ -212,8 +278,8 @@
       <h2>4. Právny základ spracúvania</h2>
 
       <p>
-        Osobné údaje spracúvame podľa okolností a konkrétneho účelu najmä
-        na týchto právnych základoch:
+        Osobné údaje spracúvame podľa okolností a konkrétneho účelu
+        najmä na týchto právnych základoch:
       </p>
 
       <ul>
@@ -235,12 +301,6 @@
         </li>
       </ul>
 
-      <p>
-        Ak by sme chceli použiť vaše osobné údaje na účel, ktorý nie je
-        zlučiteľný s pôvodným účelom, poskytneme vám potrebné informácie
-        a získame súhlas, ak to bude podľa právnych predpisov potrebné.
-      </p>
-
       <h2>5. Ako dlho údaje uchovávame</h2>
 
       <p>
@@ -252,7 +312,9 @@
       <ul>
         <li>
           <strong>Dopyty, ktoré nevedú k uzatvoreniu zmluvy:</strong>
-          [DOPLNIŤ A NASTAVIŤ KONKRÉTNU LEHOTU UCHOVÁVANIA].
+          dobu uchovávania je potrebné určiť podľa účelu dopytu a
+          primeraných lehôt na jeho vybavenie a prípadné nadväzujúce
+          rokovanie.
         </li>
         <li>
           <strong>Údaje súvisiace so zmluvou a realizáciou služby:</strong>
@@ -266,9 +328,9 @@
       </ul>
 
       <p>
-        Po uplynutí príslušnej doby údaje bezpečne vymažeme alebo
-        anonymizujeme, pokiaľ ich ďalšie uchovávanie nevyžaduje zákon
-        alebo nie je potrebné na uplatňovanie či obhajovanie právnych nárokov.
+        Po uplynutí príslušnej doby údaje vymažeme alebo anonymizujeme,
+        pokiaľ ich ďalšie uchovávanie nevyžaduje zákon alebo nie je
+        potrebné na uplatňovanie či obhajovanie právnych nárokov.
       </p>
 
       <h2>6. Kto môže mať k údajom prístup</h2>
@@ -279,23 +341,21 @@
         účelov, alebo ak nám takú povinnosť ukladá zákon.
       </p>
 
-      <p>Môže ísť najmä o:</p>
-
       <ul>
         <li>
-          <strong>Web3Forms:</strong> službu, ktorá zabezpečuje odosielanie
+          <strong>Web3Forms:</strong> služba, ktorá zabezpečuje odosielanie
           údajov z webových formulárov na určenú e-mailovú adresu.
         </li>
         <li>
-          <strong>Poskytovateľa e-mailovej služby:</strong> na prijímanie,
+          <strong>Poskytovateľ e-mailovej služby:</strong> na prijímanie,
           doručovanie a uchovávanie správ.
         </li>
         <li>
-          <strong>Poskytovateľov webhostingu a technickej infraštruktúry:</strong>
+          <strong>Poskytovatelia webhostingu a technickej infraštruktúry:</strong>
           v rozsahu potrebnom na prevádzku a zabezpečenie webovej stránky.
         </li>
         <li>
-          <strong>Orgány verejnej moci alebo odborných poradcov:</strong>
+          <strong>Orgány verejnej moci alebo odborní poradcovia:</strong>
           ak je sprístupnenie potrebné podľa zákona alebo na ochranu práv.
         </li>
       </ul>
@@ -315,17 +375,13 @@
       </p>
 
       <p>
-        Web3Forms uvádza, že službu prevádzkuje spoločnosť Web3Creative
-        a že pri poskytovaní služby môže využívať infraštruktúru a
-        subdodávateľov v rôznych krajinách. V závislosti od konkrétneho
-        nastavenia služby preto môže dochádzať k spracúvaniu údajov
-        aj mimo Európskeho hospodárskeho priestoru.
+        Pred zverejnením je potrebné overiť aktuálne podmienky služby
+        Web3Forms, jej úlohu pri spracúvaní údajov, prípadných
+        subdodávateľov a podmienky prípadného prenosu údajov mimo
+        Európskeho hospodárskeho priestoru.
       </p>
 
-      <p>
-        Podrobnosti o spracúvaní údajov poskytovateľom nájdete v jeho
-        dokumentoch:
-      </p>
+      <p>Ďalšie informácie nájdete v dokumentoch poskytovateľa:</p>
 
       <ul>
         <li>
@@ -340,13 +396,6 @@
         </li>
       </ul>
 
-      <p>
-        Ak sa údaje prenášajú do tretej krajiny, prenos musí byť
-        zabezpečený v súlade s požiadavkami GDPR. Pred zverejnením tejto
-        stránky je potrebné overiť aktuálne zmluvné podmienky služby
-        Web3Forms a používané mechanizmy ochrany údajov.
-      </p>
-
       <h2>8. Cookies a externé služby</h2>
 
       <p>
@@ -359,10 +408,9 @@
       <p>
         Konkrétne používanie cookies a podobných technológií závisí
         od aktuálneho nastavenia webovej stránky a jej skriptov.
-        Pred zverejnením tejto informácie je potrebné overiť, či stránka
-        používa analytické, reklamné alebo iné nepovinné cookies.
-        Ak sa takéto technológie používajú, informácie o nich a prípadný
-        súhlas musia byť nastavené podľa platných právnych predpisov.
+        Pred zverejnením treba overiť, či stránka používa analytické,
+        reklamné alebo iné nepovinné cookies a podľa toho nastaviť
+        potrebné informácie a súhlasy.
       </p>
 
       <h2>9. Vaše práva</h2>
@@ -432,10 +480,9 @@
       </p>
 
       <p class="privacy-note">
-        <strong>Upozornenie:</strong> Tento dokument je návrh, ktorý treba
-        pred zverejnením doplniť a zosúladiť so skutočným fungovaním webu,
-        najmä s dobou uchovávania dopytov, identifikačnými údajmi
-        živnostníka a používaním cookies.
+        <strong>Poznámka:</strong> Pred použitím tejto stránky treba
+        doplniť IČO a overiť skutočnú dobu uchovávania dopytov,
+        používanie cookies a aktuálne podmienky poskytovateľov služieb.
       </p>
 
       <a class="privacy-back" href="index.html">
@@ -445,7 +492,7 @@
     </article>
   </main>
 
-  <footer class="site-footer">
+  <footer class="privacy-page-footer">
     <div class="container">
       <p>
         © PrologIQon |
