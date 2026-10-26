@@ -89,15 +89,19 @@ body {
   margin-top: 5px;
 }
 
+/* Horné menu – väčšie a čitateľnejšie */
 .links {
   display: flex;
   align-items: center;
-  gap: 30px;
-  font-size: 12px;
+  gap: 25px;
+  font-size: 14px;
 }
 
 .links a {
   color: #e3e8ed;
+  font-size: 14px;
+  white-space: nowrap;
+  text-decoration: none;
 }
 
 .links a:hover,
@@ -750,9 +754,23 @@ footer {
   font-size: 9px;
 }
 
+@media (max-width: 1100px) {
+  .links {
+    gap: 17px;
+  }
+
+  .links a {
+    font-size: 12px;
+  }
+
+  .nav-call {
+    padding: 10px 12px;
+  }
+}
+
 @media (max-width: 850px) {
   .links {
-    gap: 15px;
+    gap: 12px;
   }
 
   .links a {
@@ -809,6 +827,7 @@ footer {
     gap: 5px;
     background: none;
     border: 0;
+    cursor: pointer;
   }
 
   .menu i {
@@ -829,6 +848,7 @@ footer {
     flex-direction: column;
     align-items: stretch;
     gap: 0;
+    font-size: 14px;
   }
 
   .links.open {
@@ -837,6 +857,13 @@ footer {
 
   .links a {
     padding: 12px 0;
+    font-size: 14px;
+    color: #102237;
+  }
+
+  .links a:hover,
+  .links .active {
+    color: #52741a;
   }
 
   .links .active:after {
@@ -846,6 +873,7 @@ footer {
   .links .nav-call {
     padding: 12px 15px;
     margin-top: 8px;
+    color: #101d2a !important;
   }
 
   .hero {
