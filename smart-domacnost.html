@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
@@ -16,7 +15,8 @@
     .smart-hero {
       background: #071725;
       color: #ffffff;
-      padding: 90px 24px;
+      padding: 65px 24px;
+      overflow: hidden;
     }
 
     .smart-hero-inner,
@@ -25,25 +25,37 @@
       margin: 0 auto;
     }
 
-    .smart-label {
-      color: #C5F35D;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 13px;
+    .smart-hero-inner {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .smart-hero-text {
+      min-width: 0;
     }
 
     .smart-hero h1 {
-      font-size: clamp(36px, 5vw, 60px);
+      font-size: clamp(38px, 4.5vw, 64px);
       line-height: 1.12;
-      margin: 18px 0;
+      letter-spacing: -1.5px;
+      margin: 0;
+      font-weight: 800;
     }
 
-    .smart-hero p {
-      max-width: 680px;
-      color: #d5dee5;
-      font-size: 18px;
-      line-height: 1.8;
+    .smart-hero h1 .iq-lime {
+      color: #C5F35D;
+      white-space: nowrap;
+    }
+
+    .smart-hero-image {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
     }
 
     .smart-button {
@@ -172,11 +184,26 @@
       text-decoration: none;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 760px) {
       .smart-hero {
-        padding: 60px 20px;
+        padding: 48px 20px;
       }
 
+      .smart-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .smart-hero h1 {
+        font-size: clamp(38px, 9vw, 54px);
+      }
+
+      .smart-hero-image {
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    @media (max-width: 600px) {
       .smart-section {
         padding: 48px 20px;
       }
@@ -186,7 +213,6 @@
       }
     }
   </style>
-
 </head>
 
 <body>
@@ -197,172 +223,171 @@
         <img src="prologiqon%20logo%20final.png" alt="PrologIQon" class="logo">
       </a>
 
-  <button class="menu" aria-label="Otvoriť menu" aria-expanded="false">
-    <i></i><i></i><i></i>
-  </button>
+      <button class="menu" aria-label="Otvoriť menu" aria-expanded="false">
+        <i></i><i></i><i></i>
+      </button>
 
-  <nav class="links">
-    <a href="index.html#domov">Domov</a>
-    <a href="index.html#sluzby">Služby</a>
-    <a href="index.html#onas">O nás</a>
-    <a href="index.html#postup">Postup</a>
-    <a class="active" href="smart-domacnost.html">Smart domácnosť</a>
-    <a href="index.html#kontakt">Kontakt</a>
-    <a class="nav-call" href="index.html#kontakt">Kontaktujte nás <b>↗</b></a>
-  </nav>
-</div>
-
+      <nav class="links">
+        <a href="index.html#domov">Domov</a>
+        <a href="index.html#sluzby">Služby</a>
+        <a href="index.html#onas">O nás</a>
+        <a href="index.html#postup">Postup</a>
+        <a class="active" href="smart-domacnost.html">Smart domácnosť</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a class="nav-call" href="index.html#kontakt">Kontaktujte nás <b>↗</b></a>
+      </nav>
+    </div>
   </header>
 
   <main>
 
-<section class="smart-hero">
-  <div class="smart-hero-inner">
-    <div class="smart-label">Inteligentné riešenia pre váš domov</div>
+    <section class="smart-hero">
+      <div class="smart-hero-inner">
+        <div class="smart-hero-text">
+          <h1>
+            Zdvihnite vášmu domu
+            <span class="iq-lime">IQ.</span>
+          </h1>
+        </div>
 
-    <h1>Smart domácnosť, ktorá pracuje za vás.</h1>
+        <img
+          class="smart-hero-image"
+          src="Zdvihnite domu IQ pri súmraku.png"
+          alt="Moderný inteligentný rodinný dom osvetlený za súmraku"
+          fetchpriority="high"
+        >
+      </div>
+    </section>
 
-    <p>
-      Ovládajte osvetlenie, kúrenie aj vybrané elektrické zariadenia
-      pohodlnejšie. Navrhneme riešenie podľa vašich potrieb, existujúcej
-      elektroinštalácie a rozpočtu.
-    </p>
+    <section class="smart-section">
+      <div class="smart-content">
+        <h2>Čo môže zvládnuť vaša smart domácnosť?</h2>
 
-    <a class="smart-button" href="index.html#kontakt">
-      Nezáväzne sa poradiť
-    </a>
-  </div>
-</section>
-
-<section class="smart-section">
-  <div class="smart-content">
-    <h2>Čo môže zvládnuť vaša smart domácnosť?</h2>
-
-    <p class="smart-intro">
-      Nemusíte automatizovať celý dom naraz. Začať môžete jedným zariadením
-      a systém postupne rozširovať podľa toho, čo vám dáva zmysel.
-    </p>
-
-    <div class="smart-grid">
-
-      <article class="smart-card">
-        <div class="smart-icon">💡</div>
-        <h3>Inteligentné osvetlenie</h3>
-        <p>
-          Ovládanie svetiel, vybraných LED pásov a nastavenie svetelných
-          scén podľa miestnosti a vašich potrieb.
+        <p class="smart-intro">
+          Nemusíte automatizovať celý dom naraz. Začať môžete jedným zariadením
+          a systém postupne rozširovať podľa toho, čo vám dáva zmysel.
         </p>
-      </article>
 
-      <article class="smart-card">
-        <div class="smart-icon">🌡️</div>
-        <h3>Ovládanie kúrenia</h3>
-        <p>
-          Pohodlnejšie riadenie kúrenia a časových režimov tam, kde to
-          konkrétne zariadenie a jeho zapojenie umožňujú.
-        </p>
-      </article>
+        <div class="smart-grid">
 
-      <article class="smart-card">
-        <div class="smart-icon">🔒</div>
-        <h3>Zabezpečenie a dohľad</h3>
-        <p>
-          Možnosti prepojenia vybraných senzorov, detekcie pohybu,
-          zabezpečenia a kamerových systémov.
-        </p>
-      </article>
+          <article class="smart-card">
+            <div class="smart-icon">💡</div>
+            <h3>Inteligentné osvetlenie</h3>
+            <p>
+              Ovládanie svetiel, vybraných LED pásov a nastavenie svetelných
+              scén podľa miestnosti a vašich potrieb.
+            </p>
+          </article>
 
-      <article class="smart-card">
-        <div class="smart-icon">⚡</div>
-        <h3>Meranie spotreby</h3>
-        <p>
-          Prehľad o spotrebe vybraných zariadení a možnosť sledovať,
-          koľko energie využívajú.
-        </p>
-      </article>
+          <article class="smart-card">
+            <div class="smart-icon">🌡️</div>
+            <h3>Ovládanie kúrenia</h3>
+            <p>
+              Pohodlnejšie riadenie kúrenia a časových režimov tam, kde to
+              konkrétne zariadenie a jeho zapojenie umožňujú.
+            </p>
+          </article>
 
-      <article class="smart-card">
-        <div class="smart-icon">💧</div>
-        <h3>Ochrana pred únikom vody</h3>
-        <p>
-          S vhodným senzorom môžete dostať upozornenie pri zistení úniku
-          vody, napríklad v technickej miestnosti.
+          <article class="smart-card">
+            <div class="smart-icon">🔒</div>
+            <h3>Zabezpečenie a dohľad</h3>
+            <p>
+              Možnosti prepojenia vybraných senzorov, detekcie pohybu,
+              zabezpečenia a kamerových systémov.
+            </p>
+          </article>
+
+          <article class="smart-card">
+            <div class="smart-icon">⚡</div>
+            <h3>Meranie spotreby</h3>
+            <p>
+              Prehľad o spotrebe vybraných zariadení a možnosť sledovať,
+              koľko energie využívajú.
+            </p>
+          </article>
+
+          <article class="smart-card">
+            <div class="smart-icon">💧</div>
+            <h3>Ochrana pred únikom vody</h3>
+            <p>
+              S vhodným senzorom môžete dostať upozornenie pri zistení úniku
+              vody, napríklad v technickej miestnosti.
+            </p>
+            <a class="smart-button" href="smart-unik-vody.html">
+              Zobraziť balíčky →
+            </a>
+          </article>
+
+          <article class="smart-card">
+            <div class="smart-icon">📱</div>
+            <h3>Ovládanie na diaľku</h3>
+            <p>
+              Podľa použitých zariadení môžete vybrané funkcie ovládať
+              cez mobilnú aplikáciu alebo automatizovať podľa pravidiel.
+            </p>
+          </article>
+
+          <article class="smart-card">
+            <div class="smart-icon">🚗</div>
+            <h3>Inteligentná garáž</h3>
+            <p>
+              Doplňte existujúcu garáž o ovládanie cez mobil,
+              kontrolu otvorenia a inteligentné osvetlenie.
+              Možnosti overíme podľa vášho existujúceho pohonu.
+              Bez zásahu do mechaniky garážovej brány.
+            </p>
+            <a class="smart-button" href="smart-garaz.html">
+              Zistiť viac →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="smart-section alt">
+      <div class="smart-content">
+        <h2>Riešenie podľa vašej domácnosti</h2>
+
+        <p class="smart-intro">
+          Každý dom a byt je iný. Preto vyberáme riešenie podľa existujúcej
+          elektroinštalácie, požadovaných funkcií a kompatibility zariadení.
         </p>
-        <a class="smart-button" href="smart-unik-vody.html">
-          Zobraziť balíčky →
+
+        <div class="smart-steps">
+          <div class="smart-step">
+            <strong>1. Povieme si, čo potrebujete</strong>
+            <p>Vyberieme funkcie, ktoré vám skutočne uľahčia každodenný život.</p>
+          </div>
+
+          <div class="smart-step">
+            <strong>2. Navrhneme riešenie</strong>
+            <p>Overíme vhodné zariadenia, ich kompatibilitu a možnosti zapojenia.</p>
+          </div>
+
+          <div class="smart-step">
+            <strong>3. Zrealizujeme inštaláciu</strong>
+            <p>Po dohode zabezpečíme montáž, nastavenie a odskúšanie funkcií.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="smart-cta">
+      <div class="smart-content">
+        <h2>Začnime vašou predstavou.</h2>
+
+        <p>
+          Plánujete novostavbu, rekonštrukciu alebo chcete inteligentné
+          funkcie doplniť do existujúceho domu či bytu? Ozvite sa nám.
+          Pôsobíme v Martine a okolí.
+        </p>
+
+        <a class="smart-button" href="index.html#kontakt">
+          Kontaktovať PrologIQon
         </a>
-      </article>
-
-      <article class="smart-card">
-        <div class="smart-icon">📱</div>
-        <h3>Ovládanie na diaľku</h3>
-        <p>
-          Podľa použitých zariadení môžete vybrané funkcie ovládať
-          cez mobilnú aplikáciu alebo automatizovať podľa pravidiel.
-        </p>
-      </article>
-
-      <article class="smart-card">
-        <div class="smart-icon">🚗</div>
-        <h3>Inteligentná garáž</h3>
-        <p>
-          Doplňte existujúcu garáž o ovládanie cez mobil,
-          kontrolu otvorenia a inteligentné osvetlenie.
-          Možnosti overíme podľa vášho existujúceho pohonu.
-          Bez zásahu do mechaniky garážovej brány.
-        </p>
-        <a class="smart-button" href="smart-garaz.html">
-          Zistiť viac →
-        </a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section class="smart-section alt">
-  <div class="smart-content">
-    <h2>Riešenie podľa vašej domácnosti</h2>
-
-    <p class="smart-intro">
-      Každý dom a byt je iný. Preto vyberáme riešenie podľa existujúcej
-      elektroinštalácie, požadovaných funkcií a kompatibility zariadení.
-    </p>
-
-    <div class="smart-steps">
-      <div class="smart-step">
-        <strong>1. Povieme si, čo potrebujete</strong>
-        <p>Vyberieme funkcie, ktoré vám skutočne uľahčia každodenný život.</p>
       </div>
-
-      <div class="smart-step">
-        <strong>2. Navrhneme riešenie</strong>
-        <p>Overíme vhodné zariadenia, ich kompatibilitu a možnosti zapojenia.</p>
-      </div>
-
-      <div class="smart-step">
-        <strong>3. Zrealizujeme inštaláciu</strong>
-        <p>Po dohode zabezpečíme montáž, nastavenie a odskúšanie funkcií.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="smart-cta">
-  <div class="smart-content">
-    <h2>Začnime vašou predstavou.</h2>
-
-    <p>
-      Plánujete novostavbu, rekonštrukciu alebo chcete inteligentné
-      funkcie doplniť do existujúceho domu či bytu? Ozvite sa nám.
-      Pôsobíme v Martine a okolí.
-    </p>
-
-    <a class="smart-button" href="index.html#kontakt">
-      Kontaktovať PrologIQon
-    </a>
-  </div>
-</section>
+    </section>
 
   </main>
 
