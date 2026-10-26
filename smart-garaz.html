@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#071725">
 
   <title>Inteligentná garáž | PrologIQon</title>
-  <meta name="description" content="Inteligentná garáž bez výmeny garážovej brány. Smart ovládanie, kontrola stavu, osvetlenie a kamera Sonoff. Martin a okolie.">
+  <meta name="description" content="Inteligentná garáž bez výmeny garážovej brány. Smart ovládanie, kontrola stavu, osvetlenie a Zigbee riešenia. Martin a okolie.">
 
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
@@ -55,16 +55,14 @@
       color: #071725;
       text-decoration: none;
       font-weight: 700;
-      cursor: pointer;
-      font-family: inherit;
       font-size: 15px;
-      text-align: center;
-      transition: opacity 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
     }
 
     .garage-button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
+      background: #d5ff75;
+      transform: translateY(-2px);
     }
 
     .garage-photo-section {
@@ -78,7 +76,7 @@
       height: clamp(240px, 42vw, 480px);
       overflow: hidden;
       border-radius: 12px;
-      border: 1px solid rgba(197, 243, 93, 0.25);
+      border: 1px solid rgba(197, 243, 93, .25);
     }
 
     .garage-photo img {
@@ -126,11 +124,13 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      box-shadow: 0 5px 18px rgba(7, 23, 37, .04);
     }
 
     .garage-card h3 {
       font-size: 22px;
       margin: 0 0 12px;
+      line-height: 1.35;
     }
 
     .garage-card p {
@@ -183,21 +183,14 @@
 
     .garage-price strong {
       display: block;
-      font-size: 19px;
+      font-size: 23px;
       color: #071725;
-    }
-
-    .garage-price a {
-      color: #071725;
-      text-decoration: underline;
-      text-decoration-color: #9abf30;
-      text-underline-offset: 4px;
     }
 
     .garage-order-button {
       width: 100%;
-      margin-top: 18px;
-      box-sizing: border-box;
+      margin-top: 16px;
+      text-align: center;
     }
 
     .garage-note {
@@ -237,21 +230,25 @@
       font-size: 14px;
     }
 
+    .garage-footer p {
+      margin: 8px 0;
+    }
+
     .garage-footer a {
       color: #C5F35D;
       text-decoration: none;
     }
 
-    /* Objednávkový formulár */
+    /* Formulár dopytu */
     .garage-modal {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: rgba(3, 12, 20, 0.82);
-      padding: 20px;
       overflow-y: auto;
-      align-items: center;
+      padding: 24px 14px;
+      background: rgba(3, 12, 20, .78);
+      align-items: flex-start;
       justify-content: center;
     }
 
@@ -259,64 +256,75 @@
       display: flex;
     }
 
-    .garage-modal-content {
+    .garage-modal-panel {
       position: relative;
       width: 100%;
-      max-width: 540px;
-      box-sizing: border-box;
-      padding: 32px;
-      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
       background: #fff;
       color: #071725;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
     }
 
-    .garage-modal-content h2 {
-      margin: 0 40px 10px 0;
+    .garage-modal-panel h2 {
+      margin: 0 45px 8px 0;
       font-size: 28px;
       line-height: 1.25;
     }
 
-    .garage-modal-content > p {
-      color: #52616d;
-      line-height: 1.7;
+    .garage-modal-intro {
       margin: 0 0 22px;
+      color: #52616d;
+      line-height: 1.65;
     }
 
     .garage-modal-close {
       position: absolute;
       top: 12px;
-      right: 15px;
+      right: 14px;
       width: 40px;
       height: 40px;
       border: 0;
-      background: transparent;
+      border-radius: 6px;
+      background: #f0f3f5;
       color: #071725;
-      font-size: 30px;
-      cursor: pointer;
+      font-size: 28px;
       line-height: 1;
+      cursor: pointer;
     }
 
-    .garage-form-group {
-      margin-bottom: 16px;
+    .garage-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
     }
 
-    .garage-form-group label {
+    .garage-form-field {
+      min-width: 0;
+    }
+
+    .garage-form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .garage-form label {
       display: block;
       margin-bottom: 6px;
       font-size: 14px;
       font-weight: 700;
-      color: #071725;
+      color: #243544;
     }
 
-    .garage-form-group input,
-    .garage-form-group textarea {
+    .garage-form input,
+    .garage-form select,
+    .garage-form textarea {
       display: block;
       width: 100%;
       box-sizing: border-box;
       padding: 12px 13px;
-      border: 1px solid #cbd5dc;
+      border: 1px solid #ccd6dd;
       border-radius: 6px;
       background: #fff;
       color: #071725;
@@ -324,67 +332,68 @@
       font-size: 15px;
     }
 
-    .garage-form-group input:focus,
-    .garage-form-group textarea:focus {
+    .garage-form input:focus,
+    .garage-form select:focus,
+    .garage-form textarea:focus {
       outline: 2px solid #C5F35D;
-      border-color: #718b32;
+      outline-offset: 1px;
+      border-color: #8da832;
     }
 
-    .garage-form-group textarea {
-      min-height: 90px;
+    .garage-form textarea {
+      min-height: 100px;
       resize: vertical;
     }
 
-    .garage-selected-package {
-      padding: 13px;
-      margin-bottom: 20px;
-      border-radius: 6px;
-      background: #edf2e4;
-      color: #071725;
+    .garage-form .garage-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13px;
+      font-weight: 400;
       line-height: 1.6;
     }
 
-    .garage-privacy {
-      color: #52616d;
-      font-size: 12px;
-      line-height: 1.6;
-      margin: 12px 0 0;
+    .garage-form .garage-consent input {
+      width: auto;
+      margin-top: 4px;
+      flex-shrink: 0;
     }
 
-    .garage-privacy a {
+    .garage-form .garage-consent a {
       color: #071725;
       text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
-    .garage-submit {
+    .garage-form-submit {
       width: 100%;
-      margin-top: 8px;
+      margin-top: 4px;
     }
 
-    .garage-submit:disabled {
-      opacity: 0.65;
-      cursor: wait;
-      transform: none;
-    }
-
-    .garage-form-message {
+    .garage-form-status {
       display: none;
-      margin-top: 16px;
-      padding: 14px;
+      grid-column: 1 / -1;
+      padding: 13px;
       border-radius: 6px;
       line-height: 1.6;
+      font-size: 14px;
     }
 
-    .garage-form-message.success {
+    .garage-form-status.success {
       display: block;
-      background: #edf2e4;
-      color: #234000;
+      background: #edf7df;
+      color: #263d0b;
     }
 
-    .garage-form-message.error {
+    .garage-form-status.error {
       display: block;
       background: #fff0f0;
-      color: #8a1717;
+      color: #8b1e1e;
+    }
+
+    body.garage-modal-open {
+      overflow: hidden;
     }
 
     @media (max-width: 600px) {
@@ -409,18 +418,16 @@
         padding: 22px;
       }
 
-      .garage-modal {
-        padding: 12px;
-        align-items: flex-start;
+      .garage-modal-panel {
+        padding: 24px 18px;
       }
 
-      .garage-modal-content {
-        padding: 26px 20px;
-        margin: 12px auto;
+      .garage-form {
+        grid-template-columns: 1fr;
       }
 
-      .garage-modal-content h2 {
-        font-size: 25px;
+      .garage-form-field.full {
+        grid-column: auto;
       }
     }
   </style>
@@ -510,7 +517,7 @@
               type="button"
               data-package="SMART GARÁŽ – Ovládanie"
               data-price="od 120 €">
-              Objednať balík
+              Mám záujem
             </button>
           </article>
 
@@ -534,7 +541,7 @@
               type="button"
               data-package="SMART GARÁŽ – Kontrola"
               data-price="od 149 €">
-              Objednať balík
+              Mám záujem
             </button>
           </article>
 
@@ -558,49 +565,47 @@
               type="button"
               data-package="SMART GARÁŽ – Komfort"
               data-price="od 189 €">
-              Objednať balík
+              Mám záujem
             </button>
           </article>
 
           <article class="garage-card">
             <h3>SMART GARÁŽ – Komplet</h3>
             <p>
-              Kompletné riešenie spájajúce smart ovládanie,
-              kontrolu stavu, osvetlenie a kamerový dohľad.
+              Kompletné smart riešenie garáže s ovládaním, kontrolou
+              stavu, osvetlením a Zigbee bránou.
             </p>
             <ul>
               <li>Smart ovládanie cez mobil</li>
-              <li>Kontrola otvorenia a zatvorenia garáže</li>
+              <li>Kontrola otvorenia a zatvorenia</li>
               <li>Inteligentné osvetlenie</li>
-              <li>Kamera Sonoff na sledovanie garáže cez mobil</li>
+              <li>Zigbee brána (bridge) – súčasť balíka</li>
+              <li>Sonoff kamera – súčasť balíka</li>
               <li>Možnosť ďalších kompatibilných automatizácií</li>
             </ul>
             <div class="garage-price">
               <span>CENA</span>
-              <strong>od 269 €</strong>
+              <strong>269 €</strong>
             </div>
             <button
               class="garage-button garage-order-button"
               type="button"
-              data-package="SMART GARÁŽ – Komplet (vrátane kamery Sonoff)"
-              data-price="od 269 €">
-              Objednať balík
+              data-package="SMART GARÁŽ – Komplet"
+              data-price="269 €">
+              Mám záujem
             </button>
           </article>
         </div>
 
         <div class="garage-note">
-          <strong>Dôležité:</strong>
-          Nevykonávame montáž garážovej brány ani zásahy do jej mechaniky.
-          Dopĺňame smart funkcie k existujúcemu pohonu po overení kompatibility.
-          Pôvodné bezpečnostné prvky a funkcie pohonu musia zostať zachované.
-          Dostupné funkcie závisia od konkrétneho zariadenia a zapojenia.
-          <strong>
-            Balík SMART GARÁŽ – Komplet zahŕňa aj kameru Sonoff
-            s možnosťou sledovania garáže cez mobil. Kamera je zahrnutá
-            v uvedenej cene balíka.
-          </strong>
-          Mimo okresu Martin sa k cene pripočítava 0,32 €/km.
+          <strong>Dôležité:</strong> Nevykonávame montáž garážovej brány
+          ani zásahy do jej mechaniky. Dopĺňame smart funkcie k existujúcemu
+          pohonu po overení kompatibility. Pôvodné bezpečnostné prvky
+          a funkcie pohonu musia zostať zachované. Dostupné funkcie závisia
+          od konkrétneho zariadenia a zapojenia.
+          <br><br>
+          <strong>Doprava:</strong> V prípade realizácie mimo okresu Martin
+          sa účtuje cestovné vo výške 0,32 €/km.
         </div>
       </div>
     </section>
@@ -649,9 +654,10 @@
         <button
           class="garage-button"
           type="button"
-          data-package="Dopyt – inteligentná garáž"
-          data-price="Podľa vybraného riešenia">
-          Kontaktovať PrologIQon
+          data-package="Individuálny dopyt – inteligentná garáž"
+          data-price="Podľa dohody"
+          id="garage-general-inquiry">
+          Nezáväzne sa informovať
         </button>
       </div>
     </section>
@@ -663,33 +669,36 @@
     <p><a href="index.html#kontakt">Kontakt</a></p>
   </footer>
 
-  <!-- Objednávkový formulár -->
+  <!-- Formulár dopytu -->
   <div
     class="garage-modal"
-    id="garageOrderModal"
+    id="garage-modal"
+    aria-hidden="true"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="garageModalTitle">
+    aria-labelledby="garage-modal-title">
 
-    <div class="garage-modal-content">
+    <div class="garage-modal-panel">
       <button
         class="garage-modal-close"
-        id="garageModalClose"
         type="button"
+        id="garage-modal-close"
         aria-label="Zavrieť formulár">
-        &times;
+        ×
       </button>
 
-      <h2 id="garageModalTitle">Dopyt na inteligentnú garáž</h2>
-      <p>
-        Vyplňte kontaktné údaje. Ozveme sa vám a dohodneme ďalší postup.
+      <h2 id="garage-modal-title">Nezáväzný dopyt</h2>
+      <p class="garage-modal-intro">
+        Vyplňte kontaktné údaje a ozveme sa vám, aby sme preverili
+        možnosti riešenia pre vašu garáž.
       </p>
 
-      <div class="garage-selected-package" id="garageSelectedPackage">
-        Vybraný balík:
-      </div>
+      <form
+        class="garage-form"
+        id="garage-inquiry-form"
+        action="https://api.web3forms.com/submit"
+        method="POST">
 
-      <form id="garageOrderForm">
         <input
           type="hidden"
           name="access_key"
@@ -698,85 +707,123 @@
         <input
           type="hidden"
           name="subject"
-          value="Nový dopyt – SMART GARÁŽ">
+          value="Nový dopyt – Inteligentná garáž PrologIQon">
 
         <input
           type="hidden"
           name="from_name"
-          value="PrologIQon">
+          value="Web PrologIQon – Inteligentná garáž">
 
-        <input type="hidden" name="balik" id="garagePackageInput">
-        <input type="hidden" name="cena" id="garagePriceInput">
+        <input
+          type="hidden"
+          name="redirect"
+          value="">
 
-        <div class="garage-form-group">
-          <label for="garageName">Meno a priezvisko *</label>
+        <div class="garage-form-field full">
+          <label for="garage-package">Vybraný balík</label>
           <input
             type="text"
-            id="garageName"
-            name="meno"
+            id="garage-package"
+            name="Vybraný balík"
+            value="Individuálny dopyt – inteligentná garáž"
+            readonly
+            required>
+        </div>
+
+        <div class="garage-form-field full">
+          <label for="garage-package-price">Orientačná cena</label>
+          <input
+            type="text"
+            id="garage-package-price"
+            name="Orientačná cena"
+            value="Podľa dohody"
+            readonly>
+        </div>
+
+        <div class="garage-form-field">
+          <label for="garage-name">Meno a priezvisko *</label>
+          <input
+            type="text"
+            id="garage-name"
+            name="Meno a priezvisko"
             autocomplete="name"
             required>
         </div>
 
-        <div class="garage-form-group">
-          <label for="garagePhone">Telefón *</label>
+        <div class="garage-form-field">
+          <label for="garage-phone">Telefón *</label>
           <input
             type="tel"
-            id="garagePhone"
-            name="telefon"
+            id="garage-phone"
+            name="Telefón"
             autocomplete="tel"
             required>
         </div>
 
-        <div class="garage-form-group">
-          <label for="garageEmail">E-mail *</label>
+        <div class="garage-form-field full">
+          <label for="garage-email">E-mail *</label>
           <input
             type="email"
-            id="garageEmail"
+            id="garage-email"
             name="email"
             autocomplete="email"
             required>
         </div>
 
-        <div class="garage-form-group">
-          <label for="garageTown">Obec alebo mesto *</label>
+        <div class="garage-form-field full">
+          <label for="garage-town">Obec alebo mesto realizácie *</label>
           <input
             type="text"
-            id="garageTown"
-            name="obec"
+            id="garage-town"
+            name="Obec alebo mesto"
             autocomplete="address-level2"
             required>
         </div>
 
-        <div class="garage-form-group">
-          <label for="garageNote">Poznámka (nepovinné)</label>
+        <div class="garage-form-field full">
+          <label for="garage-note-field">Poznámka alebo požiadavky</label>
           <textarea
-            id="garageNote"
-            name="poznamka"
-            placeholder="Napr. typ existujúceho pohonu alebo požadované funkcie."></textarea>
+            id="garage-note-field"
+            name="Poznámka"
+            placeholder="Napríklad značka pohonu garážovej brány alebo funkcie, o ktoré máte záujem."></textarea>
         </div>
 
-        <button
-          class="garage-button garage-submit"
-          id="garageSubmitButton"
-          type="submit">
-          Odoslať dopyt
-        </button>
-
-        <p class="garage-privacy">
-          Odoslaním formulára súhlasíte so spracovaním údajov na vybavenie
-          dopytu. Viac informácií nájdete v
-          <a href="ochrana-osobnych-udajov.html" target="_blank" rel="noopener">
-            zásadách ochrany osobných údajov
-          </a>.
-        </p>
+        <div class="garage-form-field full">
+          <label class="garage-consent" for="garage-privacy">
+            <input
+              type="checkbox"
+              id="garage-privacy"
+              name="Súhlas so spracovaním údajov"
+              value="Áno"
+              required>
+            <span>
+              Súhlasím so spracovaním poskytnutých osobných údajov
+              na účely vybavenia môjho dopytu. Oboznámil/a som sa
+              s <a href="ochrana-osobnych-udajov.html" target="_blank" rel="noopener">informáciami o ochrane osobných údajov</a>.
+            </span>
+          </label>
+        </div>
 
         <div
-          class="garage-form-message"
-          id="garageFormMessage"
+          class="garage-form-status"
+          id="garage-form-status"
           role="status"
           aria-live="polite">
         </div>
+
+        <div class="garage-form-field full">
+          <button
+            type="submit"
+            class="garage-button garage-form-submit"
+            id="garage-form-submit">
+            Odoslať nezáväzný dopyt
+          </button>
+        </div>
+
+        <p class="garage-form-field full" style="font-size:12px;color:#637388;line-height:1.6;margin:0;">
+          Odoslanie formulára je nezáväzné a nepredstavuje objednávku
+          ani potvrdenie konečnej ceny.
+        </p>
       </form>
     </div>
   </div>
@@ -784,123 +831,124 @@
   <script src="script.js"></script>
 
   <script>
-    (function () {
-      const modal = document.getElementById("garageOrderModal");
-      const closeButton = document.getElementById("garageModalClose");
-      const form = document.getElementById("garageOrderForm");
-      const selectedPackage = document.getElementById("garageSelectedPackage");
-      const packageInput = document.getElementById("garagePackageInput");
-      const priceInput = document.getElementById("garagePriceInput");
-      const submitButton = document.getElementById("garageSubmitButton");
-      const message = document.getElementById("garageFormMessage");
+    (() => {
+      const modal = document.getElementById("garage-modal");
+      const closeButton = document.getElementById("garage-modal-close");
+      const packageInput = document.getElementById("garage-package");
+      const priceInput = document.getElementById("garage-package-price");
+      const form = document.getElementById("garage-inquiry-form");
+      const submitButton = document.getElementById("garage-form-submit");
+      const statusBox = document.getElementById("garage-form-status");
 
-      let lastFocusedElement = null;
+      let previousFocus = null;
 
-      function openOrder(packageName, price) {
-        lastFocusedElement = document.activeElement;
+      function openModal(packageName, packagePrice) {
+        previousFocus = document.activeElement;
 
-        form.reset();
+        packageInput.value = packageName || "Individuálny dopyt – inteligentná garáž";
+        priceInput.value = packagePrice || "Podľa dohody";
 
-        message.textContent = "";
-        message.className = "garage-form-message";
-
-        submitButton.disabled = false;
-        submitButton.textContent = "Odoslať dopyt";
-
-        packageInput.value = packageName;
-        priceInput.value = price;
-
-        selectedPackage.textContent =
-          "Vybraný balík: " + packageName + " · " + price;
+        statusBox.className = "garage-form-status";
+        statusBox.textContent = "";
 
         modal.classList.add("is-open");
-        document.body.style.overflow = "hidden";
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("garage-modal-open");
 
-        window.setTimeout(function () {
-          document.getElementById("garageName").focus();
+        window.setTimeout(() => {
+          document.getElementById("garage-name").focus();
         }, 50);
       }
 
-      function closeOrder() {
+      function closeModal() {
         modal.classList.remove("is-open");
-        document.body.style.overflow = "";
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("garage-modal-open");
 
-        if (lastFocusedElement) {
-          lastFocusedElement.focus();
+        if (previousFocus && typeof previousFocus.focus === "function") {
+          previousFocus.focus();
         }
       }
 
-      document.querySelectorAll("[data-package]").forEach(function (button) {
-        button.addEventListener("click", function () {
-          openOrder(
-            button.getAttribute("data-package"),
-            button.getAttribute("data-price")
-          );
+      document.querySelectorAll(".garage-order-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          openModal(button.dataset.package, button.dataset.price);
         });
       });
 
-      closeButton.addEventListener("click", closeOrder);
+      document.getElementById("garage-general-inquiry").addEventListener("click", () => {
+        openModal(
+          "Individuálny dopyt – inteligentná garáž",
+          "Podľa dohody"
+        );
+      });
 
-      modal.addEventListener("click", function (event) {
+      closeButton.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", (event) => {
         if (event.target === modal) {
-          closeOrder();
+          closeModal();
         }
       });
 
-      document.addEventListener("keydown", function (event) {
+      document.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && modal.classList.contains("is-open")) {
-          closeOrder();
+          closeModal();
         }
       });
 
-      form.addEventListener("submit", async function (event) {
+      form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        if (!form.reportValidity()) {
-          return;
-        }
-
+        statusBox.className = "garage-form-status";
+        statusBox.textContent = "";
         submitButton.disabled = true;
-        submitButton.textContent = "Odosielam…";
-
-        message.textContent = "";
-        message.className = "garage-form-message";
+        submitButton.textContent = "Odosielam dopyt…";
 
         try {
-          const response = await fetch(
-            "https://api.web3forms.com/submit",
-            {
-              method: "POST",
-              body: new FormData(form)
+          const formData = new FormData(form);
+          formData.delete("redirect");
+
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+              "Accept": "application/json"
             }
-          );
+          });
 
           const result = await response.json();
 
           if (response.ok && result.success) {
-            message.textContent =
+            statusBox.className = "garage-form-status success";
+            statusBox.textContent =
               "✓ Dopyt bol úspešne odoslaný. Ďakujeme za váš záujem. Ozveme sa vám.";
-            message.className = "garage-form-message success";
 
             form.reset();
-            submitButton.textContent = "Dopyt odoslaný";
 
-            /*
-              Formulár zostane otvorený, aby si zákazník
-              mohol prečítať potvrdenie o odoslaní.
-            */
+            packageInput.value = "Dopyt odoslaný";
+            priceInput.value = "—";
+
+            submitButton.textContent = "Dopyt odoslaný";
           } else {
             throw new Error(
               result.message || "Dopyt sa nepodarilo odoslať."
             );
           }
         } catch (error) {
-          message.textContent =
-            "Dopyt sa nepodarilo odoslať. Skúste to, prosím, znova alebo nás kontaktujte cez stránku Kontakt.";
-          message.className = "garage-form-message error";
-
+          statusBox.className = "garage-form-status error";
+          statusBox.textContent =
+            "Dopyt sa nepodarilo odoslať. Skúste to znova alebo nás kontaktujte cez stránku Kontakt.";
           submitButton.disabled = false;
-          submitButton.textContent = "Odoslať dopyt";
+          submitButton.textContent = "Skúsiť odoslať znova";
+        } finally {
+          if (submitButton.textContent !== "Dopyt odoslaný") {
+            submitButton.disabled = false;
+
+            if (submitButton.textContent === "Odosielam dopyt…") {
+              submitButton.textContent = "Odoslať nezáväzný dopyt";
+            }
+          }
         }
       });
     })();
