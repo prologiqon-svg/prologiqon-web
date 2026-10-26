@@ -12,50 +12,30 @@
   <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
 
   <style>
+    /* ÚVODNÝ OBRÁZOK CEZ CELÚ ŠÍRKU */
     .smart-hero {
+      width: 100%;
+      margin: 0;
+      padding: 0;
       background: #071725;
-      color: #ffffff;
-      padding: 65px 24px;
       overflow: hidden;
     }
 
-    .smart-hero-inner,
-    .smart-content {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
     .smart-hero-inner {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      align-items: center;
-      gap: 42px;
-    }
-
-    .smart-hero-text {
-      min-width: 0;
-    }
-
-    .smart-hero h1 {
-      font-size: clamp(38px, 4.5vw, 64px);
-      line-height: 1.12;
-      letter-spacing: -1.5px;
+      width: 100%;
+      max-width: none;
       margin: 0;
-      font-weight: 800;
-    }
-
-    .smart-hero h1 .iq-lime {
-      color: #C5F35D;
-      white-space: nowrap;
+      padding: 0;
     }
 
     .smart-hero-image {
-      width: 100%;
       display: block;
+      width: 100%;
+      height: auto;
       aspect-ratio: 16 / 9;
       object-fit: cover;
       object-position: center;
-      border-radius: 10px;
+      border-radius: 0;
     }
 
     .smart-button {
@@ -81,6 +61,11 @@
 
     .smart-section.alt {
       background: #f3f6f8;
+    }
+
+    .smart-content {
+      max-width: 1120px;
+      margin: 0 auto;
     }
 
     .smart-section h2 {
@@ -184,25 +169,6 @@
       text-decoration: none;
     }
 
-    @media (max-width: 760px) {
-      .smart-hero {
-        padding: 48px 20px;
-      }
-
-      .smart-hero-inner {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-
-      .smart-hero h1 {
-        font-size: clamp(38px, 9vw, 54px);
-      }
-
-      .smart-hero-image {
-        aspect-ratio: 16 / 9;
-      }
-    }
-
     @media (max-width: 600px) {
       .smart-section {
         padding: 48px 20px;
@@ -210,6 +176,11 @@
 
       .smart-card {
         padding: 22px;
+      }
+
+      .smart-hero-image {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
       }
     }
   </style>
@@ -241,19 +212,13 @@
 
   <main>
 
+    <!-- Obrázok so sloganom priamo v obrázku -->
     <section class="smart-hero">
       <div class="smart-hero-inner">
-        <div class="smart-hero-text">
-          <h1>
-            Zdvihnite vášmu domu
-            <span class="iq-lime">IQ.</span>
-          </h1>
-        </div>
-
         <img
           class="smart-hero-image"
           src="Zdvihnite domu IQ pri súmraku.png"
-          alt="Moderný inteligentný rodinný dom osvetlený za súmraku"
+          alt="Zdvihnite vášmu domu IQ – inteligentná domácnosť PrologIQon"
           fetchpriority="high"
         >
       </div>
