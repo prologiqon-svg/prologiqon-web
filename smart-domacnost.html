@@ -97,9 +97,28 @@
       align-items: flex-start;
     }
 
+    /* JEDNOTNÉ TECHNICKÉ IKONY */
     .smart-card .smart-icon {
-      font-size: 30px;
-      margin-bottom: 14px;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 18px;
+      border-radius: 9px;
+      background: #071725;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .smart-icon svg {
+      display: block;
+      width: 30px;
+      height: 30px;
+      fill: none;
+      stroke: #C5F35D;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .smart-card h3 {
@@ -212,7 +231,6 @@
 
   <main>
 
-    <!-- Obrázok so sloganom priamo v obrázku -->
     <section class="smart-hero">
       <div class="smart-hero-inner">
         <img
@@ -236,7 +254,14 @@
         <div class="smart-grid">
 
           <article class="smart-card">
-            <div class="smart-icon">💡</div>
+            <div class="smart-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M9 18h6"/>
+                <path d="M10 22h4"/>
+                <path d="M8.5 14.5A7 7 0 1 1 15.5 14.5c-.9.7-1.5 1.6-1.5 2.5h-4c0-.9-.6-1.8-1.5-2.5Z"/>
+                <path d="M12 4v2"/>
+              </svg>
+            </div>
             <h3>Inteligentné osvetlenie</h3>
             <p>
               Ovládanie svetiel, vybraných LED pásov a nastavenie svetelných
@@ -245,7 +270,13 @@
           </article>
 
           <article class="smart-card">
-            <div class="smart-icon">🌡️</div>
+            <div class="smart-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M14 14.8V5a3 3 0 0 0-6 0v9.8a5 5 0 1 0 6 0Z"/>
+                <path d="M11 11v7"/>
+                <path d="M11 18a2 2 0 1 0 0 .01"/>
+              </svg>
+            </div>
             <h3>Ovládanie kúrenia</h3>
             <p>
               Pohodlnejšie riadenie kúrenia a časových režimov tam, kde to
@@ -254,7 +285,12 @@
           </article>
 
           <article class="smart-card">
-            <div class="smart-icon">🔒</div>
+            <div class="smart-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
             <h3>Zabezpečenie a dohľad</h3>
             <p>
               Možnosti prepojenia vybraných senzorov, detekcie pohybu,
@@ -263,7 +299,13 @@
           </article>
 
           <article class="smart-card">
-            <div class="smart-icon">⚡</div>
+            <div class="smart-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 3v18h18"/>
+                <path d="m7 14 4-4 4 3 6-7"/>
+                <path d="M16 6h5v5"/>
+              </svg>
+            </div>
             <h3>Meranie spotreby</h3>
             <p>
               Prehľad o spotrebe vybraných zariadení a možnosť sledovať,
@@ -272,7 +314,12 @@
           </article>
 
           <article class="smart-card">
-            <div class="smart-icon">💧</div>
+            <div class="smart-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22s8-7.2 8-13a8 8 0 0 0-16 0c0 5.8 8 13 8 13Z"/>
+                <path d="M12 6c-1.5 2-2.5 3.2-2.5 4.5a2.5 2.5 0 0 0 5 0C14.5 9.2 13.5 8 12 6Z"/>
+              </svg>
+            </div>
             <h3>Ochrana pred únikom vody</h3>
             <p>
               S vhodným senzorom môžete dostať upozornenie pri zistení úniku
@@ -284,7 +331,14 @@
           </article>
 
           <article class="smart-card">
-            <div class="smart-icon">📱</div>
+            <div class="smart-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="5" y="2" width="14" height="20" rx="2"/>
+                <path d="M9 5h6"/>
+                <path d="M11 19h2"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
             <h3>Ovládanie na diaľku</h3>
             <p>
               Podľa použitých zariadení môžete vybrané funkcie ovládať
@@ -293,7 +347,15 @@
           </article>
 
           <article class="smart-card">
-            <div class="smart-icon">🚗</div>
+            <div class="smart-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 21V5h18v16"/>
+                <path d="M3 10h18"/>
+                <path d="M7 21v-7h10v7"/>
+                <path d="M6 5V3h12v2"/>
+                <path d="M10 17h4"/>
+              </svg>
+            </div>
             <h3>Inteligentná garáž</h3>
             <p>
               Doplňte existujúcu garáž o ovládanie cez mobil,
