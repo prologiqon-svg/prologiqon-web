@@ -237,6 +237,12 @@
       text-decoration: none;
     }
 
+    .garage-footer a:hover,
+    .garage-footer a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     /* Objednávkový formulár */
     .order-modal {
       display: none;
@@ -358,7 +364,16 @@
 
     .order-privacy a {
       color: #071725;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: #a4c74e;
       text-underline-offset: 3px;
+    }
+
+    .order-privacy a:hover,
+    .order-privacy a:focus-visible {
+      color: #344d0c;
+      text-decoration-color: currentColor;
     }
 
     .order-status {
@@ -712,8 +727,10 @@
           Odoslaním formulára žiadate o kontaktovanie v súvislosti
           s nezáväzným dopytom. Cena je orientačná a bude potvrdená
           po overení možností realizácie. Údaje použijeme na vybavenie
-          dopytu. Pred zverejnením formulára doplňte odkaz na vaše
-          informácie o ochrane osobných údajov.
+          dopytu. Viac informácií nájdete v dokumente
+          <a href="ochrana-osobnych-udajov.html" target="_blank" rel="noopener">
+            Ochrana osobných údajov
+          </a>.
         </p>
 
         <button class="garage-button order-submit" id="order-submit"
