@@ -1167,3 +1167,12 @@ footer {
     background-color: #526675 !important;
   }
 }
+/* Oprava farby hornej hlavičky na mobile */
+@media screen and (max-width: 650px) {
+  body header.site-header,
+  body header.site-header > .wrap.nav,
+  body header.site-header .brand {
+    background-color: #526675 !important;
+    background-image: none !important;
+  }
+}
