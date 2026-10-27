@@ -36,7 +36,7 @@ body {
 
 .site-header {
   height: 72px;
-  background: #737E86;
+  background: #526675;
   color: #fff;
   position: sticky;
   top: 0;
@@ -1125,7 +1125,7 @@ footer {
 
 /* Jednotná farba hlavičky na mobile aj počítači */
 .site-header {
-  background-color: #737E86 !important;
+  background-color: #526675 !important;
 }
 
 /* Odkaz na ochranu osobných údajov pod kontaktným formulárom */
