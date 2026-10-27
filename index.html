@@ -9,6 +9,27 @@
 <meta name="description" content="PrologIQon – elektroinštalácie, zabezpečovacie a kamerové systémy. Martin a okolie.">
 <title>PrologIQon | Elektroinštalácie a technológie</title>
 <link rel="stylesheet" href="styles.css?v=2">
+<style>
+/* Jednotné SVG piktogramy v sekcii Služby */
+.service .line-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 48px;
+  margin-bottom: 18px;
+  color: #C5F35D;
+}
+.service .line-icon svg {
+  display: block;
+  width: 36px;
+  height: 36px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+</style>
 </head>
 <body>
 
@@ -57,25 +78,46 @@
 <section class="service-strip" id="sluzby">
   <div class="wrap service-grid">
     <article class="service">
-      <div class="line-icon">ϟ</div>
+      <div class="line-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 2 4.5 13h6l-.5 9L19.5 10h-6L13 2Z"/>
+        </svg>
+      </div>
       <h2>Elektroinštalácie</h2>
       <p>Elektrické rozvody, rozvádzače, prípojky, osvetlenie a revízie podľa dohodnutého rozsahu.</p>
       <a href="#kontakt">Viac informácií <b>→</b></a>
     </article>
     <article class="service">
-      <div class="line-icon">♢</div>
+      <div class="line-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
       <h2>Zabezpečovacie systémy</h2>
       <p>Alarmy a zabezpečovacie riešenia pre domy, prevádzky a ďalšie priestory.</p>
       <a href="#kontakt">Viac informácií <b>→</b></a>
     </article>
     <article class="service">
-      <div class="line-icon">⌂</div>
+      <div class="line-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="m3 10 9-7 9 7"/>
+          <path d="M5 9v12h14V9"/>
+          <path d="M9 21v-7h6v7"/>
+        </svg>
+      </div>
       <h2>Rekonštrukcie a novostavby</h2>
       <p>Elektroinštalačné práce pri nových projektoch aj úpravách existujúcich rozvodov.</p>
       <a href="#kontakt">Viac informácií <b>→</b></a>
     </article>
     <article class="service">
-      <div class="line-icon">◎</div>
+      <div class="line-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M2 8a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8Z"/>
+          <path d="m17 10 5-3v10l-5-3"/>
+          <circle cx="9.5" cy="12" r="3"/>
+        </svg>
+      </div>
       <h2>Kamerové systémy</h2>
       <p>Kamerové riešenia navrhnuté podľa dispozície objektu a potrieb zákazníka.</p>
       <a href="#kontakt">Viac informácií <b>→</b></a>
