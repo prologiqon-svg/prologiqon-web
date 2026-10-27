@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#737E86">
+  <meta name="theme-color" content="#071725">
 
   <title>Smart domácnosť | PrologIQon</title>
   <meta name="description" content="Smart domácnosť na mieru. Inteligentné ovládanie osvetlenia, kúrenia, zabezpečenia, spotreby energie, garáže a ochrany pred únikom vody. Martin a okolie.">
@@ -13,11 +12,6 @@
   <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
 
   <style>
-    /* HORNÉ MENU – ROVNAKÁ FARBA NA POČÍTAČI AJ MOBILE */
-    .site-header {
-      background-color: #737E86 !important;
-    }
-
     /* ÚVODNÝ OBRÁZOK CEZ CELÚ ŠÍRKU */
     .smart-hero {
       width: 100%;
@@ -198,11 +192,6 @@
     }
 
     @media (max-width: 600px) {
-      /* Poistka proti prepísaniu farby v mobilnom zobrazení */
-      .site-header {
-        background-color: #737E86 !important;
-      }
-
       .smart-section {
         padding: 48px 20px;
       }
@@ -211,9 +200,8 @@
         padding: 22px;
       }
 
-      /* Na mobile zobrazí celý obrázok bez orezania sloganu */
+      /* Na mobile zobrazí celý obrázok bez orezania sloganu. */
       .smart-hero-image {
-        display: block;
         width: 100%;
         height: auto;
         aspect-ratio: auto;
