@@ -1157,3 +1157,13 @@ footer {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* KONEČNÁ OPRAVA FARBY HLAVIČKY NA MOBILE */
+@media screen and (max-width: 650px) {
+  header.site-header,
+  .site-header,
+  .site-header .nav {
+    background: #526675 !important;
+    background-color: #526675 !important;
+  }
+}
