@@ -8,7 +8,7 @@
 
   <title>IQ Cube – Ochrana pred únikom vody | PrologIQon</title>
 
-  <meta name="description" content="Smart ochrana pred únikom vody v dome alebo byte. Monitoring, upozornenia do mobilu a automatické uzavretie vody vrátane záložného napájania. Martin a okolie.">
+  <meta name="description" content="IQ Cube od PrologIQon: ochrana pred únikom vody v dome alebo byte. Monitoring, upozornenia do mobilu a automatické uzavretie vody vrátane záložného napájania. Martin a okolie.">
 
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
@@ -17,7 +17,7 @@
     .water-hero {
       background: #071725;
       color: #fff;
-      padding: 70px 24px;
+      padding: 60px 24px 75px;
     }
 
     .water-inner {
@@ -51,11 +51,41 @@
       display: inline-block;
       margin-top: 18px;
       padding: 14px 22px;
+      border: 0;
       border-radius: 6px;
       background: #C5F35D;
       color: #071725;
       text-decoration: none;
       font-weight: 700;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .water-button:hover {
+      filter: brightness(0.95);
+    }
+
+    /* Fotografia – rovnaký princíp ako na stránke garáže */
+    .water-photo-section {
+      background: #071725;
+      padding: 0 24px 55px;
+    }
+
+    .water-photo {
+      max-width: 1120px;
+      margin: 0 auto;
+      height: clamp(240px, 42vw, 480px);
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(197, 243, 93, 0.25);
+    }
+
+    .water-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
     .water-section {
@@ -115,7 +145,7 @@
       margin: 0 0 14px;
     }
 
-    /* Fajky v limetkových krúžkoch – zachovaný pôvodný štýl */
+    /* Zelené kruhy s fajkou – bez ikon nad názvami balíkov */
     .water-card ul {
       color: #52616d;
       line-height: 1.8;
@@ -228,7 +258,16 @@
 
     @media (max-width: 600px) {
       .water-hero {
-        padding: 50px 20px;
+        padding: 45px 20px 38px;
+      }
+
+      .water-photo-section {
+        padding: 0 20px 40px;
+      }
+
+      .water-photo {
+        height: 250px;
+        border-radius: 8px;
       }
 
       .water-section {
@@ -272,9 +311,10 @@
 
   <main>
 
+    <!-- ÚVOD -->
     <section class="water-hero">
       <div class="water-inner">
-        <div class="water-label">PrologIQon · Smart riešenia</div>
+        <div class="water-label">PrologIQon · IQ Cube pre ochranu vody</div>
 
         <h1>Ochrana pred únikom vody. Aj keď nie ste doma.</h1>
 
@@ -291,22 +331,33 @@
       </div>
     </section>
 
+    <!-- FOTOGRAFIA -->
+    <section class="water-photo-section" aria-label="Ochrana pred únikom vody">
+      <div class="water-photo">
+        <img
+          src="unik%20vody.png"
+          alt="Detekcia úniku vody v technickej miestnosti a upozornenie na mobile"
+          fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- BALÍKY IQ CUBE -->
     <section class="water-section">
       <div class="water-inner">
-        <h2>Vyberte si úroveň ochrany</h2>
+        <h2>Vyberte si IQ Cube pre ochranu vody</h2>
 
         <p class="water-intro">
           Tri úrovne ochrany podľa vašich potrieb:
           od základného monitoringu až po automatické uzavretie
           hlavného prívodu vody s doplneným záložným napájaním.
           Konkrétne zariadenia vyberieme podľa podmienok vašej domácnosti.
+          IQ Cube je označenie uceleného riešenia od PrologIQon,
+          nie samostatná značka zariadenia ani samostatná aplikácia.
         </p>
 
         <div class="water-grid water-packages" id="balicky">
 
-          <!-- BALÍK 1 -->
           <article class="water-card">
-
             <h3>IQ Cube – Monitoring</h3>
 
             <p>
@@ -329,9 +380,7 @@
             </div>
           </article>
 
-          <!-- BALÍK 2 -->
           <article class="water-card">
-
             <h3>IQ Cube – Automatické uzavretie</h3>
 
             <p>
@@ -354,9 +403,7 @@
             </div>
           </article>
 
-          <!-- BALÍK 3 -->
           <article class="water-card">
-
             <h3>IQ Cube – Kompletná ochrana</h3>
 
             <p>
@@ -399,6 +446,7 @@
       </div>
     </section>
 
+    <!-- POSTUP -->
     <section class="water-section alt">
       <div class="water-inner">
         <h2>Ako to prebieha?</h2>
@@ -406,7 +454,6 @@
         <div class="water-grid">
 
           <article class="water-card">
-
             <h3>Určíme rizikové miesta</h3>
 
             <p>
@@ -416,7 +463,6 @@
           </article>
 
           <article class="water-card">
-
             <h3>Vyberieme vhodné riešenie</h3>
 
             <p>
@@ -427,7 +473,6 @@
           </article>
 
           <article class="water-card">
-
             <h3>Nainštalujeme a otestujeme</h3>
 
             <p>
@@ -443,6 +488,7 @@
       </div>
     </section>
 
+    <!-- KONTAKT -->
     <section class="water-cta">
       <div class="water-inner">
         <h2>Chcete mať únik vody pod kontrolou?</h2>
@@ -467,5 +513,6 @@
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
