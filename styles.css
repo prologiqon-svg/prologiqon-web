@@ -1176,3 +1176,24 @@ footer {
     background-image: none !important;
   }
 }
+ box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  }
+
+  .site-header .links a {
+    color: #FFFFFF !important;
+  }
+
+  .site-header .links a:hover,
+  .site-header .links a:focus,
+  .site-header .links a.active {
+    color: #C5F35D !important;
+  }
+
+  .site-header .links a + a {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .site-header .links .nav-call {
+    color: #C5F35D !important;
+  }
+}
