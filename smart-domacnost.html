@@ -13,7 +13,6 @@
   <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
 
   <style>
-    /* ÚVODNÝ OBRÁZOK CEZ CELÚ ŠÍRKU */
     .smart-hero {
       width: 100%;
       margin: 0;
@@ -98,7 +97,6 @@
       align-items: flex-start;
     }
 
-    /* TECHNICKÉ IKONY S VNÚTORNOU LIMETKOVOU LINKOU */
     .smart-card .smart-icon {
       width: 58px;
       height: 58px;
@@ -201,7 +199,6 @@
         padding: 22px;
       }
 
-      /* Na mobile zobrazí celý obrázok bez orezania sloganu. */
       .smart-hero-image {
         width: 100%;
         height: auto;
@@ -294,12 +291,22 @@
 
           <article class="smart-card">
             <div class="smart-icon" aria-hidden="true">
+              <!-- Vonkajšia bezpečnostná kamera na nástennom držiaku -->
               <svg viewBox="0 0 24 24">
-                <path d="M4 8h5v3H4z"/>
-                <path d="M6.5 11v4l3 2"/>
-                <path d="M9 10l8-3 4 6-8 3z"/>
-                <path d="M13 15l-2 4"/>
-                <circle cx="17.5" cy="10" r="1.5"/>
+                <!-- Upevňovacia doska na stene -->
+                <path d="M3 4.5h3.5v5H3z"/>
+                <!-- Rameno držiaka -->
+                <path d="M4.75 9.5v4.2l3.1 2.1"/>
+                <path d="M7.8 15.8l1.5-2.2"/>
+                <!-- Telo kamery a predný kryt objektívu -->
+                <path d="M7.5 8.2h8.8l3.2 3.8-3.2 3.8H7.5z"/>
+                <!-- Oddelenie prednej časti -->
+                <path d="M16.3 8.5v7"/>
+                <!-- Objektív -->
+                <circle cx="16.8" cy="12" r="1.65"/>
+                <circle cx="16.8" cy="12" r=".45"/>
+                <!-- Horný kryt kamery -->
+                <path d="M8.5 8.2V7h6.7"/>
               </svg>
             </div>
             <h3>Zabezpečenie a dohľad</h3>
@@ -441,3 +448,4 @@
 
 </body>
 </html>
+
