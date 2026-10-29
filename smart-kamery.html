@@ -1,0 +1,889 @@
+
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071725">
+
+  <title>IQ Cube – Kamerový dohľad | PrologIQon</title>
+  <meta name="description" content="IQ Cube od PrologIQon: kamerový dohľad pre vizuálnu kontrolu objektu, záznam udalostí a prevenciu vlámania. Martin a okolie.">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
+
+  <style>
+    .camera-hero {
+      background: #071725;
+      color: #fff;
+      padding: 60px 24px 75px;
+    }
+
+    .camera-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .camera-label {
+      color: #C5F35D;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .camera-hero h1 {
+      max-width: 850px;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.12;
+      margin: 18px 0;
+    }
+
+    .camera-hero p {
+      max-width: 760px;
+      color: #d5dee5;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .iq-lime {
+      color: #C5F35D;
+    }
+
+    .camera-button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 6px;
+      background: #C5F35D;
+      color: #071725;
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .camera-button:hover {
+      filter: brightness(0.95);
+    }
+
+    .camera-photo-section {
+      background: #071725;
+      padding: 0 24px 55px;
+    }
+
+    .camera-photo {
+      max-width: 1120px;
+      margin: 0 auto;
+      height: clamp(240px, 42vw, 480px);
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(197, 243, 93, 0.25);
+    }
+
+    .camera-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 58%;
+    }
+
+    .camera-section {
+      padding: 65px 24px;
+      background: #fff;
+      color: #071725;
+    }
+
+    .camera-section.alt {
+      background: #f3f6f8;
+    }
+
+    .camera-section h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 0 0 16px;
+    }
+
+    .camera-intro {
+      max-width: 780px;
+      color: #52616d;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .camera-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .camera-card {
+      border: 1px solid #dce4e9;
+      border-radius: 12px;
+      padding: 26px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .camera-card h3 {
+      font-size: 22px;
+      margin: 0 0 12px;
+    }
+
+    .camera-card p {
+      color: #52616d;
+      line-height: 1.75;
+      margin: 0 0 14px;
+    }
+
+    .camera-card ul {
+      color: #52616d;
+      line-height: 1.8;
+      padding-left: 0;
+      margin: 0 0 20px;
+      list-style: none;
+    }
+
+    .camera-card li {
+      margin-bottom: 5px;
+    }
+
+    .camera-card li::before {
+      content: "✓";
+      display: inline-grid;
+      place-items: center;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #C5F35D;
+      color: #071725;
+      font-size: 10px;
+      font-weight: 800;
+      margin-right: 9px;
+    }
+
+    .camera-price {
+      border-top: 1px solid #dce4e9;
+      padding-top: 18px;
+      margin-top: auto;
+      width: 100%;
+    }
+
+    .camera-price span {
+      display: block;
+      color: #52616d;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .camera-price strong {
+      display: block;
+      font-size: 19px;
+      color: #071725;
+    }
+
+    .camera-note {
+      margin-top: 28px;
+      padding: 22px;
+      background: #edf2e4;
+      border-left: 4px solid #C5F35D;
+      border-radius: 6px;
+      color: #33414b;
+      line-height: 1.8;
+    }
+
+    .camera-cta {
+      background: #071725;
+      color: #fff;
+      padding: 65px 24px;
+      text-align: center;
+    }
+
+    .camera-cta h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 0 0 15px;
+    }
+
+    .camera-cta p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #d5dee5;
+      line-height: 1.8;
+    }
+
+    .camera-footer {
+      background: #071725;
+      color: #d5dee5;
+      padding: 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .camera-footer a {
+      color: #C5F35D;
+      text-decoration: none;
+    }
+
+    /* Dopytový formulár */
+    .camera-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      padding: 20px;
+      overflow-y: auto;
+      background: rgba(3, 12, 20, 0.82);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .camera-modal.is-open {
+      display: flex;
+    }
+
+    .camera-modal-panel {
+      position: relative;
+      width: 100%;
+      max-width: 620px;
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 30px;
+      background: #fff;
+      color: #071725;
+      border-radius: 12px;
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.3);
+    }
+
+    .camera-modal-panel h2 {
+      margin: 0 40px 10px 0;
+      font-size: 28px;
+    }
+
+    .camera-modal-panel > p {
+      color: #52616d;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .camera-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 6px;
+      background: #f0f3f5;
+      color: #071725;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .camera-form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .camera-form label {
+      display: block;
+      margin-bottom: 6px;
+      color: #071725;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .camera-form input:not([type="checkbox"]),
+    .camera-form textarea {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 13px;
+      border: 1px solid #cbd5dc;
+      border-radius: 6px;
+      background: #fff;
+      color: #071725;
+      font: inherit;
+    }
+
+    .camera-form input[readonly] {
+      background: #f3f6f8;
+    }
+
+    .camera-form textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .camera-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #52616d;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .camera-consent input {
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .camera-consent label {
+      margin: 0;
+      color: #52616d;
+      font-weight: 400;
+    }
+
+    .camera-consent a {
+      color: #071725;
+      text-decoration: underline;
+    }
+
+    .camera-form-submit {
+      width: 100%;
+      margin-top: 4px;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 6px;
+      background: #C5F35D;
+      color: #071725;
+      font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .camera-form-submit:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
+    .camera-form-status {
+      display: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .camera-form-status.is-visible {
+      display: block;
+    }
+
+    .camera-form-status.success {
+      background: #edf7df;
+      color: #25420c;
+    }
+
+    .camera-form-status.error {
+      background: #fff0f0;
+      color: #8b1e1e;
+    }
+
+    @media (max-width: 600px) {
+      .camera-hero {
+        padding: 45px 20px 38px;
+      }
+
+      .camera-photo-section {
+        padding: 0 20px 40px;
+      }
+
+      .camera-photo {
+        height: 250px;
+        border-radius: 8px;
+      }
+
+      .camera-section {
+        padding: 45px 20px;
+      }
+
+      .camera-card {
+        padding: 22px;
+      }
+
+      .camera-modal {
+        padding: 10px;
+        align-items: flex-start;
+      }
+
+      .camera-modal-panel {
+        padding: 24px 18px;
+        margin: 10px 0;
+        max-height: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html#domov">
+        <img src="prologiqon%20logo%20final.png" alt="PrologIQon">
+      </a>
+
+      <button class="menu" aria-label="Otvoriť menu" aria-expanded="false">
+        <i></i><i></i><i></i>
+      </button>
+
+      <nav class="links">
+        <a href="index.html#domov">Domov</a>
+        <a href="index.html#sluzby">Služby</a>
+        <a href="index.html#onas">O nás</a>
+        <a href="index.html#postup">Postup</a>
+        <a class="active" href="smart-domacnost.html">Smart domácnosť</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a class="nav-call" href="index.html#kontakt">Kontaktujte nás <b>↗</b></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="camera-hero">
+      <div class="camera-inner">
+        <div class="camera-label">PrologIQon · IQ Cube – kamerový dohľad</div>
+
+        <h1><span class="iq-lime">IQ</span> Cube – kamerový dohľad pre váš objekt.</h1>
+
+        <p>
+          IQ Cube spája vhodne vybrané zariadenia do uceleného riešenia.
+          Kamerový dohľad vám umožní vizuálne skontrolovať dom, vstup,
+          garáž alebo pozemok, podľa zvoleného systému prezerať záznam
+          a zvýšiť preventívny účinok viditeľného zabezpečenia.
+        </p>
+
+        <a class="camera-button" href="#balicky">
+          Pozrieť ponuku riešení
+        </a>
+      </div>
+    </section>
+
+    <section class="camera-photo-section" aria-label="IQ Cube kamerový dohľad">
+      <div class="camera-photo">
+        <img
+          src="kamery.png"
+          alt="Kamerový dohľad IQ Cube pri rodinnom dome"
+          fetchpriority="high">
+      </div>
+    </section>
+
+    <section class="camera-section">
+      <div class="camera-inner">
+        <h2>Vyberte si IQ Cube pre svoj objekt</h2>
+
+        <p class="camera-intro">
+          Rozsah kamerového dohľadu navrhneme podľa veľkosti objektu,
+          miest, ktoré chcete sledovať, a požiadaviek na záznam.
+          IQ Cube nie je ďalšia značka ani samostatný produkt – je to
+          označenie uceleného riešenia od PrologIQon. Nižšie sú základné
+          návrhy balíkov; ich výbavu a ceny doladíme podľa zvolených zariadení.
+        </p>
+
+        <div class="camera-grid" id="balicky">
+          <article class="camera-card">
+            <h3>IQ Cube – Prehľad</h3>
+            <p>
+              Základné riešenie na vizuálnu kontrolu jedného dôležitého miesta.
+            </p>
+            <ul>
+              <li>Kamera na vhodne zvolenom mieste</li>
+              <li>Vzdialený prístup podľa možností zariadenia</li>
+              <li>Nastavenie a odskúšanie obrazu</li>
+            </ul>
+            <div class="camera-price">
+              <span>CENA</span>
+              <strong>Podľa zvoleného riešenia</strong>
+            </div>
+            <button type="button" class="camera-button camera-inquiry"
+              data-package="IQ Cube – Prehľad" data-price="Podľa zvoleného riešenia">
+              Mám záujem
+            </button>
+          </article>
+
+          <article class="camera-card">
+            <h3>IQ Cube – Záznam</h3>
+            <p>
+              Kamerový dohľad s možnosťou spätne preveriť zaznamenané udalosti.
+            </p>
+            <ul>
+              <li>Kamera alebo kamery podľa návrhu</li>
+              <li>Možnosť uchovávania záznamu</li>
+              <li>Nastavenie prístupu k záznamom</li>
+            </ul>
+            <div class="camera-price">
+              <span>CENA</span>
+              <strong>Podľa zvoleného riešenia</strong>
+            </div>
+            <button type="button" class="camera-button camera-inquiry"
+              data-package="IQ Cube – Záznam" data-price="Podľa zvoleného riešenia">
+              Mám záujem
+            </button>
+          </article>
+
+          <article class="camera-card">
+            <h3>IQ Cube – Ochrana objektu</h3>
+            <p>
+              Rozšírenejšie pokrytie vstupov, prístupových ciest alebo ďalších
+              dôležitých miest okolo domu či prevádzky.
+            </p>
+            <ul>
+              <li>Viac kamier podľa potrieb objektu</li>
+              <li>Pokrytie vybraných rizikových miest</li>
+              <li>Návrh umiestnenia a nastavenie systému</li>
+            </ul>
+            <div class="camera-price">
+              <span>CENA</span>
+              <strong>Podľa rozsahu</strong>
+            </div>
+            <button type="button" class="camera-button camera-inquiry"
+              data-package="IQ Cube – Ochrana objektu" data-price="Podľa rozsahu">
+              Mám záujem
+            </button>
+          </article>
+        </div>
+
+        <div class="camera-note">
+          <strong>Dôležité:</strong> Konkrétne funkcie, spôsob vzdialeného
+          prístupu a uchovávanie záznamu závisia od zvolených kamier a
+          záznamového riešenia. Umiestnenie kamier treba navrhnúť s ohľadom
+          na súkromie a platné pravidlá ochrany osobných údajov.
+          <br><br>
+          <strong>Doprava:</strong> V prípade realizácie mimo okresu Martin
+          sa účtuje cestovné vo výške <strong>0,32 €/km</strong>.
+        </div>
+      </div>
+    </section>
+
+    <section class="camera-section alt">
+      <div class="camera-inner">
+        <h2>Ako to prebieha?</h2>
+
+        <div class="camera-grid">
+          <article class="camera-card">
+            <h3>1. Zistíme, čo chcete sledovať</h3>
+            <p>
+              Preberieme si objekt, prístupové miesta a požiadavky na
+              živý obraz či záznam.
+            </p>
+          </article>
+
+          <article class="camera-card">
+            <h3>2. Navrhneme riešenie</h3>
+            <p>
+              Vyberieme vhodné kamery, ich umiestnenie a spôsob
+              prístupu k obrazu alebo záznamu.
+            </p>
+          </article>
+
+          <article class="camera-card">
+            <h3>3. Nainštalujeme a nastavíme</h3>
+            <p>
+              Po dohode zariadenia namontujeme, nastavíme a otestujeme
+              ich funkčnosť.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="camera-cta">
+      <div class="camera-inner">
+        <h2>Chcete IQ Cube – kamerový dohľad?</h2>
+        <p>
+          Ozvite sa nám a spoločne preberieme možnosti kamerového
+          dohľadu pre váš dom, garáž alebo prevádzku. Pôsobíme v Martine
+          a okolí.
+        </p>
+
+        <button type="button" class="camera-button camera-inquiry"
+          data-package="Individuálny dopyt – IQ Cube kamerový dohľad"
+          data-price="Podľa dohody">
+          Nezáväzne sa informovať
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="camera-footer">
+    <p>© PrologIQon · Martin a okolie</p>
+    <p><a href="smart-domacnost.html">Späť na Smart domácnosť</a></p>
+    <p><a href="index.html#kontakt">Kontakt</a></p>
+  </footer>
+
+  <!-- Dopytový formulár -->
+  <div
+    class="camera-modal"
+    id="camera-modal"
+    aria-hidden="true">
+
+    <div
+      class="camera-modal-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="camera-modal-title">
+
+      <button
+        type="button"
+        class="camera-modal-close"
+        id="camera-modal-close"
+        aria-label="Zavrieť formulár">
+        &times;
+      </button>
+
+      <h2 id="camera-modal-title">Nezáväzný dopyt</h2>
+
+      <p>
+        Vyplňte kontaktné údaje a ozveme sa vám s ďalším postupom.
+      </p>
+
+      <form
+        class="camera-form"
+        id="camera-inquiry-form"
+        action="https://api.web3forms.com/submit"
+        method="POST">
+
+        <input
+          type="hidden"
+          name="access_key"
+          value="d778e264-7744-4181-adea-b26a5d6d48b6">
+
+        <input
+          type="hidden"
+          name="subject"
+          value="Nový dopyt – IQ Cube pre kamerový systém PrologIQon">
+
+        <input
+          type="hidden"
+          name="from_name"
+          value="Web PrologIQon – IQ Cube pre kamerový systém">
+
+        <input
+          type="hidden"
+          name="redirect"
+          value="">
+
+        <div>
+          <label for="camera-package">Vybraný balík</label>
+          <input
+            type="text"
+            id="camera-package"
+            name="Vybraný balík"
+            value="Individuálny dopyt – IQ Cube pre kamerový systém"
+            readonly>
+        </div>
+
+        <div>
+          <label for="camera-price-input">Cena</label>
+          <input
+            type="text"
+            id="camera-price-input"
+            name="Cena"
+            value="Podľa dohody"
+            readonly>
+        </div>
+
+        <div>
+          <label for="camera-name">Meno a priezvisko *</label>
+          <input
+            type="text"
+            id="camera-name"
+            name="Meno a priezvisko"
+            autocomplete="name"
+            required>
+        </div>
+
+        <div>
+          <label for="camera-phone">Telefón *</label>
+          <input
+            type="tel"
+            id="camera-phone"
+            name="Telefón"
+            autocomplete="tel"
+            required>
+        </div>
+
+        <div>
+          <label for="camera-email">E-mail *</label>
+          <input
+            type="email"
+            id="camera-email"
+            name="E-mail"
+            autocomplete="email"
+            required>
+        </div>
+
+        <div>
+          <label for="camera-town">Obec alebo mesto realizácie *</label>
+          <input
+            type="text"
+            id="camera-town"
+            name="Obec alebo mesto realizácie"
+            autocomplete="address-level2"
+            required>
+        </div>
+
+        <div>
+          <label for="camera-note-input">Poznámka</label>
+          <textarea
+            id="camera-note-input"
+            name="Poznámka"
+            placeholder="Počet kamier, miesto montáže, požadované funkcie alebo ďalšie informácie."></textarea>
+        </div>
+
+        <div class="camera-consent">
+          <input
+            type="checkbox"
+            id="camera-consent"
+            name="Súhlas so spracovaním údajov"
+            value="Áno"
+            required>
+
+          <label for="camera-consent">
+            Súhlasím so spracovaním osobných údajov na účely vybavenia
+            dopytu. Oboznámil/a som sa so
+            <a href="ochrana-osobnych-udajov.html" target="_blank" rel="noopener">
+              zásadami ochrany osobných údajov
+            </a>.
+          </label>
+        </div>
+
+        <div
+          class="camera-form-status"
+          id="camera-form-status"
+          role="status"
+          aria-live="polite">
+        </div>
+
+        <button
+          type="submit"
+          class="camera-form-submit"
+          id="camera-form-submit">
+          Odoslať dopyt
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    (function () {
+      const modal = document.getElementById("camera-modal");
+      const closeButton = document.getElementById("camera-modal-close");
+      const form = document.getElementById("camera-inquiry-form");
+      const packageInput = document.getElementById("camera-package");
+      const priceInput = document.getElementById("camera-price-input");
+      const statusBox = document.getElementById("camera-form-status");
+      const submitButton = document.getElementById("camera-form-submit");
+
+      let previousFocus = null;
+
+      function openModal(packageName, packagePrice) {
+        previousFocus = document.activeElement;
+
+        packageInput.value =
+          packageName || "Individuálny dopyt – IQ Cube pre kamerový systém";
+
+        priceInput.value = packagePrice || "Podľa dohody";
+
+        statusBox.textContent = "";
+        statusBox.className = "camera-form-status";
+
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+
+        window.setTimeout(function () {
+          const firstField = document.getElementById("camera-name");
+          if (firstField) firstField.focus();
+        }, 50);
+      }
+
+      function closeModal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+
+        if (previousFocus && typeof previousFocus.focus === "function") {
+          previousFocus.focus();
+        }
+      }
+
+      document.querySelectorAll(".camera-inquiry").forEach(function (button) {
+        button.addEventListener("click", function () {
+          openModal(
+            button.getAttribute("data-package"),
+            button.getAttribute("data-price")
+          );
+        });
+      });
+
+      closeButton.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && modal.classList.contains("is-open")) {
+          closeModal();
+        }
+      });
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        statusBox.textContent = "";
+        statusBox.className = "camera-form-status";
+        submitButton.disabled = true;
+        submitButton.textContent = "Odosielam…";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+              Accept: "application/json"
+            }
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            statusBox.textContent =
+              "✓ Dopyt bol úspešne odoslaný. Ďakujeme za váš záujem. Ozveme sa vám.";
+
+            statusBox.className = "camera-form-status is-visible success";
+
+            form.reset();
+
+            packageInput.value = "Dopyt odoslaný";
+            priceInput.value = "—";
+            submitButton.textContent = "Dopyt odoslaný";
+          } else {
+            throw new Error(
+              result.message || "Dopyt sa nepodarilo odoslať."
+            );
+          }
+        } catch (error) {
+          statusBox.textContent =
+            "Dopyt sa nepodarilo odoslať. Skúste to, prosím, znova alebo nás kontaktujte e-mailom na prologiqon@gmail.com.";
+
+          statusBox.className = "camera-form-status is-visible error";
+          submitButton.disabled = false;
+          submitButton.textContent = "Skúsiť odoslať znova";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
