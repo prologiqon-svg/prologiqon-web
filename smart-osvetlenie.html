@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -6,567 +5,910 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071725">
 
-  <title>Inteligentné osvetlenie | PrologIQon</title>
-  <meta name="description" content="Inteligentné osvetlenie domu a bytu. Ovládanie svetiel mobilom, svetelné scény a automatizácia podľa pohybu. Martin a okolie.">
+  <title>IQ Cube – Inteligentné osvetlenie | PrologIQon</title>
+  <meta name="description" content="IQ Cube od PrologIQon: inteligentné osvetlenie s ovládaním cez mobil, svetelnými scénami, časovými plánmi a automatizáciou. Martin a okolie.">
 
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
 
   <style>
-    :root {
-      --light-navy: #071725;
-      --light-navy2: #0d2031;
-      --light-lime: #C5F35D;
-      --light-white: #ffffff;
-      --light-ink: #102237;
-      --light-muted: #637388;
-      --light-pale: #f4f7f9;
+    .camera-hero {
+      background: #071725;
+      color: #fff;
+      padding: 60px 24px 75px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: var(--light-white);
-      color: var(--light-ink);
-      font-family: "DM Sans", Arial, sans-serif;
-    }
-
-    .lighting-wrap {
-      width: min(1160px, calc(100% - 40px));
+    .camera-inner {
+      max-width: 1120px;
       margin: 0 auto;
     }
 
-    .lighting-hero {
-      position: relative;
-      min-height: 470px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(7,23,37,.92) 0%, rgba(7,23,37,.70) 43%, rgba(7,23,37,.08) 100%),
-        url("inteligentne-osvetlenie.png") center 52% / cover no-repeat;
-      color: var(--light-white);
-    }
-
-    .lighting-hero-content {
-      position: relative;
-      z-index: 1;
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 75px 0;
-    }
-
-    .lighting-eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: var(--light-lime);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 2px;
+    .camera-label {
+      color: #C5F35D;
       text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 700;
     }
 
-    .lighting-hero h1 {
-      max-width: 650px;
-      margin: 0 0 22px;
-      font-family: "Manrope", Arial, sans-serif;
+    .camera-hero h1 {
+      max-width: 850px;
       font-size: clamp(36px, 5vw, 58px);
-      line-height: 1.08;
-      font-weight: 800;
+      line-height: 1.12;
+      margin: 18px 0;
     }
 
-    .lighting-hero p {
-      max-width: 570px;
-      margin: 0 0 30px;
-      color: rgba(255,255,255,.88);
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .lighting-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 13px 24px;
-      border-radius: 7px;
-      background: var(--light-lime);
-      color: var(--light-navy);
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform .2s, background .2s;
-    }
-
-    .lighting-button:hover {
-      background: #d5ff78;
-      transform: translateY(-2px);
-    }
-
-    .lighting-intro {
-      padding: 76px 0 35px;
-      text-align: center;
-    }
-
-    .lighting-intro h2,
-    .lighting-packages h2,
-    .lighting-process h2 {
-      margin: 0 0 18px;
-      color: var(--light-navy);
-      font-family: "Manrope", Arial, sans-serif;
-      font-size: clamp(27px, 3vw, 36px);
-      line-height: 1.2;
-      font-weight: 800;
-    }
-
-    .lighting-intro p {
+    .camera-hero p {
       max-width: 760px;
+      color: #d5dee5;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .iq-lime {
+      color: #C5F35D;
+    }
+
+    .camera-button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 6px;
+      background: #C5F35D;
+      color: #071725;
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .camera-button:hover {
+      filter: brightness(0.95);
+    }
+
+    .camera-photo-section {
+      background: #071725;
+      padding: 0 24px 55px;
+    }
+
+    .camera-photo {
+      max-width: 1120px;
       margin: 0 auto;
-      color: var(--light-muted);
-      font-size: 17px;
-      line-height: 1.75;
+      height: clamp(240px, 42vw, 480px);
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(197, 243, 93, 0.25);
     }
 
-    .lighting-packages {
-      padding: 40px 0 85px;
-      background: var(--light-pale);
+    .camera-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 58%;
     }
 
-    .lighting-section-heading {
-      margin-bottom: 36px;
-      text-align: center;
+    .camera-section {
+      padding: 65px 24px;
+      background: #fff;
+      color: #071725;
     }
 
-    .lighting-section-heading p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: var(--light-muted);
-      line-height: 1.7;
+    .camera-section.alt {
+      background: #f3f6f8;
     }
 
-    .lighting-grid {
+    .camera-section h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 0 0 16px;
+    }
+
+    .camera-intro {
+      max-width: 780px;
+      color: #52616d;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .camera-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
       gap: 20px;
-      align-items: stretch;
+      margin-top: 32px;
     }
 
-    .lighting-card {
+    .camera-card {
+      border: 1px solid #dce4e9;
+      border-radius: 12px;
+      padding: 26px;
+      background: #fff;
       display: flex;
       flex-direction: column;
-      padding: 27px 23px;
-      border: 1px solid #e2e8ed;
-      border-radius: 12px;
-      background: var(--light-white);
-      box-shadow: 0 8px 24px rgba(7,23,37,.045);
+      align-items: flex-start;
     }
 
-    .lighting-card h3 {
+    .camera-card h3 {
+      font-size: 22px;
       margin: 0 0 12px;
-      color: var(--light-navy);
-      font-family: "Manrope", Arial, sans-serif;
-      font-size: 19px;
-      font-weight: 800;
     }
 
-    .lighting-card p {
-      min-height: 76px;
+    .camera-card p {
+      color: #52616d;
+      line-height: 1.75;
+      margin: 0 0 14px;
+    }
+
+    .camera-card ul {
+      color: #52616d;
+      line-height: 1.8;
+      padding-left: 0;
       margin: 0 0 20px;
-      color: var(--light-muted);
-      font-size: 14px;
-      line-height: 1.65;
-    }
-
-    .lighting-card ul {
-      display: grid;
-      gap: 12px;
-      margin: 0 0 25px;
-      padding: 0;
       list-style: none;
     }
 
-    .lighting-card li {
-      position: relative;
-      padding-left: 25px;
-      color: var(--light-ink);
-      font-size: 14px;
-      line-height: 1.5;
+    .camera-card li {
+      margin-bottom: 5px;
     }
 
-    .lighting-card li::before {
+    .camera-card li::before {
       content: "✓";
-      position: absolute;
-      left: 0;
-      top: 0;
-      display: flex;
+      display: inline-grid;
+      place-items: center;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #C5F35D;
+      color: #071725;
+      font-size: 10px;
+      font-weight: 800;
+      margin-right: 9px;
+    }
+
+    .camera-price {
+      border-top: 1px solid #dce4e9;
+      padding-top: 18px;
+      margin-top: auto;
+      width: 100%;
+    }
+
+    .camera-price span {
+      display: block;
+      color: #52616d;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .camera-price strong {
+      display: block;
+      font-size: 19px;
+      color: #071725;
+    }
+
+    .camera-note {
+      margin-top: 28px;
+      padding: 22px;
+      background: #edf2e4;
+      border-left: 4px solid #C5F35D;
+      border-radius: 6px;
+      color: #33414b;
+      line-height: 1.8;
+    }
+
+    .camera-cta {
+      background: #071725;
+      color: #fff;
+      padding: 65px 24px;
+      text-align: center;
+    }
+
+    .camera-cta h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 0 0 15px;
+    }
+
+    .camera-cta p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #d5dee5;
+      line-height: 1.8;
+    }
+
+    .camera-footer {
+      background: #071725;
+      color: #d5dee5;
+      padding: 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .camera-footer a {
+      color: #C5F35D;
+      text-decoration: none;
+    }
+
+    /* Dopytový formulár */
+    .camera-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      padding: 20px;
+      overflow-y: auto;
+      background: rgba(3, 12, 20, 0.82);
       align-items: center;
       justify-content: center;
-      width: 17px;
-      height: 17px;
-      border-radius: 50%;
-      background: var(--light-lime);
-      color: var(--light-navy);
-      font-size: 11px;
-      font-weight: 900;
     }
 
-    .lighting-price {
-      margin-top: auto;
-      padding-top: 17px;
-      border-top: 1px solid #e8edf1;
-      color: var(--light-navy);
+    .camera-modal.is-open {
+      display: flex;
+    }
+
+    .camera-modal-panel {
+      position: relative;
+      width: 100%;
+      max-width: 620px;
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 30px;
+      background: #fff;
+      color: #071725;
+      border-radius: 12px;
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.3);
+    }
+
+    .camera-modal-panel h2 {
+      margin: 0 40px 10px 0;
+      font-size: 28px;
+    }
+
+    .camera-modal-panel > p {
+      color: #52616d;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .camera-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 6px;
+      background: #f0f3f5;
+      color: #071725;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .camera-form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .camera-form label {
+      display: block;
+      margin-bottom: 6px;
+      color: #071725;
       font-size: 14px;
       font-weight: 700;
     }
 
-    .lighting-price a {
-      color: var(--light-navy);
-      text-decoration: underline;
-      text-decoration-color: var(--light-lime);
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
-    }
-
-    .lighting-process {
-      padding: 80px 0;
-    }
-
-    .lighting-process-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .lighting-process p {
-      color: var(--light-muted);
-      line-height: 1.8;
-    }
-
-    .lighting-steps {
-      display: grid;
-      gap: 17px;
-    }
-
-    .lighting-step {
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-    }
-
-    .lighting-step-number {
-      flex: 0 0 34px;
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--light-navy);
-      color: var(--light-lime);
-      font-weight: 800;
-    }
-
-    .lighting-step strong {
+    .camera-form input:not([type="checkbox"]),
+    .camera-form textarea {
       display: block;
-      margin-bottom: 4px;
-      color: var(--light-navy);
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 13px;
+      border: 1px solid #cbd5dc;
+      border-radius: 6px;
+      background: #fff;
+      color: #071725;
+      font: inherit;
     }
 
-    .lighting-step span {
-      color: var(--light-muted);
-      font-size: 14px;
+    .camera-form input[readonly] {
+      background: #f3f6f8;
+    }
+
+    .camera-form textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .camera-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #52616d;
+      font-size: 13px;
       line-height: 1.6;
     }
 
-    .lighting-cta {
-      padding: 65px 20px;
-      background: var(--light-navy);
-      color: var(--light-white);
-      text-align: center;
+    .camera-consent input {
+      margin-top: 4px;
+      flex-shrink: 0;
     }
 
-    .lighting-cta h2 {
-      margin: 0 0 15px;
-      font-family: "Manrope", Arial, sans-serif;
-      font-size: clamp(27px, 3vw, 36px);
+    .camera-consent label {
+      margin: 0;
+      color: #52616d;
+      font-weight: 400;
+    }
+
+    .camera-consent a {
+      color: #071725;
+      text-decoration: underline;
+    }
+
+    .camera-form-submit {
+      width: 100%;
+      margin-top: 4px;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 6px;
+      background: #C5F35D;
+      color: #071725;
       font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
     }
 
-    .lighting-cta p {
-      max-width: 650px;
-      margin: 0 auto 25px;
-      color: rgba(255,255,255,.78);
-      line-height: 1.7;
+    .camera-form-submit:disabled {
+      opacity: 0.65;
+      cursor: wait;
     }
 
-    @media (max-width: 950px) {
-      .lighting-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    .camera-form-status {
+      display: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      line-height: 1.6;
+      font-size: 14px;
+    }
 
-      .lighting-process-inner {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
+    .camera-form-status.is-visible {
+      display: block;
+    }
+
+    .camera-form-status.success {
+      background: #edf7df;
+      color: #25420c;
+    }
+
+    .camera-form-status.error {
+      background: #fff0f0;
+      color: #8b1e1e;
     }
 
     @media (max-width: 600px) {
-      .lighting-wrap,
-      .lighting-hero-content {
-        width: min(100% - 32px, 1160px);
+      .camera-hero {
+        padding: 45px 20px 38px;
       }
 
-      .lighting-hero {
-        min-height: 430px;
-        background-position: 58% center;
+      .camera-photo-section {
+        padding: 0 20px 40px;
       }
 
-      .lighting-hero-content {
-        padding: 65px 0;
+      .camera-photo {
+        height: 250px;
+        border-radius: 8px;
       }
 
-      .lighting-hero p {
-        font-size: 16px;
+      .camera-section {
+        padding: 45px 20px;
       }
 
-      .lighting-intro {
-        padding: 55px 0 25px;
+      .camera-card {
+        padding: 22px;
       }
 
-      .lighting-packages {
-        padding: 35px 0 60px;
+      .camera-modal {
+        padding: 10px;
+        align-items: flex-start;
       }
 
-      .lighting-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .lighting-card p {
-        min-height: 0;
-      }
-
-      .lighting-process {
-        padding: 60px 0;
+      .camera-modal-panel {
+        padding: 24px 18px;
+        margin: 10px 0;
+        max-height: none;
       }
     }
   </style>
 </head>
 
 <body>
-
   <header class="site-header">
     <div class="wrap nav">
-      <a class="brand" href="index.html" aria-label="PrologIQon – úvodná stránka">
+      <a class="brand" href="index.html#domov">
         <img src="prologiqon%20logo%20final.png" alt="PrologIQon">
       </a>
 
-      <button class="menu" type="button" aria-label="Otvoriť menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="menu" aria-label="Otvoriť menu" aria-expanded="false">
+        <i></i><i></i><i></i>
       </button>
 
-      <nav class="links" aria-label="Hlavná navigácia">
+      <nav class="links">
         <a href="index.html#domov">Domov</a>
         <a href="index.html#sluzby">Služby</a>
-        <a href="smart-domacnost.html">Smart domácnosť</a>
         <a href="index.html#onas">O nás</a>
+        <a href="index.html#postup">Postup</a>
+        <a class="active" href="smart-domacnost.html">Smart domácnosť</a>
         <a href="index.html#kontakt">Kontakt</a>
+        <a class="nav-call" href="index.html#kontakt">Kontaktujte nás <b>↗</b></a>
       </nav>
-
-      <a class="nav-call" href="index.html#kontakt">Nezáväzný dopyt</a>
     </div>
   </header>
 
   <main>
+    <section class="camera-hero">
+      <div class="camera-inner">
+        <div class="camera-label">PrologIQon · IQ Cube – inteligentné osvetlenie</div>
 
-    <section class="lighting-hero">
-      <div class="lighting-hero-content">
-        <span class="lighting-eyebrow">SMART OSVETLENIE</span>
-        <h1>Inteligentné osvetlenie podľa vášho života</h1>
+        <h1><span class="iq-lime">IQ</span> Cube – inteligentné osvetlenie pre váš domov.</h1>
+
         <p>
-          Ovládajte svetlá pohodlne, vytvárajte svetelné scény
-          a nechajte osvetlenie reagovať na vaše každodenné potreby.
+          IQ Cube premení bežné osvetlenie na inteligentné riešenie.
+          Svetlá môžete ovládať cez mobil, vytvárať svetelné scény,
+          nastavovať časové plány a využívať automatické zapínanie
+          podľa pohybu alebo svetelných podmienok. Manuálne ovládanie
+          zostáva zachované.
         </p>
-        <a class="lighting-button" href="index.html#kontakt">
-          Mám záujem o riešenie
+
+        <a class="camera-button" href="#balicky">
+          Pozrieť ponuku riešení
         </a>
       </div>
     </section>
 
-    <section class="lighting-intro lighting-wrap">
-      <h2>Svetlo, ktoré sa prispôsobí vám</h2>
-      <p>
-        Inteligentné osvetlenie dokáže viac než len zapnúť a vypnúť svetlo.
-        Umožňuje pohodlné ovládanie, časové nastavenia, svetelné scény
-        aj automatické reakcie na pohyb. Riešenie navrhneme podľa
-        možností vašej elektroinštalácie a požiadaviek domácnosti.
-      </p>
+    <section class="camera-photo-section" aria-label="IQ Cube inteligentné osvetlenie">
+      <div class="camera-photo">
+        <img
+          src="inteligentne-osvetlenie.png"
+          alt="Inteligentné osvetlenie IQ Cube v interiéri"
+          fetchpriority="high">
+      </div>
     </section>
 
-    <section class="lighting-packages">
-      <div class="lighting-wrap">
-        <div class="lighting-section-heading">
-          <h2>Vyberte si úroveň inteligentného osvetlenia</h2>
-          <p>
-            Od jednoduchého ovládania existujúcich svetiel až po
-            automatizované osvetlenie jednotlivých miestností.
-          </p>
-        </div>
+    <section class="camera-section">
+      <div class="camera-inner">
+        <h2>Vyberte si IQ Cube pre svoje osvetlenie</h2>
 
-        <div class="lighting-grid">
+        <p class="camera-intro">
+          Každý priestor má iné požiadavky na osvetlenie a jeho ovládanie.
+          Pred návrhom preveríme existujúcu elektroinštaláciu, typ svietidiel
+          a vaše predstavy. Podľa toho vyberieme vhodné kompatibilné
+          zariadenia a navrhneme riešenie bez zbytočných zásahov.
+          Nižšie sú základné návrhy balíkov, ktoré prispôsobíme konkrétnemu
+          domu alebo bytu.
+        </p>
 
-          <article class="lighting-card">
+        <div class="camera-grid" id="balicky">
+          <article class="camera-card">
             <h3>SMART OSVETLENIE – Ovládanie</h3>
             <p>
-              Pohodlné ovládanie vybraného osvetlenia prostredníctvom
-              mobilnej aplikácie.
+              Základné riešenie na pohodlné ovládanie osvetlenia cez mobil.
             </p>
             <ul>
-              <li>Ovládanie svetla mobilom</li>
-              <li>Zapnutie a vypnutie na diaľku</li>
-              <li>Zachovanie možnosti manuálneho ovládania</li>
-              <li>Nastavenie a odskúšanie riešenia</li>
+              <li>Ovládanie svetiel cez mobilnú aplikáciu</li>
+              <li>Vzdialené zapnutie a vypnutie</li>
+              <li>Zachovanie manuálneho ovládania</li>
+              <li>Nastavenie a odskúšanie funkčnosti</li>
             </ul>
-            <div class="lighting-price">
-              <a href="index.html#kontakt">Pre cenu nás kontaktujte</a>
+            <div class="camera-price">
+              <span>CENA</span>
+              <strong>Pre cenu nás kontaktujte</strong>
             </div>
+            <button type="button" class="camera-button camera-inquiry"
+              data-package="SMART OSVETLENIE – Ovládanie" data-price="Pre cenu nás kontaktujte">
+              Mám záujem
+            </button>
           </article>
 
-          <article class="lighting-card">
+          <article class="camera-card">
             <h3>SMART OSVETLENIE – Komfort</h3>
             <p>
-              Ovládanie viacerých svetelných okruhov a vytváranie
-              praktických svetelných scén.
-            </p>
-            <ul>
-              <li>Ovládanie viacerých okruhov</li>
-              <li>Samostatné ovládanie miestností</li>
-              <li>Vytváranie svetelných scén</li>
-              <li>Časové plánovanie osvetlenia</li>
-            </ul>
-            <div class="lighting-price">
-              <a href="index.html#kontakt">Pre cenu nás kontaktujte</a>
-            </div>
-          </article>
-
-          <article class="lighting-card">
-            <h3>SMART OSVETLENIE – Automat</h3>
-            <p>
-              Osvetlenie, ktoré dokáže reagovať na pohyb
-              a podľa zvolených podmienok sa automaticky zapínať.
-            </p>
-            <ul>
-              <li>Automatické spínanie podľa pohybu</li>
-              <li>Možnosť využitia svetelného senzora</li>
-              <li>Rozdielne nastavenia deň a noc</li>
-              <li>Nastavenie automatického vypnutia</li>
-            </ul>
-            <div class="lighting-price">
-              <a href="index.html#kontakt">Pre cenu nás kontaktujte</a>
-            </div>
-          </article>
-
-          <article class="lighting-card">
-            <h3>SMART OSVETLENIE – Komplet</h3>
-            <p>
-              Prepracované riešenie kombinujúce ovládanie,
-              svetelné scény a automatizáciu.
+              Pohodlné ovládanie viacerých svetelných okruhov a miestností.
             </p>
             <ul>
               <li>Ovládanie viacerých svetelných okruhov</li>
-              <li>Svetelné scény podľa situácie</li>
-              <li>Pohybové a svetelné senzory podľa návrhu</li>
-              <li>Automatizované režimy osvetlenia</li>
-              <li>Centralizované ovládanie</li>
+              <li>Vytváranie svetelných scén</li>
+              <li>Nastavenie časových plánov</li>
+              <li>Ovládanie podľa potrieb domácnosti</li>
             </ul>
-            <div class="lighting-price">
-              <a href="index.html#kontakt">Pre cenu nás kontaktujte</a>
+            <div class="camera-price">
+              <span>CENA</span>
+              <strong>Pre cenu nás kontaktujte</strong>
             </div>
+            <button type="button" class="camera-button camera-inquiry"
+              data-package="SMART OSVETLENIE – Komfort" data-price="Pre cenu nás kontaktujte">
+              Mám záujem
+            </button>
           </article>
 
+          <article class="camera-card">
+            <h3>SMART OSVETLENIE – Automat</h3>
+            <p>
+              Automatické ovládanie svetiel podľa pohybu a svetelných podmienok.
+            </p>
+            <ul>
+              <li>Zapínanie osvetlenia pri zaznamenaní pohybu</li>
+              <li>Využitie svetelného senzora</li>
+              <li>Nastavenie denných a nočných režimov</li>
+              <li>Automatické vypnutie podľa nastavenia</li>
+            </ul>
+            <div class="camera-price">
+              <span>CENA</span>
+              <strong>Pre cenu nás kontaktujte</strong>
+            </div>
+            <button type="button" class="camera-button camera-inquiry"
+              data-package="SMART OSVETLENIE – Automat" data-price="Pre cenu nás kontaktujte">
+              Mám záujem
+            </button>
+          </article>
+
+          <article class="camera-card">
+            <h3>SMART OSVETLENIE – Komplet</h3>
+            <p>
+              Prepojené riešenie osvetlenia s centrálnym ovládaním
+              a automatickými režimami.
+            </p>
+            <ul>
+              <li>Ovládanie viacerých svetelných okruhov</li>
+              <li>Svetelné scény a časové plány</li>
+              <li>Pohybové a svetelné senzory</li>
+              <li>Automatické režimy podľa nastavenia</li>
+              <li>Centralizované ovládanie osvetlenia</li>
+            </ul>
+            <div class="camera-price">
+              <span>CENA</span>
+              <strong>Pre cenu nás kontaktujte</strong>
+            </div>
+            <button type="button" class="camera-button camera-inquiry"
+              data-package="SMART OSVETLENIE – Komplet" data-price="Pre cenu nás kontaktujte">
+              Mám záujem
+            </button>
+          </article>
+        </div>
+
+        <div class="camera-note">
+          <strong>Dôležité:</strong> Konkrétne možnosti inteligentného
+          ovládania závisia od existujúcej elektroinštalácie, typu svietidiel
+          a použitých kompatibilných zariadení. Pred realizáciou preveríme
+          vhodnosť riešenia a dohodneme rozsah potrebných úprav.
+          <br><br>
+          <strong>Doprava:</strong> V prípade realizácie mimo okresu Martin
+          sa účtuje cestovné vo výške <strong>0,32 €/km</strong>.
         </div>
       </div>
     </section>
 
-    <section class="lighting-process">
-      <div class="lighting-wrap lighting-process-inner">
+    <section class="camera-section alt">
+      <div class="camera-inner">
+        <h2>Ako to prebieha?</h2>
 
-        <div>
-          <h2>Riešenie podľa vašej domácnosti</h2>
-          <p>
-            Nie každá elektroinštalácia umožňuje rovnaký spôsob
-            inteligentného ovládania. Preto najskôr posúdime existujúce
-            zapojenie, typ osvetlenia a vaše požiadavky.
-          </p>
-          <p>
-            Cieľom je využiť vhodné technológie bez zbytočných zásahov
-            a navrhnúť riešenie, ktoré bude praktické pri každodennom
-            používaní.
-          </p>
+        <div class="camera-grid">
+          <article class="camera-card">
+            <h3>1. Zistíme, čo potrebujete</h3>
+            <p>
+              Preberieme si miestnosti, typ osvetlenia, existujúce
+              vypínače a spôsob, akým chcete svetlá ovládať.
+            </p>
+          </article>
+
+          <article class="camera-card">
+            <h3>2. Navrhneme riešenie</h3>
+            <p>
+              Vyberieme vhodné kompatibilné zariadenia a navrhneme
+              ovládanie, svetelné scény alebo automatické režimy.
+            </p>
+          </article>
+
+          <article class="camera-card">
+            <h3>3. Nainštalujeme a nastavíme</h3>
+            <p>
+              Po dohode zariadenia namontujeme, nastavíme a otestujeme.
+              Ukážeme vám aj ovládanie cez mobilnú aplikáciu.
+            </p>
+          </article>
         </div>
-
-        <div class="lighting-steps">
-          <div class="lighting-step">
-            <div class="lighting-step-number">1</div>
-            <div>
-              <strong>Požiadavky a predstava</strong>
-              <span>Prejdeme si, čo chcete ovládať a aké funkcie očakávate.</span>
-            </div>
-          </div>
-
-          <div class="lighting-step">
-            <div class="lighting-step-number">2</div>
-            <div>
-              <strong>Návrh riešenia</strong>
-              <span>Vyberieme vhodné komponenty podľa možností inštalácie.</span>
-            </div>
-          </div>
-
-          <div class="lighting-step">
-            <div class="lighting-step-number">3</div>
-            <div>
-              <strong>Realizácia a nastavenie</strong>
-              <span>Odborná montáž, konfigurácia a odskúšanie funkcií.</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <section class="lighting-cta">
-      <div class="lighting-wrap">
-        <h2>Chcete mať osvetlenie pod kontrolou?</h2>
+    <section class="camera-cta">
+      <div class="camera-inner">
+        <h2>Chcete IQ Cube – inteligentné osvetlenie?</h2>
         <p>
-          Napíšte nám, aké osvetlenie chcete ovládať.
-          Navrhneme vhodné riešenie pre váš dom alebo byt.
+          Ozvite sa nám a spoločne preberieme možnosti inteligentného
+          osvetlenia pre váš dom alebo byt. Pôsobíme v Martine a okolí.
         </p>
-        <a class="lighting-button" href="index.html#kontakt">
-          Nezáväzne nás kontaktovať
-        </a>
+
+        <button type="button" class="camera-button camera-inquiry"
+          data-package="Individuálny dopyt – IQ Cube inteligentné osvetlenie"
+          data-price="Podľa dohody">
+          Nezáväzne sa informovať
+        </button>
       </div>
     </section>
-
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <a href="index.html" aria-label="PrologIQon – úvodná stránka">
-        <img src="prologiqon%20logo%20final%20web.png" alt="PrologIQon">
-      </a>
-      <p>Elektroinštalácie a smart technológie | Martin a okolie</p>
-      <p>
-        <a href="smart-domacnost.html">Smart domácnosť</a>
-        &nbsp;·&nbsp;
-        <a href="index.html#kontakt">Kontakt</a>
-      </p>
-    </div>
+  <footer class="camera-footer">
+    <p>© PrologIQon · Martin a okolie</p>
+    <p><a href="smart-domacnost.html">Späť na Smart domácnosť</a></p>
+    <p><a href="index.html#kontakt">Kontakt</a></p>
   </footer>
+
+  <!-- Dopytový formulár -->
+  <div
+    class="camera-modal"
+    id="camera-modal"
+    aria-hidden="true">
+
+    <div
+      class="camera-modal-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="camera-modal-title">
+
+      <button
+        type="button"
+        class="camera-modal-close"
+        id="camera-modal-close"
+        aria-label="Zavrieť formulár">
+        &times;
+      </button>
+
+      <h2 id="camera-modal-title">Nezáväzný dopyt</h2>
+
+      <p>
+        Vyplňte kontaktné údaje a ozveme sa vám s ďalším postupom.
+      </p>
+
+      <form
+        class="camera-form"
+        id="camera-inquiry-form"
+        action="https://api.web3forms.com/submit"
+        method="POST">
+
+        <input
+          type="hidden"
+          name="access_key"
+          value="d778e264-7744-4181-adea-b26a5d6d48b6">
+
+        <input
+          type="hidden"
+          name="subject"
+          value="Nový dopyt – IQ Cube pre inteligentné osvetlenie PrologIQon">
+
+        <input
+          type="hidden"
+          name="from_name"
+          value="Web PrologIQon – IQ Cube inteligentné osvetlenie">
+
+        <input
+          type="hidden"
+          name="redirect"
+          value="">
+
+        <div>
+          <label for="camera-package">Vybraný balík</label>
+          <input
+            type="text"
+            id="camera-package"
+            name="Vybraný balík"
+            value="Individuálny dopyt – IQ Cube inteligentné osvetlenie"
+            readonly>
+        </div>
+
+        <div>
+          <label for="camera-price-input">Cena</label>
+          <input
+            type="text"
+            id="camera-price-input"
+            name="Cena"
+            value="Podľa dohody"
+            readonly>
+        </div>
+
+        <div>
+          <label for="camera-name">Meno a priezvisko *</label>
+          <input
+            type="text"
+            id="camera-name"
+            name="Meno a priezvisko"
+            autocomplete="name"
+            required>
+        </div>
+
+        <div>
+          <label for="camera-phone">Telefón *</label>
+          <input
+            type="tel"
+            id="camera-phone"
+            name="Telefón"
+            autocomplete="tel"
+            required>
+        </div>
+
+        <div>
+          <label for="camera-email">E-mail *</label>
+          <input
+            type="email"
+            id="camera-email"
+            name="E-mail"
+            autocomplete="email"
+            required>
+        </div>
+
+        <div>
+          <label for="camera-town">Obec alebo mesto realizácie *</label>
+          <input
+            type="text"
+            id="camera-town"
+            name="Obec alebo mesto realizácie"
+            autocomplete="address-level2"
+            required>
+        </div>
+
+        <div>
+          <label for="camera-note-input">Poznámka</label>
+          <textarea
+            id="camera-note-input"
+            name="Poznámka"
+            placeholder="Počet miestností, typ osvetlenia, požadované funkcie alebo ďalšie informácie."></textarea>
+        </div>
+
+        <div class="camera-consent">
+          <input
+            type="checkbox"
+            id="camera-consent"
+            name="Súhlas so spracovaním údajov"
+            value="Áno"
+            required>
+
+          <label for="camera-consent">
+            Súhlasím so spracovaním osobných údajov na účely vybavenia
+            dopytu. Oboznámil/a som sa so
+            <a href="ochrana-osobnych-udajov.html" target="_blank" rel="noopener">
+              zásadami ochrany osobných údajov
+            </a>.
+          </label>
+        </div>
+
+        <div
+          class="camera-form-status"
+          id="camera-form-status"
+          role="status"
+          aria-live="polite">
+        </div>
+
+        <button
+          type="submit"
+          class="camera-form-submit"
+          id="camera-form-submit">
+          Odoslať dopyt
+        </button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 
+  <script>
+    (function () {
+      const modal = document.getElementById("camera-modal");
+      const closeButton = document.getElementById("camera-modal-close");
+      const form = document.getElementById("camera-inquiry-form");
+      const packageInput = document.getElementById("camera-package");
+      const priceInput = document.getElementById("camera-price-input");
+      const statusBox = document.getElementById("camera-form-status");
+      const submitButton = document.getElementById("camera-form-submit");
+
+      let previousFocus = null;
+
+      function openModal(packageName, packagePrice) {
+        previousFocus = document.activeElement;
+
+        packageInput.value =
+          packageName || "Individuálny dopyt – IQ Cube inteligentné osvetlenie";
+
+        priceInput.value = packagePrice || "Podľa dohody";
+
+        statusBox.textContent = "";
+        statusBox.className = "camera-form-status";
+
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+
+        window.setTimeout(function () {
+          const firstField = document.getElementById("camera-name");
+          if (firstField) firstField.focus();
+        }, 50);
+      }
+
+      function closeModal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+
+        if (previousFocus && typeof previousFocus.focus === "function") {
+          previousFocus.focus();
+        }
+      }
+
+      document.querySelectorAll(".camera-inquiry").forEach(function (button) {
+        button.addEventListener("click", function () {
+          openModal(
+            button.getAttribute("data-package"),
+            button.getAttribute("data-price")
+          );
+        });
+      });
+
+      closeButton.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && modal.classList.contains("is-open")) {
+          closeModal();
+        }
+      });
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        statusBox.textContent = "";
+        statusBox.className = "camera-form-status";
+        submitButton.disabled = true;
+        submitButton.textContent = "Odosielam…";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+              Accept: "application/json"
+            }
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            statusBox.textContent =
+              "✓ Dopyt bol úspešne odoslaný. Ďakujeme za váš záujem. Ozveme sa vám.";
+
+            statusBox.className = "camera-form-status is-visible success";
+
+            form.reset();
+
+            packageInput.value = "Dopyt odoslaný";
+            priceInput.value = "—";
+            submitButton.textContent = "Dopyt odoslaný";
+          } else {
+            throw new Error(
+              result.message || "Dopyt sa nepodarilo odoslať."
+            );
+          }
+        } catch (error) {
+          statusBox.textContent =
+            "Dopyt sa nepodarilo odoslať. Skúste to, prosím, znova alebo nás kontaktujte e-mailom na prologiqon@gmail.com.";
+
+          statusBox.className = "camera-form-status is-visible error";
+          submitButton.disabled = false;
+          submitButton.textContent = "Skúsiť odoslať znova";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
