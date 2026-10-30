@@ -53,6 +53,75 @@
       opacity: 0.88;
     }
 
+    /* ROZBAĽOVACIA PONUKA SMART DOMÁCNOSŤ */
+    .smart-nav-dropdown {
+      position: relative;
+    }
+
+    .smart-nav-dropdown summary {
+      list-style: none;
+      cursor: pointer;
+      color: inherit;
+      font: inherit;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .smart-nav-dropdown summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .smart-nav-dropdown summary::after {
+      content: " ▾";
+      font-size: 12px;
+    }
+
+    .smart-nav-dropdown summary.active {
+      color: #C5F35D;
+    }
+
+    .smart-nav-submenu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      min-width: 245px;
+      padding: 8px;
+      margin-top: 10px;
+      background: #0d2031;
+      border: 1px solid rgba(197, 243, 93, 0.35);
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .smart-nav-submenu a {
+      display: block;
+      padding: 11px 13px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 1.4;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+
+    .smart-nav-submenu a:hover,
+    .smart-nav-submenu a:focus {
+      background: rgba(197, 243, 93, 0.12);
+      color: #C5F35D;
+    }
+
+    /* Otvorenie pri prejdení myšou alebo pri klávesnicovom výbere */
+    @media (hover: hover) and (pointer: fine) {
+      .smart-nav-dropdown:not([open]):hover > .smart-nav-submenu,
+      .smart-nav-dropdown:not([open]):focus-within > .smart-nav-submenu {
+        display: flex;
+      }
+    }
+
     .smart-section {
       padding: 70px 24px;
       background: #ffffff;
@@ -195,6 +264,30 @@
       text-decoration: none;
     }
 
+    @media (max-width: 768px) {
+      .smart-nav-dropdown {
+        width: 100%;
+      }
+
+      .smart-nav-dropdown summary {
+        display: block;
+      }
+
+      .smart-nav-submenu {
+        position: static;
+        min-width: 0;
+        width: 100%;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        box-sizing: border-box;
+        box-shadow: none;
+      }
+
+      .smart-nav-submenu a {
+        white-space: normal;
+      }
+    }
+
     @media (max-width: 600px) {
       .smart-section {
         padding: 48px 20px;
@@ -232,7 +325,19 @@
         <a href="index.html#sluzby">Služby</a>
         <a href="index.html#onas">O nás</a>
         <a href="index.html#postup">Postup</a>
-        <a class="active" href="smart-domacnost.html">Smart domácnosť</a>
+
+        <details class="smart-nav-dropdown">
+          <summary class="active">Smart domácnosť</summary>
+
+          <div class="smart-nav-submenu">
+            <a href="smart-domacnost.html">Prehľad Smart domácnosti</a>
+            <a href="smart-osvetlenie.html">Inteligentné osvetlenie</a>
+            <a href="smart-kamery.html">Zabezpečenie a kamery</a>
+            <a href="smart-unik-vody.html">Ochrana pred únikom vody</a>
+            <a href="smart-garaz.html">Inteligentná garáž</a>
+          </div>
+        </details>
+
         <a href="index.html#kontakt">Kontakt</a>
         <a class="nav-call" href="index.html#kontakt">Kontaktujte nás <b>↗</b></a>
       </nav>
