@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071725">
+
+  <title>Inteligentné osvetlenie | PrologIQon</title>
+  <meta name="description" content="Inteligentné osvetlenie domu a bytu. Ovládanie svetiel mobilom, svetelné scény a automatizácia podľa pohybu. Martin a okolie.">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --light-navy: #071725;
+      --light-navy2: #0d2031;
+      --light-lime: #C5F35D;
+      --light-white: #ffffff;
+      --light-ink: #102237;
+      --light-muted: #637388;
+      --light-pale: #f4f7f9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--light-white);
+      color: var(--light-ink);
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    .lighting-wrap {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .lighting-hero {
+      position: relative;
+      min-height: 470px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(7,23,37,.92) 0%, rgba(7,23,37,.70) 43%, rgba(7,23,37,.08) 100%),
+        url("inteligentne-osvetlenie.png") center 52% / cover no-repeat;
+      color: var(--light-white);
+    }
+
+    .lighting-hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 75px 0;
+    }
+
+    .lighting-eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--light-lime);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .lighting-hero h1 {
+      max-width: 650px;
+      margin: 0 0 22px;
+      font-family: "Manrope", Arial, sans-serif;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.08;
+      font-weight: 800;
+    }
+
+    .lighting-hero p {
+      max-width: 570px;
+      margin: 0 0 30px;
+      color: rgba(255,255,255,.88);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .lighting-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 24px;
+      border-radius: 7px;
+      background: var(--light-lime);
+      color: var(--light-navy);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s, background .2s;
+    }
+
+    .lighting-button:hover {
+      background: #d5ff78;
+      transform: translateY(-2px);
+    }
+
+    .lighting-intro {
+      padding: 76px 0 35px;
+      text-align: center;
+    }
+
+    .lighting-intro h2,
+    .lighting-packages h2,
+    .lighting-process h2 {
+      margin: 0 0 18px;
+      color: var(--light-navy);
+      font-family: "Manrope", Arial, sans-serif;
+      font-size: clamp(27px, 3vw, 36px);
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .lighting-intro p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--light-muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .lighting-packages {
+      padding: 40px 0 85px;
+      background: var(--light-pale);
+    }
+
+    .lighting-section-heading {
+      margin-bottom: 36px;
+      text-align: center;
+    }
+
+    .lighting-section-heading p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--light-muted);
+      line-height: 1.7;
+    }
+
+    .lighting-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .lighting-card {
+      display: flex;
+      flex-direction: column;
+      padding: 27px 23px;
+      border: 1px solid #e2e8ed;
+      border-radius: 12px;
+      background: var(--light-white);
+      box-shadow: 0 8px 24px rgba(7,23,37,.045);
+    }
+
+    .lighting-card h3 {
+      margin: 0 0 12px;
+      color: var(--light-navy);
+      font-family: "Manrope", Arial, sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .lighting-card p {
+      min-height: 76px;
+      margin: 0 0 20px;
+      color: var(--light-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .lighting-card ul {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 25px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .lighting-card li {
+      position: relative;
+      padding-left: 25px;
+      color: var(--light-ink);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .lighting-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: var(--light-lime);
+      color: var(--light-navy);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .lighting-price {
+      margin-top: auto;
+      padding-top: 17px;
+      border-top: 1px solid #e8edf1;
+      color: var(--light-navy);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .lighting-price a {
+      color: var(--light-navy);
+      text-decoration: underline;
+      text-decoration-color: var(--light-lime);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .lighting-process {
+      padding: 80px 0;
+    }
+
+    .lighting-process-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .lighting-process p {
+      color: var(--light-muted);
+      line-height: 1.8;
+    }
+
+    .lighting-steps {
+      display: grid;
+      gap: 17px;
+    }
+
+    .lighting-step {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .lighting-step-number {
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--light-navy);
+      color: var(--light-lime);
+      font-weight: 800;
+    }
+
+    .lighting-step strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--light-navy);
+    }
+
+    .lighting-step span {
+      color: var(--light-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .lighting-cta {
+      padding: 65px 20px;
+      background: var(--light-navy);
+      color: var(--light-white);
+      text-align: center;
+    }
+
+    .lighting-cta h2 {
+      margin: 0 0 15px;
+      font-family: "Manrope", Arial, sans-serif;
+      font-size: clamp(27px, 3vw, 36px);
+      font-weight: 800;
+    }
+
+    .lighting-cta p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 950px) {
+      .lighting-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .lighting-process-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .lighting-wrap,
+      .lighting-hero-content {
+        width: min(100% - 32px, 1160px);
+      }
+
+      .lighting-hero {
+        min-height: 430px;
+        background-position: 58% center;
+      }
+
+      .lighting-hero-content {
+        padding: 65px 0;
+      }
+
+      .lighting-hero p {
+        font-size: 16px;
+      }
+
+      .lighting-intro {
+        padding: 55px 0 25px;
+      }
+
+      .lighting-packages {
+        padding: 35px 0 60px;
+      }
+
+      .lighting-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lighting-card p {
+        min-height: 0;
+      }
+
+      .lighting-process {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="PrologIQon – úvodná stránka">
+        <img src="prologiqon%20logo%20final.png" alt="PrologIQon">
+      </a>
+
+      <button class="menu" type="button" aria-label="Otvoriť menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="links" aria-label="Hlavná navigácia">
+        <a href="index.html#domov">Domov</a>
+        <a href="index.html#sluzby">Služby</a>
+        <a href="smart-domacnost.html">Smart domácnosť</a>
+        <a href="index.html#onas">O nás</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+
+      <a class="nav-call" href="index.html#kontakt">Nezáväzný dopyt</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="lighting-hero">
+      <div class="lighting-hero-content">
+        <span class="lighting-eyebrow">SMART OSVETLENIE</span>
+        <h1>Inteligentné osvetlenie podľa vášho života</h1>
+        <p>
+          Ovládajte svetlá pohodlne, vytvárajte svetelné scény
+          a nechajte osvetlenie reagovať na vaše každodenné potreby.
+        </p>
+        <a class="lighting-button" href="index.html#kontakt">
+          Mám záujem o riešenie
+        </a>
+      </div>
+    </section>
+
+    <section class="lighting-intro lighting-wrap">
+      <h2>Svetlo, ktoré sa prispôsobí vám</h2>
+      <p>
+        Inteligentné osvetlenie dokáže viac než len zapnúť a vypnúť svetlo.
+        Umožňuje pohodlné ovládanie, časové nastavenia, svetelné scény
+        aj automatické reakcie na pohyb. Riešenie navrhneme podľa
+        možností vašej elektroinštalácie a požiadaviek domácnosti.
+      </p>
+    </section>
+
+    <section class="lighting-packages">
+      <div class="lighting-wrap">
+        <div class="lighting-section-heading">
+          <h2>Vyberte si úroveň inteligentného osvetlenia</h2>
+          <p>
+            Od jednoduchého ovládania existujúcich svetiel až po
+            automatizované osvetlenie jednotlivých miestností.
+          </p>
+        </div>
+
+        <div class="lighting-grid">
+
+          <article class="lighting-card">
+            <h3>SMART OSVETLENIE – Ovládanie</h3>
+            <p>
+              Pohodlné ovládanie vybraného osvetlenia prostredníctvom
+              mobilnej aplikácie.
+            </p>
+            <ul>
+              <li>Ovládanie svetla mobilom</li>
+              <li>Zapnutie a vypnutie na diaľku</li>
+              <li>Zachovanie možnosti manuálneho ovládania</li>
+              <li>Nastavenie a odskúšanie riešenia</li>
+            </ul>
+            <div class="lighting-price">
+              <a href="index.html#kontakt">Pre cenu nás kontaktujte</a>
+            </div>
+          </article>
+
+          <article class="lighting-card">
+            <h3>SMART OSVETLENIE – Komfort</h3>
+            <p>
+              Ovládanie viacerých svetelných okruhov a vytváranie
+              praktických svetelných scén.
+            </p>
+            <ul>
+              <li>Ovládanie viacerých okruhov</li>
+              <li>Samostatné ovládanie miestností</li>
+              <li>Vytváranie svetelných scén</li>
+              <li>Časové plánovanie osvetlenia</li>
+            </ul>
+            <div class="lighting-price">
+              <a href="index.html#kontakt">Pre cenu nás kontaktujte</a>
+            </div>
+          </article>
+
+          <article class="lighting-card">
+            <h3>SMART OSVETLENIE – Automat</h3>
+            <p>
+              Osvetlenie, ktoré dokáže reagovať na pohyb
+              a podľa zvolených podmienok sa automaticky zapínať.
+            </p>
+            <ul>
+              <li>Automatické spínanie podľa pohybu</li>
+              <li>Možnosť využitia svetelného senzora</li>
+              <li>Rozdielne nastavenia deň a noc</li>
+              <li>Nastavenie automatického vypnutia</li>
+            </ul>
+            <div class="lighting-price">
+              <a href="index.html#kontakt">Pre cenu nás kontaktujte</a>
+            </div>
+          </article>
+
+          <article class="lighting-card">
+            <h3>SMART OSVETLENIE – Komplet</h3>
+            <p>
+              Prepracované riešenie kombinujúce ovládanie,
+              svetelné scény a automatizáciu.
+            </p>
+            <ul>
+              <li>Ovládanie viacerých svetelných okruhov</li>
+              <li>Svetelné scény podľa situácie</li>
+              <li>Pohybové a svetelné senzory podľa návrhu</li>
+              <li>Automatizované režimy osvetlenia</li>
+              <li>Centralizované ovládanie</li>
+            </ul>
+            <div class="lighting-price">
+              <a href="index.html#kontakt">Pre cenu nás kontaktujte</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="lighting-process">
+      <div class="lighting-wrap lighting-process-inner">
+
+        <div>
+          <h2>Riešenie podľa vašej domácnosti</h2>
+          <p>
+            Nie každá elektroinštalácia umožňuje rovnaký spôsob
+            inteligentného ovládania. Preto najskôr posúdime existujúce
+            zapojenie, typ osvetlenia a vaše požiadavky.
+          </p>
+          <p>
+            Cieľom je využiť vhodné technológie bez zbytočných zásahov
+            a navrhnúť riešenie, ktoré bude praktické pri každodennom
+            používaní.
+          </p>
+        </div>
+
+        <div class="lighting-steps">
+          <div class="lighting-step">
+            <div class="lighting-step-number">1</div>
+            <div>
+              <strong>Požiadavky a predstava</strong>
+              <span>Prejdeme si, čo chcete ovládať a aké funkcie očakávate.</span>
+            </div>
+          </div>
+
+          <div class="lighting-step">
+            <div class="lighting-step-number">2</div>
+            <div>
+              <strong>Návrh riešenia</strong>
+              <span>Vyberieme vhodné komponenty podľa možností inštalácie.</span>
+            </div>
+          </div>
+
+          <div class="lighting-step">
+            <div class="lighting-step-number">3</div>
+            <div>
+              <strong>Realizácia a nastavenie</strong>
+              <span>Odborná montáž, konfigurácia a odskúšanie funkcií.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="lighting-cta">
+      <div class="lighting-wrap">
+        <h2>Chcete mať osvetlenie pod kontrolou?</h2>
+        <p>
+          Napíšte nám, aké osvetlenie chcete ovládať.
+          Navrhneme vhodné riešenie pre váš dom alebo byt.
+        </p>
+        <a class="lighting-button" href="index.html#kontakt">
+          Nezáväzne nás kontaktovať
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a href="index.html" aria-label="PrologIQon – úvodná stránka">
+        <img src="prologiqon%20logo%20final%20web.png" alt="PrologIQon">
+      </a>
+      <p>Elektroinštalácie a smart technológie | Martin a okolie</p>
+      <p>
+        <a href="smart-domacnost.html">Smart domácnosť</a>
+        &nbsp;·&nbsp;
+        <a href="index.html#kontakt">Kontakt</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
