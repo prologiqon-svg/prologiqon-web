@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   // MOBILNÉ MENU
   const menuButton = document.querySelector(".site-header .menu");
@@ -22,8 +23,54 @@ document.addEventListener("DOMContentLoaded", () => {
         menuButton.setAttribute("aria-label", "Otvoriť menu");
       });
     });
+  }
 
-    // Zatvorenie menu klávesom Escape
+  // ROZBAĽOVACIA PONUKA SMART DOMÁCNOSŤ
+  const smartDropdown = document.querySelector(".smart-nav-dropdown");
+  const smartToggle = document.querySelector(".smart-nav-toggle");
+  const smartSubmenu = document.getElementById("smart-nav-submenu");
+
+  if (smartDropdown && smartToggle && smartSubmenu) {
+
+    // Otvorenie a zatvorenie kliknutím
+    smartToggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const isOpen =
+        smartToggle.getAttribute("aria-expanded") === "true";
+
+      smartToggle.setAttribute("aria-expanded", String(!isOpen));
+      smartSubmenu.hidden = isOpen;
+    });
+
+    // Zatvorenie kliknutím mimo ponuky
+    document.addEventListener("click", (event) => {
+      if (!smartDropdown.contains(event.target)) {
+        smartToggle.setAttribute("aria-expanded", "false");
+        smartSubmenu.hidden = true;
+      }
+    });
+
+    // Zatvorenie klávesom Escape
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        smartToggle.setAttribute("aria-expanded", "false");
+        smartSubmenu.hidden = true;
+      }
+    });
+
+    // Zatvorenie po výbere položky
+    smartSubmenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        smartToggle.setAttribute("aria-expanded", "false");
+        smartSubmenu.hidden = true;
+      });
+    });
+  }
+
+  // ZATVORENIE MOBILNÉHO MENU KLÁVESOM ESCAPE
+  if (menuButton && navLinks) {
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         navLinks.classList.remove("open");
