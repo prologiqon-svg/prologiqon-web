@@ -58,26 +58,28 @@
       position: relative;
     }
 
-    .smart-nav-dropdown summary {
-      list-style: none;
-      cursor: pointer;
-      color: inherit;
+    .smart-nav-toggle {
+      appearance: none;
+      -webkit-appearance: none;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #C5F35D;
       font: inherit;
       text-decoration: none;
       white-space: nowrap;
+      cursor: pointer;
     }
 
-    .smart-nav-dropdown summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .smart-nav-dropdown summary::after {
+    .smart-nav-toggle::after {
       content: " ▾";
       font-size: 12px;
     }
 
-    .smart-nav-dropdown summary.active {
-      color: #C5F35D;
+    .smart-nav-toggle[aria-expanded="true"]::after {
+      content: " ▴";
     }
 
     .smart-nav-submenu {
@@ -85,7 +87,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      z-index: 1000;
+      z-index: 10000;
       min-width: 245px;
       padding: 8px;
       margin-top: 10px;
@@ -97,7 +99,11 @@
       gap: 2px;
     }
 
-    .smart-nav-dropdown[open] > .smart-nav-submenu {
+    .smart-nav-submenu[hidden] {
+      display: none !important;
+    }
+
+    .smart-nav-submenu:not([hidden]) {
       display: flex;
     }
 
@@ -265,15 +271,18 @@
         width: 100%;
       }
 
-      .smart-nav-dropdown summary {
+      .smart-nav-toggle {
         display: block;
+        width: 100%;
+        padding: 12px 0;
+        text-align: left;
       }
 
       .smart-nav-submenu {
         position: static;
         min-width: 0;
         width: 100%;
-        margin-top: 8px;
+        margin-top: 0;
         margin-bottom: 8px;
         box-sizing: border-box;
         box-shadow: none;
@@ -323,17 +332,24 @@
         <a href="index.html#onas">O nás</a>
         <a href="index.html#postup">Postup</a>
 
-        <details class="smart-nav-dropdown">
-          <summary class="active">Smart domácnosť</summary>
+        <div class="smart-nav-dropdown">
+          <button
+            type="button"
+            class="smart-nav-toggle"
+            aria-expanded="false"
+            aria-controls="smart-nav-submenu"
+          >
+            Smart domácnosť
+          </button>
 
-          <div class="smart-nav-submenu">
+          <div class="smart-nav-submenu" id="smart-nav-submenu" hidden>
             <a href="smart-domacnost.html">Prehľad Smart domácnosti</a>
             <a href="smart-osvetlenie.html">Inteligentné osvetlenie</a>
             <a href="smart-kamery.html">Zabezpečenie a kamery</a>
             <a href="smart-unik-vody.html">Ochrana pred únikom vody</a>
             <a href="smart-garaz.html">Inteligentná garáž</a>
           </div>
-        </details>
+        </div>
 
         <a href="index.html#kontakt">Kontakt</a>
         <a class="nav-call" href="index.html#kontakt">Kontaktujte nás <b>↗</b></a>
