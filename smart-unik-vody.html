@@ -59,14 +59,6 @@
       gap: 2px;
     }
 
-    .smart-nav-submenu[hidden] {
-      display: none !important;
-    }
-
-    .smart-nav-submenu:not([hidden]) {
-      display: flex;
-    }
-
     .smart-nav-submenu a {
       display: block;
       padding: 11px 13px;
@@ -410,7 +402,7 @@
             Smart domácnosť
           </button>
 
-          <div class="smart-nav-submenu" id="smart-nav-submenu" hidden>
+          <div class="smart-nav-submenu" id="smart-nav-submenu">
             <a href="smart-domacnost.html">Prehľad Smart domácnosti</a>
             <a href="smart-osvetlenie.html">Inteligentné osvetlenie</a>
             <a href="smart-kamery.html">Zabezpečenie a kamery</a>
@@ -643,29 +635,29 @@
       const toggle = dropdown.querySelector(".smart-nav-toggle");
       const submenu = dropdown.querySelector(".smart-nav-submenu");
 
-      function closeDropdown() {
-        toggle.setAttribute("aria-expanded", "false");
-        submenu.hidden = true;
-      }
+      if (!toggle || !submenu) return;
 
       toggle.addEventListener("click", function (event) {
+        event.preventDefault();
         event.stopPropagation();
 
-        const isOpen = toggle.getAttribute("aria-expanded") === "true";
+        const isOpen = submenu.style.display === "flex";
 
+        submenu.style.display = isOpen ? "none" : "flex";
         toggle.setAttribute("aria-expanded", String(!isOpen));
-        submenu.hidden = isOpen;
       });
 
       document.addEventListener("click", function (event) {
         if (!dropdown.contains(event.target)) {
-          closeDropdown();
+          submenu.style.display = "none";
+          toggle.setAttribute("aria-expanded", "false");
         }
       });
 
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
-          closeDropdown();
+          submenu.style.display = "none";
+          toggle.setAttribute("aria-expanded", "false");
         }
       });
     })();
