@@ -81,6 +81,7 @@
     }
 
     .smart-nav-submenu {
+      display: none;
       position: absolute;
       top: 100%;
       left: 0;
@@ -92,9 +93,12 @@
       border: 1px solid rgba(197, 243, 93, 0.35);
       border-radius: 8px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-      display: flex;
       flex-direction: column;
       gap: 2px;
+    }
+
+    .smart-nav-dropdown[open] > .smart-nav-submenu {
+      display: flex;
     }
 
     .smart-nav-submenu a {
@@ -112,14 +116,6 @@
     .smart-nav-submenu a:focus {
       background: rgba(197, 243, 93, 0.12);
       color: #C5F35D;
-    }
-
-    /* Otvorenie pri prejdení myšou alebo pri klávesnicovom výbere */
-    @media (hover: hover) and (pointer: fine) {
-      .smart-nav-dropdown:not([open]):hover > .smart-nav-submenu,
-      .smart-nav-dropdown:not([open]):focus-within > .smart-nav-submenu {
-        display: flex;
-      }
     }
 
     .smart-section {
