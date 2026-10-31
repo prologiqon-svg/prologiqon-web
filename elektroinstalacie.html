@@ -13,6 +13,23 @@
   <link rel="stylesheet" href="styles.css?v=2">
 
   <style>
+    /* ZAROVNANIE HORNÉHO MENU – IBA TÁTO STRÁNKA */
+    @media (min-width: 801px) {
+      .electro-page .site-header .nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .electro-page .site-header .links {
+        margin-left: auto;
+        margin-right: 20px;
+      }
+
+      .electro-page .site-header .nav-call {
+        flex-shrink: 0;
+      }
+    }
+
     .electro-page .hero-photo {
       background:
         linear-gradient(90deg, rgba(7,23,37,.88) 0%, rgba(7,23,37,.70) 42%, rgba(7,23,37,.38) 100%),
@@ -330,6 +347,7 @@
 
     <nav class="links">
       <a href="index.html">Domov</a>
+      <a class="active" href="elektroinstalacie.html">Elektroinštalácie</a>
       <a href="index.html#sluzby">Služby</a>
       <a href="index.html#onas">O nás</a>
       <a href="index.html#postup">Postup</a>
