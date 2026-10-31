@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -13,6 +12,104 @@
   <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
 
   <style>
+    /* ROZBAĽOVACIA PONUKA SMART DOMÁCNOSŤ */
+    .smart-nav-dropdown {
+      position: relative;
+    }
+
+    .smart-nav-toggle {
+      appearance: none;
+      -webkit-appearance: none;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #C5F35D;
+      font: inherit;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .smart-nav-toggle::after {
+      content: " ▾";
+      font-size: 12px;
+    }
+
+    .smart-nav-toggle[aria-expanded="true"]::after {
+      content: " ▴";
+    }
+
+    .smart-nav-submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 10000;
+      min-width: 245px;
+      padding: 8px;
+      margin-top: 10px;
+      background: #0d2031;
+      border: 1px solid rgba(197, 243, 93, 0.35);
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .smart-nav-submenu[hidden] {
+      display: none !important;
+    }
+
+    .smart-nav-submenu:not([hidden]) {
+      display: flex;
+    }
+
+    .smart-nav-submenu a {
+      display: block;
+      padding: 11px 13px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 1.4;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+
+    .smart-nav-submenu a:hover,
+    .smart-nav-submenu a:focus {
+      background: rgba(197, 243, 93, 0.12);
+      color: #C5F35D;
+    }
+
+    @media (max-width: 768px) {
+      .smart-nav-dropdown {
+        width: 100%;
+      }
+
+      .smart-nav-toggle {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        text-align: left;
+      }
+
+      .smart-nav-submenu {
+        position: static;
+        min-width: 0;
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 8px;
+        box-sizing: border-box;
+        box-shadow: none;
+      }
+
+      .smart-nav-submenu a {
+        white-space: normal;
+      }
+    }
+
     .camera-hero {
       background: #071725;
       color: #fff;
@@ -421,496 +518,3 @@
     }
   </style>
 </head>
-
-<body>
-  <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="index.html#domov">
-        <img src="prologiqon%20logo%20final.png" alt="PrologIQon">
-      </a>
-
-      <button class="menu" aria-label="Otvoriť menu" aria-expanded="false">
-        <i></i><i></i><i></i>
-      </button>
-
-      <nav class="links">
-        <a href="index.html#domov">Domov</a>
-        <a href="elektroinstalacie.html">Elektroinštalácie</a>
-        <a href="index.html#sluzby">Služby</a>
-        <a href="index.html#onas">O nás</a>
-        <a href="index.html#postup">Postup</a>
-        <a class="active" href="smart-domacnost.html">Smart domácnosť</a>
-        <a href="index.html#kontakt">Kontakt</a>
-        <a class="nav-call" href="index.html#kontakt">Kontaktujte nás <b>↗</b></a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="camera-hero">
-      <div class="camera-inner">
-        <div class="camera-label">PrologIQon · IQ Cube – inteligentné osvetlenie</div>
-
-        <h1><span class="iq-lime">IQ</span> Cube – inteligentné osvetlenie pre váš domov.</h1>
-
-        <p>
-          IQ Cube premení bežné osvetlenie na inteligentné riešenie.
-          Svetlá môžete ovládať cez mobil, vytvárať svetelné scény,
-          nastavovať časové plány a využívať automatické zapínanie
-          podľa pohybu alebo svetelných podmienok. Manuálne ovládanie
-          zostáva zachované.
-        </p>
-
-        <a class="camera-button" href="#balicky">
-          Pozrieť ponuku riešení
-        </a>
-      </div>
-    </section>
-
-    <section class="camera-photo-section" aria-label="IQ Cube inteligentné osvetlenie">
-      <div class="camera-photo">
-        <img
-          src="inteligentne-osvetlenie.png"
-          alt="Inteligentné osvetlenie IQ Cube v interiéri"
-          fetchpriority="high">
-      </div>
-    </section>
-
-    <section class="camera-section">
-      <div class="camera-inner">
-        <h2>Vyberte si IQ Cube pre svoje osvetlenie</h2>
-
-        <p class="camera-intro">
-          Každý priestor má iné požiadavky na osvetlenie a jeho ovládanie.
-          Pred návrhom preveríme existujúcu elektroinštaláciu, typ svietidiel
-          a vaše predstavy. Podľa toho vyberieme vhodné kompatibilné
-          zariadenia a navrhneme riešenie bez zbytočných zásahov.
-          Nižšie sú základné návrhy balíkov, ktoré prispôsobíme konkrétnemu
-          domu alebo bytu.
-        </p>
-
-        <div class="camera-grid" id="balicky">
-          <article class="camera-card">
-            <h3>SMART OSVETLENIE – Ovládanie</h3>
-            <p>
-              Základné riešenie na pohodlné ovládanie osvetlenia cez mobil.
-            </p>
-            <ul>
-              <li>Ovládanie svetiel cez mobilnú aplikáciu</li>
-              <li>Vzdialené zapnutie a vypnutie</li>
-              <li>Zachovanie manuálneho ovládania</li>
-              <li>Nastavenie a odskúšanie funkčnosti</li>
-            </ul>
-            <div class="camera-price">
-              <span>CENA</span>
-              <strong>Pre cenu nás kontaktujte</strong>
-            </div>
-            <button type="button" class="camera-button camera-inquiry"
-              data-package="SMART OSVETLENIE – Ovládanie" data-price="Pre cenu nás kontaktujte">
-              Mám záujem
-            </button>
-          </article>
-
-          <article class="camera-card">
-            <h3>SMART OSVETLENIE – Komfort</h3>
-            <p>
-              Pohodlné ovládanie viacerých svetelných okruhov a miestností.
-            </p>
-            <ul>
-              <li>Ovládanie viacerých svetelných okruhov</li>
-              <li>Vytváranie svetelných scén</li>
-              <li>Nastavenie časových plánov</li>
-              <li>Ovládanie podľa potrieb domácnosti</li>
-            </ul>
-            <div class="camera-price">
-              <span>CENA</span>
-              <strong>Pre cenu nás kontaktujte</strong>
-            </div>
-            <button type="button" class="camera-button camera-inquiry"
-              data-package="SMART OSVETLENIE – Komfort" data-price="Pre cenu nás kontaktujte">
-              Mám záujem
-            </button>
-          </article>
-
-          <article class="camera-card">
-            <h3>SMART OSVETLENIE – Automat</h3>
-            <p>
-              Automatické ovládanie svetiel podľa pohybu a svetelných podmienok.
-            </p>
-            <ul>
-              <li>Zapínanie osvetlenia pri zaznamenaní pohybu</li>
-              <li>Využitie svetelného senzora</li>
-              <li>Nastavenie denných a nočných režimov</li>
-              <li>Automatické vypnutie podľa nastavenia</li>
-            </ul>
-            <div class="camera-price">
-              <span>CENA</span>
-              <strong>Pre cenu nás kontaktujte</strong>
-            </div>
-            <button type="button" class="camera-button camera-inquiry"
-              data-package="SMART OSVETLENIE – Automat" data-price="Pre cenu nás kontaktujte">
-              Mám záujem
-            </button>
-          </article>
-
-          <article class="camera-card">
-            <h3>SMART OSVETLENIE – Komplet</h3>
-            <p>
-              Prepojené riešenie osvetlenia s centrálnym ovládaním
-              a automatickými režimami.
-            </p>
-            <ul>
-              <li>Ovládanie viacerých svetelných okruhov</li>
-              <li>Svetelné scény a časové plány</li>
-              <li>Pohybové a svetelné senzory</li>
-              <li>Automatické režimy podľa nastavenia</li>
-              <li>Centralizované ovládanie osvetlenia</li>
-            </ul>
-            <div class="camera-price">
-              <span>CENA</span>
-              <strong>Pre cenu nás kontaktujte</strong>
-            </div>
-            <button type="button" class="camera-button camera-inquiry"
-              data-package="SMART OSVETLENIE – Komplet" data-price="Pre cenu nás kontaktujte">
-              Mám záujem
-            </button>
-          </article>
-        </div>
-
-        <div class="camera-note">
-          <strong>Dôležité:</strong> Konkrétne možnosti inteligentného
-          ovládania závisia od existujúcej elektroinštalácie, typu svietidiel
-          a použitých kompatibilných zariadení. Pred realizáciou preveríme
-          vhodnosť riešenia a dohodneme rozsah potrebných úprav.
-          <br><br>
-          <strong>Doprava:</strong> V prípade realizácie mimo okresu Martin
-          sa účtuje cestovné vo výške <strong>0,32 €/km</strong>.
-        </div>
-      </div>
-    </section>
-
-    <section class="camera-section alt">
-      <div class="camera-inner">
-        <h2>Ako to prebieha?</h2>
-
-        <div class="camera-grid">
-          <article class="camera-card">
-            <h3>1. Zistíme, čo potrebujete</h3>
-            <p>
-              Preberieme si miestnosti, typ osvetlenia, existujúce
-              vypínače a spôsob, akým chcete svetlá ovládať.
-            </p>
-          </article>
-
-          <article class="camera-card">
-            <h3>2. Navrhneme riešenie</h3>
-            <p>
-              Vyberieme vhodné kompatibilné zariadenia a navrhneme
-              ovládanie, svetelné scény alebo automatické režimy.
-            </p>
-          </article>
-
-          <article class="camera-card">
-            <h3>3. Nainštalujeme a nastavíme</h3>
-            <p>
-              Po dohode zariadenia namontujeme, nastavíme a otestujeme.
-              Ukážeme vám aj ovládanie cez mobilnú aplikáciu.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="camera-cta">
-      <div class="camera-inner">
-        <h2>Chcete IQ Cube – inteligentné osvetlenie?</h2>
-        <p>
-          Ozvite sa nám a spoločne preberieme možnosti inteligentného
-          osvetlenia pre váš dom alebo byt. Pôsobíme v Martine a okolí.
-        </p>
-
-        <button type="button" class="camera-button camera-inquiry"
-          data-package="Individuálny dopyt – IQ Cube inteligentné osvetlenie"
-          data-price="Podľa dohody">
-          Nezáväzne sa informovať
-        </button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="camera-footer">
-    <p>© PrologIQon · Martin a okolie</p>
-    <p><a href="smart-domacnost.html">Späť na Smart domácnosť</a></p>
-    <p><a href="index.html#kontakt">Kontakt</a></p>
-  </footer>
-
-  <!-- Dopytový formulár -->
-  <div
-    class="camera-modal"
-    id="camera-modal"
-    aria-hidden="true">
-
-    <div
-      class="camera-modal-panel"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="camera-modal-title">
-
-      <button
-        type="button"
-        class="camera-modal-close"
-        id="camera-modal-close"
-        aria-label="Zavrieť formulár">
-        &times;
-      </button>
-
-      <h2 id="camera-modal-title">Nezáväzný dopyt</h2>
-
-      <p>
-        Vyplňte kontaktné údaje a ozveme sa vám s ďalším postupom.
-      </p>
-
-      <form
-        class="camera-form"
-        id="camera-inquiry-form"
-        action="https://api.web3forms.com/submit"
-        method="POST">
-
-        <input
-          type="hidden"
-          name="access_key"
-          value="d778e264-7744-4181-adea-b26a5d6d48b6">
-
-        <input
-          type="hidden"
-          name="subject"
-          value="Nový dopyt – IQ Cube pre inteligentné osvetlenie PrologIQon">
-
-        <input
-          type="hidden"
-          name="from_name"
-          value="Web PrologIQon – IQ Cube inteligentné osvetlenie">
-
-        <input
-          type="hidden"
-          name="redirect"
-          value="">
-
-        <div>
-          <label for="camera-package">Vybraný balík</label>
-          <input
-            type="text"
-            id="camera-package"
-            name="Vybraný balík"
-            value="Individuálny dopyt – IQ Cube inteligentné osvetlenie"
-            readonly>
-        </div>
-
-        <div>
-          <label for="camera-price-input">Cena</label>
-          <input
-            type="text"
-            id="camera-price-input"
-            name="Cena"
-            value="Podľa dohody"
-            readonly>
-        </div>
-
-        <div>
-          <label for="camera-name">Meno a priezvisko *</label>
-          <input
-            type="text"
-            id="camera-name"
-            name="Meno a priezvisko"
-            autocomplete="name"
-            required>
-        </div>
-
-        <div>
-          <label for="camera-phone">Telefón *</label>
-          <input
-            type="tel"
-            id="camera-phone"
-            name="Telefón"
-            autocomplete="tel"
-            required>
-        </div>
-
-        <div>
-          <label for="camera-email">E-mail *</label>
-          <input
-            type="email"
-            id="camera-email"
-            name="E-mail"
-            autocomplete="email"
-            required>
-        </div>
-
-        <div>
-          <label for="camera-town">Obec alebo mesto realizácie *</label>
-          <input
-            type="text"
-            id="camera-town"
-            name="Obec alebo mesto realizácie"
-            autocomplete="address-level2"
-            required>
-        </div>
-
-        <div>
-          <label for="camera-note-input">Poznámka</label>
-          <textarea
-            id="camera-note-input"
-            name="Poznámka"
-            placeholder="Počet miestností, typ osvetlenia, požadované funkcie alebo ďalšie informácie."></textarea>
-        </div>
-
-        <div class="camera-consent">
-          <input
-            type="checkbox"
-            id="camera-consent"
-            name="Súhlas so spracovaním údajov"
-            value="Áno"
-            required>
-
-          <label for="camera-consent">
-            Súhlasím so spracovaním osobných údajov na účely vybavenia
-            dopytu. Oboznámil/a som sa so
-            <a href="ochrana-osobnych-udajov.html" target="_blank" rel="noopener">
-              zásadami ochrany osobných údajov
-            </a>.
-          </label>
-        </div>
-
-        <div
-          class="camera-form-status"
-          id="camera-form-status"
-          role="status"
-          aria-live="polite">
-        </div>
-
-        <button
-          type="submit"
-          class="camera-form-submit"
-          id="camera-form-submit">
-          Odoslať dopyt
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-
-  <script>
-    (function () {
-      const modal = document.getElementById("camera-modal");
-      const closeButton = document.getElementById("camera-modal-close");
-      const form = document.getElementById("camera-inquiry-form");
-      const packageInput = document.getElementById("camera-package");
-      const priceInput = document.getElementById("camera-price-input");
-      const statusBox = document.getElementById("camera-form-status");
-      const submitButton = document.getElementById("camera-form-submit");
-
-      let previousFocus = null;
-
-      function openModal(packageName, packagePrice) {
-        previousFocus = document.activeElement;
-
-        packageInput.value =
-          packageName || "Individuálny dopyt – IQ Cube inteligentné osvetlenie";
-
-        priceInput.value = packagePrice || "Podľa dohody";
-
-        statusBox.textContent = "";
-        statusBox.className = "camera-form-status";
-
-        modal.classList.add("is-open");
-        modal.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-
-        window.setTimeout(function () {
-          const firstField = document.getElementById("camera-name");
-          if (firstField) firstField.focus();
-        }, 50);
-      }
-
-      function closeModal() {
-        modal.classList.remove("is-open");
-        modal.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = "";
-
-        if (previousFocus && typeof previousFocus.focus === "function") {
-          previousFocus.focus();
-        }
-      }
-
-      document.querySelectorAll(".camera-inquiry").forEach(function (button) {
-        button.addEventListener("click", function () {
-          openModal(
-            button.getAttribute("data-package"),
-            button.getAttribute("data-price")
-          );
-        });
-      });
-
-      closeButton.addEventListener("click", closeModal);
-
-      modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-          closeModal();
-        }
-      });
-
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && modal.classList.contains("is-open")) {
-          closeModal();
-        }
-      });
-
-      form.addEventListener("submit", async function (event) {
-        event.preventDefault();
-
-        statusBox.textContent = "";
-        statusBox.className = "camera-form-status";
-        submitButton.disabled = true;
-        submitButton.textContent = "Odosielam…";
-
-        try {
-          const response = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: {
-              Accept: "application/json"
-            }
-          });
-
-          const result = await response.json();
-
-          if (response.ok && result.success) {
-            statusBox.textContent =
-              "✓ Dopyt bol úspešne odoslaný. Ďakujeme za váš záujem. Ozveme sa vám.";
-
-            statusBox.className = "camera-form-status is-visible success";
-
-            form.reset();
-
-            packageInput.value = "Dopyt odoslaný";
-            priceInput.value = "—";
-            submitButton.textContent = "Dopyt odoslaný";
-          } else {
-            throw new Error(
-              result.message || "Dopyt sa nepodarilo odoslať."
-            );
-          }
-        } catch (error) {
-          statusBox.textContent =
-            "Dopyt sa nepodarilo odoslať. Skúste to, prosím, znova alebo nás kontaktujte e-mailom na prologiqon@gmail.com.";
-
-          statusBox.className = "camera-form-status is-visible error";
-          submitButton.disabled = false;
-          submitButton.textContent = "Skúsiť odoslať znova";
-        }
-      });
-    })();
-  </script>
-</body>
-</html>
