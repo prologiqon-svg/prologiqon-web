@@ -59,8 +59,78 @@
         linear-gradient(135deg, #263d4e, #0d2031);
     }
 
+    /* ÚVOD – TRI STĹPCE */
+
+    .electro-hero .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(230px, .9fr) minmax(0, .8fr);
+      align-items: center;
+      gap: 30px;
+      width: min(1240px, calc(100% - 54px));
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 75px 0;
+      box-sizing: border-box;
+    }
+
+    .electro-hero .hero-copy {
+      min-width: 0;
+    }
+
     .electro-hero .hero-side {
-      max-width: 290px;
+      max-width: none;
+      min-width: 0;
+    }
+
+    /* TECHNICKÁ ILUSTRÁCIA V ÚVODE */
+
+    .electro-hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-width: 0;
+      padding: 14px 10px;
+      overflow: hidden;
+      border: 1px solid rgba(197,243,93,.22);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(197,243,93,.12), transparent 58%),
+        linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025));
+      box-sizing: border-box;
+    }
+
+    .electro-hero-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 390px;
+    }
+
+    .electro-hero-visual-caption {
+      position: absolute;
+      right: 13px;
+      bottom: 10px;
+      left: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 9px;
+      border-top: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.7);
+      font-family: Manrope, sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .electro-hero-visual-caption span:last-child {
+      color: #c5f35d;
     }
 
     .electro-hero .hero-side-card {
@@ -292,7 +362,29 @@
 
     /* RESPONZÍVNY DIZAJN */
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1100px) {
+      .electro-hero .hero-inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
+        gap: 25px;
+      }
+
+      .electro-hero .hero-copy {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .electro-hero .hero-side {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .electro-hero-visual {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
       .electro-approach-inner {
         grid-template-columns: minmax(0, 1fr) minmax(210px, .8fr);
         gap: 30px;
@@ -335,6 +427,34 @@
         max-height: 54px;
       }
 
+      .electro-hero .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 25px;
+        width: calc(100% - 34px);
+        padding: 55px 0;
+      }
+
+      .electro-hero .hero-copy,
+      .electro-hero-visual,
+      .electro-hero .hero-side {
+        width: 100%;
+        max-width: none;
+      }
+
+      .electro-hero-visual {
+        padding: 12px 10px;
+      }
+
+      .electro-hero-visual svg {
+        max-width: 340px;
+      }
+
+      .electro-hero .hero-side {
+        margin: 0;
+      }
+
       .electro-services,
       .electro-approach {
         padding: 48px 6%;
@@ -366,10 +486,6 @@
         grid-column: auto;
         grid-row: auto;
         padding: 25px;
-      }
-
-      .electro-hero .hero-side {
-        max-width: 100%;
       }
     }
   </style>
@@ -434,6 +550,169 @@
             <b>→</b>
           </a>
         </div>
+
+
+        <!-- TECHNICKÁ ILUSTRÁCIA V ÚVODE -->
+        <div class="electro-hero-visual">
+
+          <svg viewBox="0 0 420 390" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-labelledby="hero-electro-title hero-electro-desc">
+
+            <title id="hero-electro-title">Technický návrh elektroinštalácie domu</title>
+            <desc id="hero-electro-desc">
+              Architektonická izometrická ilustrácia moderného domu
+              s technickými značkami, svetelnými bodmi a pôdorysnými prvkami.
+            </desc>
+
+            <defs>
+              <linearGradient id="hero-house-front" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#dce6ed"/>
+              </linearGradient>
+
+              <linearGradient id="hero-house-side" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c9d8e2"/>
+                <stop offset="100%" stop-color="#8fa7b8"/>
+              </linearGradient>
+
+              <linearGradient id="hero-house-roof" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#29485e"/>
+                <stop offset="100%" stop-color="#071725"/>
+              </linearGradient>
+
+              <linearGradient id="hero-lime" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#e1ff9b"/>
+                <stop offset="100%" stop-color="#a9dc3b"/>
+              </linearGradient>
+
+              <filter id="hero-shadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="9"/>
+              </filter>
+            </defs>
+
+            <!-- Technická mriežka -->
+            <g fill="none" stroke="#ffffff" stroke-width="1" opacity=".12">
+              <path d="M20 65H400M20 105H400M20 145H400M20 185H400M20 225H400M20 265H400M20 305H400"/>
+              <path d="M50 35V335M90 35V335M130 35V335M170 35V335M210 35V335M250 35V335M290 35V335M330 35V335M370 35V335"/>
+            </g>
+
+            <!-- Technické označenie -->
+            <g fill="#c5f35d" font-family="Arial, sans-serif" font-size="9"
+               font-weight="700" letter-spacing="1.5">
+              <text x="25" y="25">PROJEKTOVÝ POHĽAD</text>
+              <text x="395" y="25" text-anchor="end">01 / 03</text>
+            </g>
+
+            <!-- Tieň -->
+            <ellipse cx="210" cy="302" rx="145" ry="23"
+                     fill="#000000" opacity=".24" filter="url(#hero-shadow)"/>
+
+            <!-- Základňa domu -->
+            <path d="M48 221L210 126L372 221L210 316Z"
+                  fill="#c6d5df" stroke="#8da5b5" stroke-width="1.5"/>
+
+            <path d="M48 221L210 316V331L48 236Z"
+                  fill="#9fb4c2" stroke="#8da5b5" stroke-width="1.5"/>
+
+            <path d="M210 316L372 221V236L210 331Z"
+                  fill="#8099aa" stroke="#8da5b5" stroke-width="1.5"/>
+
+            <!-- Zadná stena -->
+            <path d="M105 129L210 68L315 129V230L210 291L105 230Z"
+                  fill="url(#hero-house-front)" stroke="#071725" stroke-width="2"/>
+
+            <!-- Ľavá stena -->
+            <path d="M105 129L210 190V291L105 230Z"
+                  fill="#edf3f6" stroke="#071725" stroke-width="2"/>
+
+            <!-- Pravá stena -->
+            <path d="M210 190L315 129V230L210 291Z"
+                  fill="url(#hero-house-side)" stroke="#071725" stroke-width="2"/>
+
+            <!-- Strecha -->
+            <path d="M80 133L210 57L340 133L315 148L210 87L105 148Z"
+                  fill="url(#hero-house-roof)" stroke="#071725" stroke-width="2"/>
+
+            <path d="M210 57V87" stroke="#c5f35d" stroke-width="2"/>
+
+            <!-- Rozdelenie interiéru -->
+            <path d="M210 190V291" stroke="#91a6b5" stroke-width="2"/>
+            <path d="M105 190L210 251L315 190"
+                  fill="none" stroke="#bdcbd4" stroke-width="2"/>
+
+            <!-- Ľavé okno -->
+            <path d="M125 153L166 177V219L125 195Z"
+                  fill="#8eacbd" stroke="#55778d" stroke-width="2"/>
+
+            <path d="M145 165V207M125 174L166 198"
+                  stroke="#eaf3f7" stroke-width="2"/>
+
+            <!-- Pravé okno -->
+            <path d="M254 164L294 141V183L254 206Z"
+                  fill="#7899ad" stroke="#55778d" stroke-width="2"/>
+
+            <path d="M274 153V195M254 185L294 162"
+                  stroke="#eaf3f7" stroke-width="2"/>
+
+            <!-- Vstupné dvere -->
+            <path d="M175 228L207 247V300L175 281Z"
+                  fill="#17344b" stroke="#071725" stroke-width="2"/>
+
+            <circle cx="198" cy="276" r="2.5" fill="#c5f35d"/>
+
+            <!-- Svetelné body -->
+            <g>
+              <circle cx="145" cy="236" r="16" fill="#c5f35d" opacity=".12"/>
+              <circle cx="145" cy="236" r="6" fill="url(#hero-lime)"/>
+
+              <circle cx="274" cy="226" r="16" fill="#c5f35d" opacity=".12"/>
+              <circle cx="274" cy="226" r="6" fill="url(#hero-lime)"/>
+
+              <circle cx="210" cy="145" r="16" fill="#c5f35d" opacity=".12"/>
+              <circle cx="210" cy="145" r="6" fill="url(#hero-lime)"/>
+            </g>
+
+            <!-- Technické značky -->
+            <g fill="none" stroke="#c5f35d" stroke-width="1.8">
+              <path d="M145 236L105 258H77"/>
+              <path d="M274 226L316 202H345"/>
+              <path d="M210 145V112L239 95"/>
+            </g>
+
+            <g fill="#c5f35d" stroke="#071725" stroke-width="1.5">
+              <circle cx="77" cy="258" r="4"/>
+              <circle cx="345" cy="202" r="4"/>
+              <circle cx="239" cy="95" r="4"/>
+            </g>
+
+            <!-- Technické popisky -->
+            <g fill="#e5edf2" font-family="Arial, sans-serif"
+               font-size="8" font-weight="700" letter-spacing="1">
+              <text x="25" y="273">LIGHTING</text>
+              <text x="350" y="193" text-anchor="end">CONTROL</text>
+              <text x="248" y="91">DESIGN</text>
+            </g>
+
+            <!-- Spodná technická línia -->
+            <path d="M55 352H365" stroke="#c5f35d" stroke-width="2.5"/>
+            <path d="M55 360H170M250 360H365"
+                  stroke="#ffffff" stroke-width="1" opacity=".3"/>
+
+            <g fill="#ffffff" font-family="Arial, sans-serif"
+               font-size="9" font-weight="700" letter-spacing="1.5">
+              <text x="55" y="379">PROLOGIQON</text>
+              <text x="365" y="379" text-anchor="end" opacity=".65">ELECTRICAL DESIGN</text>
+            </g>
+
+          </svg>
+
+          <div class="electro-hero-visual-caption">
+            <span>Technické riešenia</span>
+            <span>PrologIQon</span>
+          </div>
+
+        </div>
+
 
         <div class="hero-side">
           <div class="electro-hero hero-side-card">
