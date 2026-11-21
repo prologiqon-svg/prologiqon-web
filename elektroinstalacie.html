@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -5,736 +6,545 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071725">
 
-  <title>Elektroinštalácie v bytoch a domoch | PrologIQon</title>
+  <title>Elektroinštalácie Martin a okolie | PrologIQon</title>
 
-  <meta name="description" content="Elektroinštalácie v rodinných domoch a bytoch. Nové rozvody, rekonštrukcie a úpravy elektroinštalácie. Martin a okolie.">
-
+  <meta name="description" content="Elektrikár Martin a okolie – nové elektroinštalácie, rekonštrukcie a úpravy rozvodov. Po dohode realizujeme zákazky aj v ďalších častiach Slovenska.">
+  <link rel="icon" href="https://prologiqon.sk/favicon-32x32.png?v=2">
   <link rel="stylesheet" href="styles.css?v=2">
 
   <style>
-    /* ROZBAĽOVACIA PONUKA SMART DOMÁCNOSŤ */
-    .electro-page .smart-nav-dropdown { position: relative; }
+    /* HLAVIČKA – rovnaké rozmery ako na hlavnej stránke */
 
-    .electro-page .smart-nav-toggle {
-      appearance: none;
-      -webkit-appearance: none;
-      display: inline-block;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: #e3e8ed;
-      font: inherit;
-      text-decoration: none;
-      white-space: nowrap;
-      cursor: pointer;
+    .site-header .nav {
+      width: min(1200px, calc(100% - 54px));
+      margin: auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header .brand img {
+      display: block;
+      width: 180px;
+      height: auto;
+      max-height: 58px;
+      object-fit: contain;
     }
 
-    .electro-page .smart-nav-toggle::after {
-      content: " ▾";
+    .site-header .links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
       font-size: 12px;
     }
 
-    .electro-page .smart-nav-toggle[aria-expanded="true"]::after {
-      content: " ▴";
-    }
-
-    .electro-page .smart-nav-submenu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 10000;
-      min-width: 245px;
-      padding: 8px;
-      margin-top: 10px;
-      background: #0d2031;
-      border: 1px solid rgba(197, 243, 93, 0.35);
-      border-radius: 8px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .electro-page .smart-nav-submenu[hidden] { display: none !important; }
-    .electro-page .smart-nav-submenu:not([hidden]) { display: flex; }
-
-    .electro-page .smart-nav-submenu a {
-      display: block;
-      padding: 11px 13px;
-      color: #ffffff;
+    .site-header .links a {
       text-decoration: none;
-      font-size: 14px;
-      line-height: 1.4;
+    }
+
+    .site-header .links .nav-call {
+      padding: 12px 17px;
       border-radius: 5px;
-      white-space: nowrap;
+      background: #c5f35d;
+      color: #101d2a;
+      font-weight: 700;
     }
+    /* ŠPECIFICKÉ PRVKY STRÁNKY */
 
-    .electro-page .smart-nav-submenu a:hover,
-    .electro-page .smart-nav-submenu a:focus {
-      background: rgba(197, 243, 93, 0.12);
-      color: #C5F35D;
-    }
-
-    @media (max-width: 768px) {
-      .electro-page .smart-nav-dropdown { width: 100%; }
-
-      .electro-page .smart-nav-toggle {
-        display: block;
-        width: 100%;
-        padding: 12px 0;
-        text-align: left;
-      }
-
-      .electro-page .smart-nav-submenu {
-        position: static;
-        min-width: 0;
-        width: 100%;
-        margin-top: 0;
-        margin-bottom: 8px;
-        box-sizing: border-box;
-        box-shadow: none;
-      }
-
-      .electro-page .smart-nav-submenu a { white-space: normal; }
-    }
-
-    /* ZAROVNANIE HORNÉHO MENU – IBA TÁTO STRÁNKA */
-    @media (min-width: 801px) {
-      .electro-page .site-header .nav {
-        display: flex;
-        align-items: center;
-      }
-
-      .electro-page .site-header .links {
-        margin-left: auto;
-        margin-right: 20px;
-      }
-
-      .electro-page .site-header .nav-call {
-        flex-shrink: 0;
-      }
-    }
-
-    .electro-page .hero-photo {
+    .electro-hero .hero-photo {
       background:
-        linear-gradient(90deg, rgba(7,23,37,.88) 0%, rgba(7,23,37,.70) 42%, rgba(7,23,37,.38) 100%),
-        url("https://cdn.pixabay.com/photo/2019/05/12/15/07/electric-4198293_1280.jpg");
-      background-size: cover;
-      background-position: center center;
+        linear-gradient(90deg, rgba(7,23,37,.18), rgba(7,23,37,.08)),
+        linear-gradient(135deg, #263d4e, #0d2031);
     }
 
-    .electro-page .hero-inner {
-      position: relative;
-      z-index: 2;
+    .electro-hero .hero-side {
+      max-width: 290px;
     }
 
-    .electro-page .electro-section {
-      padding: 76px 0;
+    .electro-hero .hero-side-card {
+      padding: 22px;
+      background: rgba(7,23,37,.82);
+      border-left: 3px solid #c5f35d;
+      color: #fff;
+    }
+    .electro-hero .hero-side-card strong {
+      display: block;
+      margin-bottom: 9px;
+      color: #c5f35d;
+      font-family: Manrope, sans-serif;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    .electro-page .electro-section-heading {
+    .electro-hero .hero-side-card span {
+      display: block;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .electro-services {
+      padding: 65px 5%;
+      background: #f5f7f9;
+    }
+    .electro-section-heading {
       max-width: 760px;
       margin: 0 auto 38px;
       text-align: center;
     }
 
-    .electro-page .electro-section-heading .eyebrow {
-      margin-bottom: 12px;
+    .electro-section-heading .eyebrow {
+      color: #637388;
     }
 
-    .electro-page .electro-section-heading h2 {
-      margin: 0 0 16px;
-      color: var(--ink);
+    .electro-section-heading h2 {
+      margin: 12px 0;
+      color: #102237;
       font-family: Manrope, sans-serif;
-      font-size: clamp(28px, 4vw, 40px);
+      font-size: clamp(25px, 3vw, 36px);
       line-height: 1.2;
     }
 
-    .electro-page .electro-section-heading p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 0;
+    .electro-section-heading p {
+      color: #637388;
+      font-size: 15px;
+      line-height: 1.8;
     }
-
-    .electro-page .electro-services {
-      background: var(--pale);
-    }
-
-    .electro-page .electro-services-grid {
+    .electro-card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 20px;
+      max-width: 1180px;
+      margin: 0 auto;
     }
 
-    .electro-page .electro-service-card {
+    .electro-card {
+      padding: 30px 26px;
       background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 8px 24px rgba(7,23,37,.05);
+      border: 1px solid #dfe5ea;
+      border-radius: 5px;
     }
-
-    .electro-page .electro-service-number {
-      color: #718c32;
-      font-weight: 800;
-      font-size: 14px;
+    .electro-card-number {
+      display: inline-block;
       margin-bottom: 18px;
-    }
-
-    .electro-page .electro-service-card h3 {
-      color: var(--ink);
+      color: #8cae36;
       font-family: Manrope, sans-serif;
-      font-size: 21px;
-      margin: 0 0 12px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
-    .electro-page .electro-service-card p {
-      color: var(--muted);
-      line-height: 1.7;
+    .electro-card h3 {
+      margin: 0 0 13px;
+      color: #102237;
+      font-family: Manrope, sans-serif;
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+    .electro-card p {
       margin: 0;
+      color: #637388;
+      font-size: 14px;
+      line-height: 1.8;
     }
-
-    .electro-page .electro-approach {
+    .electro-approach {
+      padding: 65px 5%;
       background: #fff;
     }
 
-    .electro-page .electro-approach-grid {
+    .electro-approach-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      gap: 55px;
       align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .electro-page .electro-approach h2 {
-      color: var(--ink);
+    .electro-approach h2 {
+      margin: 10px 0 18px;
+      color: #102237;
       font-family: Manrope, sans-serif;
-      font-size: clamp(27px, 4vw, 38px);
-      line-height: 1.2;
-      margin: 0 0 18px;
+      font-size: clamp(25px, 3vw, 34px);
+      line-height: 1.25;
+    }
+    .electro-approach p {
+      color: #637388;
+      font-size: 15px;
+      line-height: 1.85;
     }
 
-    .electro-page .electro-approach p {
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .electro-page .electro-checklist {
-      list-style: none;
+    .electro-checklist {
+      display: grid;
+      gap: 15px;
+      margin: 25px 0 0;
       padding: 0;
-      margin: 24px 0 0;
-      display: grid;
-      gap: 14px;
+      list-style: none;
     }
 
-    .electro-page .electro-checklist li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: var(--ink);
-      line-height: 1.5;
+    .electro-checklist li {
+      position: relative;
+      padding-left: 34px;
+      color: #102237;
+      font-size: 14px;
+      line-height: 1.6;
     }
-
-    .electro-page .electro-checklist li::before {
+    .electro-checklist li::before {
       content: "✓";
-      display: inline-flex;
-      flex: 0 0 25px;
-      width: 25px;
-      height: 25px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--lime);
-      color: var(--navy);
-      font-weight: 800;
-    }
-
-    .electro-page .electro-approach-highlight {
-      background: var(--navy);
-      color: #fff;
-      padding: 34px;
-      border-radius: 18px;
-      box-shadow: 0 14px 34px rgba(7,23,37,.12);
-    }
-
-    .electro-page .electro-approach-highlight h3 {
-      color: var(--lime);
-      font-family: Manrope, sans-serif;
-      font-size: 23px;
-      margin: 0 0 14px;
-    }
-
-    .electro-page .electro-approach-highlight p {
-      color: rgba(255,255,255,.82);
-      margin: 0;
-    }
-
-    /* ORIENTAČNÉ CENY */
-
-    .electro-page .electro-pricing {
-      padding: 76px 0;
-      background: var(--pale);
-    }
-
-    .electro-page .electro-pricing-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .electro-page .electro-price-card {
-      display: flex;
-      flex-direction: column;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 8px 24px rgba(7,23,37,.05);
-    }
-
-    .electro-page .electro-price-card.featured {
-      border: 2px solid var(--lime);
-      box-shadow: 0 12px 30px rgba(7,23,37,.09);
-    }
-
-    .electro-page .electro-price-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
+      width: 22px;
+      height: 22px;
+      place-items: center;
       border-radius: 50%;
-      background: var(--lime);
-      color: var(--navy);
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .electro-page .electro-price-card h3 {
-      color: var(--ink);
-      font-family: Manrope, sans-serif;
-      font-size: 23px;
-      margin: 0 0 12px;
-    }
-
-    .electro-page .electro-price-card > p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 0 0 24px;
-      flex: 1;
-    }
-
-    .electro-page .electro-price {
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 20px;
-    }
-
-    .electro-page .electro-price small {
-      display: block;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 7px;
-    }
-
-    .electro-page .electro-price strong {
-      display: block;
-      color: var(--ink);
-      font-family: Manrope, sans-serif;
-      font-size: 23px;
-    }
-
-    .electro-page .electro-price-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--ink);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .electro-page .electro-price-link span {
-      color: #718c32;
-      font-size: 22px;
-    }
-
-    .electro-page .electro-price-link:hover {
-      color: #718c32;
-    }
-
-    .electro-page .electro-price-note {
-      max-width: 850px;
-      margin: 28px auto 0;
-      color: var(--muted);
+      background: #c5f35d;
+      color: #071725;
       font-size: 13px;
-      line-height: 1.7;
-      text-align: center;
+      font-weight: 800;
     }
 
-    .electro-page .electro-contact-intro {
-      max-width: 700px;
-      margin-bottom: 28px;
+    .electro-highlight {
+      padding: 32px;
+      background: #071725;
+      border-left: 4px solid #c5f35d;
+      color: #fff;
+    }
+    .electro-highlight h3 {
+      margin: 0 0 14px;
+      color: #c5f35d;
+      font-family: Manrope, sans-serif;
+      font-size: 20px;
     }
 
-    @media (max-width: 800px) {
-      .electro-page .electro-services-grid,
-      .electro-page .electro-pricing-grid {
+    .electro-highlight p {
+      margin: 0;
+      color: #e0e7ed;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 850px) {
+      .site-header .links {
+        gap: 15px;
+      }
+
+      .site-header .links a {
+        font-size: 11px;
+      }
+
+      .electro-card-grid {
         grid-template-columns: 1fr 1fr;
       }
-
-      .electro-page .electro-approach-grid {
+      .electro-approach-inner {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 30px;
       }
     }
 
-    @media (max-width: 600px) {
-      .electro-page .electro-section,
-      .electro-page .electro-pricing {
-        padding: 54px 0;
+    @media (max-width: 650px) {
+      .site-header .nav {
+        width: calc(100% - 34px);
       }
 
-      .electro-page .electro-services-grid,
-      .electro-page .electro-pricing-grid {
+      .site-header .brand img {
+        width: 150px;
+        max-height: 54px;
+      }
+
+      .electro-services,
+      .electro-approach {
+        padding: 48px 6%;
+      }
+
+      .electro-card-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .electro-card {
+        padding: 25px 22px;
       }
 
-      .electro-page .electro-service-card,
-      .electro-page .electro-price-card {
-        padding: 23px;
+      .electro-highlight {
+        padding: 25px;
       }
 
-      .electro-page .electro-approach-highlight {
-        padding: 26px;
+      .electro-hero .hero-side {
+        max-width: 100%;
       }
     }
   </style>
 </head>
 
-<body class="electro-page">
+<body>
 
-<header class="site-header">
-  <div class="wrap nav">
+  <!-- HLAVIČKA -->
+  <header class="site-header">
+    <div class="nav">
 
-    <a class="brand" href="index.html" aria-label="PrologIQon – domov">
-      <img src="prologiqon%20logo%20final.png" alt="PrologIQon">
-    </a>
+      <a href="index.html" class="brand">
+        <img src="prologiqon%20logo%20final.png" alt="PrologIQon">
+      </a>
+      <button class="menu" type="button" aria-label="Otvoriť menu" aria-expanded="false">
+        <i></i>
+        <i></i>
+        <i></i>
+      </button>
+      <nav class="links">
+        <a href="index.html">Domov</a>
+        <a href="#sluzby" class="active">Elektroinštalácie</a>
+        <a href="index.html#onas">O nás</a>
+        <a href="index.html#postup">Postup</a>
+        <a href="smart-domacnost.html">Smart domácnosť</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#kontakt" class="nav-call">Kontaktujte nás</a>
+      </nav>
 
-    <button class="menu" type="button" aria-label="Otvoriť menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="links">
-      <a href="index.html">Domov</a>
-      <a class="active" href="elektroinstalacie.html">Elektroinštalácie</a>
-      <a href="index.html#sluzby">Služby</a>
-      <a href="index.html#onas">O nás</a>
-      <a href="index.html#postup">Postup</a>
-
-      <div class="smart-nav-dropdown">
-        <button
-          type="button"
-          class="smart-nav-toggle"
-          aria-expanded="false"
-          aria-controls="smart-nav-submenu"
-        >
-          Smart domácnosť
-        </button>
-
-        <div class="smart-nav-submenu" id="smart-nav-submenu" hidden>
-          <a href="smart-domacnost.html">Prehľad Smart domácnosti</a>
-          <a href="smart-osvetlenie.html">Inteligentné osvetlenie</a>
-          <a href="smart-kamery.html">Zabezpečenie a kamery</a>
-          <a href="smart-unik-vody.html">Ochrana pred únikom vody</a>
-          <a href="smart-garaz.html">Inteligentná garáž</a>
-        </div>
-      </div>
-
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-
-    <a class="nav-call" href="#kontakt">Kontaktujte nás</a>
-
-  </div>
-</header>
-
-<main>
-
-  <section class="hero electro-hero" id="domov">
-    <div class="hero-photo"></div>
-    <div class="hero-shade"></div>
-
-    <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <div class="eyebrow">ELEKTROINŠTALÁCIE · MARTIN A OKOLIE</div>
-
-        <h1>Elektroinštalácie v bytoch a rodinných domoch</h1>
-
-        <p>
-          Realizácia nových elektroinštalácií, rekonštrukcie
-          a úpravy existujúcich elektrických rozvodov.
-          Spoľahlivé riešenia pre váš domov.
-        </p>
-
-        <a href="#kontakt" class="btn">Nezáväzne sa informovať</a>
-      </div>
     </div>
-  </section>
+  </header>
 
-  <section class="electro-section electro-services" id="sluzby">
-    <div class="wrap">
 
+  <main>
+
+    <!-- ÚVOD -->
+    <section class="hero electro-hero" id="domov">
+      <div class="hero-photo"></div>
+      <div class="hero-shade"></div>
+
+      <div class="hero-inner">
+
+        <div class="hero-copy">
+          <div class="eyebrow">ELEKTROINŠTALÁCIE · MARTIN A OKOLIE · CELÉ SLOVENSKO</div>
+
+          <h1>
+            Elektroinštalácie<br>
+            pre domy a byty.
+          </h1>
+          <p>
+            Realizujeme nové elektroinštalácie, rekonštrukcie a úpravy
+            elektrických rozvodov. Ak hľadáte elektrikára v Martine
+            a okolí, radi preberieme váš projekt. Za zákazkami vycestujeme
+            aj mimo regiónu a po dohode pracujeme v rámci celého Slovenska.
+          </p>
+
+          <a href="#kontakt" class="btn">
+            Nezáväzne nás kontaktujte
+            <b>→</b>
+          </a>
+        </div>
+        <div class="hero-side">
+          <div class="electro-hero hero-side-card">
+            <strong>Od novostavby po rekonštrukciu</strong>
+            <span>
+              Elektroinštalácie v rodinných domoch a bytoch
+              s dôrazom na bezpečnosť, funkčnosť a kvalitu.
+              Pôsobíme najmä v Martine a okolí, za zákazkami
+              však po dohode vycestujeme aj do ďalších regiónov Slovenska.
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- HLAVNÉ SLUŽBY -->
+    <section class="electro-services" id="sluzby">
       <div class="electro-section-heading">
         <div class="eyebrow">NAŠE SLUŽBY</div>
-        <h2>Elektroinštalácie podľa potrieb vášho bývania</h2>
+
+        <h2>Elektroinštalácie podľa potrieb vášho projektu</h2>
+
         <p>
-          Pomôžeme s novou elektroinštaláciou, rekonštrukciou
-          aj úpravami existujúcich rozvodov v bytoch a rodinných domoch.
+          Či staviate nový dom, rekonštruujete byt alebo potrebujete
+          upraviť existujúce elektrické rozvody, rozsah prác prispôsobíme
+          konkrétnemu zadaniu. Zákazky realizujeme v Martine a okolí
+          aj v ďalších častiach Slovenska po vzájomnej dohode.
         </p>
       </div>
 
-      <div class="electro-services-grid">
-        <article class="electro-service-card">
-          <div class="electro-service-number">01</div>
-          <h3>Novostavby</h3>
+      <div class="electro-card-grid">
+        <article class="electro-card">
+          <span class="electro-card-number">01 / NOVOSTAVBY</span>
+          <h3>Elektroinštalácie v novostavbách</h3>
           <p>
-            Elektroinštalácie v nových rodinných domoch a bytoch.
-            Návrh a realizácia rozvodov podľa požiadaviek projektu
-            a budúceho využívania priestoru.
+            Realizácia nových elektrických rozvodov v rodinných domoch
+            a bytoch. Riešenie umiestnenia zásuviek, vypínačov,
+            osvetlenia a ďalších elektroinštalačných prvkov podľa
+            potrieb projektu.
           </p>
         </article>
-
-        <article class="electro-service-card">
-          <div class="electro-service-number">02</div>
-          <h3>Rekonštrukcie</h3>
+        <article class="electro-card">
+          <span class="electro-card-number">02 / REKONŠTRUKCIE</span>
+          <h3>Rekonštrukcie elektroinštalácií</h3>
           <p>
-            Výmena starých elektrických rozvodov, modernizácia
-            elektroinštalácie a prispôsobenie existujúcich priestorov
-            súčasným požiadavkám.
+            Obnova alebo výmena existujúcich elektrických rozvodov
+            v domoch a bytoch. Rozsah rekonštrukcie prispôsobíme
+            technickému stavu objektu a požiadavkám zákazníka.
           </p>
         </article>
-
-        <article class="electro-service-card">
-          <div class="electro-service-number">03</div>
-          <h3>Úpravy a rozšírenia</h3>
+        <article class="electro-card">
+          <span class="electro-card-number">03 / ÚPRAVY</span>
+          <h3>Elektroinštalačné úpravy a doplnenia</h3>
           <p>
-            Doplnenie zásuviek, svetelných okruhov a ďalších
-            elektrických bodov. Úpravy existujúcej inštalácie
-            podľa potrieb domácnosti.
+            Doplnenie zásuviek, svetelných bodov, úpravy rozvádzačov
+            a rozšírenie existujúcich elektrických rozvodov podľa
+            možností konkrétnej inštalácie.
           </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="electro-section electro-approach" id="pristup">
-    <div class="wrap electro-approach-grid">
-
-      <div>
-        <div class="eyebrow">PROLOGIQON</div>
-
-        <h2>Odborný a zodpovedný prístup</h2>
-
-        <p>
-          Elektroinštalácia je dôležitou súčasťou každého domu
-          a bytu. Pri realizácii kladieme dôraz na bezpečnosť,
-          funkčnosť a kvalitné vyhotovenie.
-        </p>
-
-        <ul class="electro-checklist">
-          <li>Dôraz na kvalitu a bezpečnosť</li>
-          <li>Komunikácia a jasný rozsah prác</li>
-          <li>Riešenia podľa potrieb projektu</li>
-          <li>Individuálny prístup ku každému objektu</li>
-        </ul>
-      </div>
-
-      <div class="electro-approach-highlight">
-        <h3>Riešenie pre váš domov</h3>
-        <p>
-          Či ide o novostavbu, rekonštrukciu alebo menšiu úpravu
-          existujúcich rozvodov, najskôr si prejdeme vaše požiadavky
-          a dohodneme vhodný rozsah prác.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="electro-pricing" id="ceny">
-    <div class="wrap">
-
-      <div class="electro-section-heading">
-        <div class="eyebrow">CENOVÁ KALKULáCIA</div>
-        <h2>Koľko stojí elektroinštalácia?</h2>
-        <p>
-          Každý objekt má iný rozsah a požiadavky. Preto cenu
-          stanovujeme individuálne podľa veľkosti objektu,
-          počtu elektrických bodov a rozsahu realizácie.
-        </p>
-      </div>
-
-      <div class="electro-pricing-grid">
-
-        <article class="electro-price-card">
-          <div class="electro-price-icon">01</div>
-          <h3>Byt</h3>
-          <p>
-            Elektroinštalácie v bytoch, novostavbách
-            a pri rekonštrukciách existujúcich rozvodov.
-          </p>
-          <div class="electro-price">
-            <small>CENA OD</small>
-            <strong>1 990 €</strong>
-          </div>
-          <a href="#kontakt" class="electro-price-link">
-            Nezáväzne sa informovať <span>→</span>
-          </a>
-        </article>
-
-        <article class="electro-price-card featured">
-          <div class="electro-price-icon">02</div>
-          <h3>Rodinný dom</h3>
-          <p>
-            Elektroinštalácie v rodinných domoch,
-            od nových rozvodov až po kompletnú realizáciu.
-          </p>
-          <div class="electro-price">
-            <small>CENA OD</small>
-            <strong>2 190€</strong>
-          </div>
-          <a href="#kontakt" class="electro-price-link">
-            Nezáväzne sa informovať <span>→</span>
-          </a>
-        </article>
-
-        <article class="electro-price-card">
-          <div class="electro-price-icon">03</div>
-          <h3>Väčší objekt</h3>
-          <p>
-            Rozsiahlejšie elektroinštalácie a individuálne
-            riešenia podľa charakteru a požiadaviek objektu.
-          </p>
-          <div class="electro-price">
-            <small>CENA</small>
-            <strong>Individuálne</strong>
-          </div>
-          <a href="#kontakt" class="electro-price-link">
-            Požiadať o cenovú ponuku <span>→</span>
-          </a>
         </article>
 
       </div>
+    </section>
 
-      <p class="electro-price-note">
-        Uvedené ceny sú orientačné. Konečná cena závisí od
-        veľkosti objektu, počtu elektrických bodov, použitých
-        materiálov a dohodnutého rozsahu prác.
-      </p>
 
-    </div>
-  </section>
-
-  <section class="contact" id="kontakt">
-    <div class="wrap">
-
-      <div class="contact-grid">
+    <!-- PRÍSTUP -->
+    <section class="electro-approach">
+      <div class="electro-approach-inner">
 
         <div>
-          <div class="eyebrow">KONTAKT</div>
+          <div class="eyebrow">PRÍSTUP PROLOGIQON</div>
 
-          <h2>Plánujete elektroinštaláciu?</h2>
+          <h2>Elektroinštalácia má fungovať spoľahlivo a dávať zmysel.</h2>
 
-          <p class="electro-contact-intro">
-            Napíšte nám, o aký objekt a rozsah prác máte záujem.
-            Ozveme sa vám a preberieme možnosti realizácie.
+          <p>
+            Každý dom a byt má svoje špecifiká. Preto je dôležité
+            poznať požiadavky zákazníka, premyslieť rozsah prác
+            a zvoliť riešenie, ktoré bude praktické pri každodennom
+            používaní.
+          </p>
+          <ul class="electro-checklist">
+            <li>Dôraz na kvalitu a bezpečnosť</li>
+            <li>Komunikácia a jasný rozsah prác</li>
+            <li>Riešenia podľa potrieb projektu</li>
+            <li>Praktické a funkčné usporiadanie elektroinštalácie</li>
+          </ul>
+        </div>
+        <div class="electro-highlight">
+          <h3>Najskôr si ujasníme zadanie.</h3>
+          <p>
+            Preberieme vaše predstavy, možnosti objektu a požadovaný
+            rozsah elektroinštalačných prác. Na základe toho pripravíme
+            návrh ďalšieho postupu. Miesto realizácie pritom nemusí byť
+            iba Martin alebo jeho okolie – po dohode prijímame zákazky
+            aj z iných častí Slovenska.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- KONTAKT -->
+    <section class="contact" id="kontakt">
+
+      <div class="wrap contact-grid">
+
+        <div>
+          <div class="eyebrow">KONTAKTUJTE NÁS</div>
+          <h2>Plánujete novú elektroinštaláciu alebo rekonštrukciu?</h2>
+
+          <p>
+            Napíšte nám základné informácie o vašom projekte
+            a uveďte aj miesto realizácie. Pôsobíme najmä v Martine
+            a okolí, za vhodnými zákazkami však vycestujeme aj mimo
+            regiónu. Po dohode realizujeme elektroinštalácie
+            v rámci celého Slovenska.
           </p>
 
           <div class="contact-facts">
-            <p>
-              <strong>Telefón</strong><br>
-              <a href="tel:+421905897303">+421 905 897 303</a>
-            </p>
+            <div>
+              <b>⌖</b>
+              <span>
+                <small>LOKALITA</small>
+                <strong>Martin a okolie · celé Slovensko po dohode</strong>
+              </span>
+            </div>
+            <div>
+              <b>☎</b>
+              <span>
+                <small>TELEFÓN</small>
+                <strong><a href="tel:+421905897303">+421 905 897 303</a></strong>
+              </span>
+            </div>
 
-            <p>
-              <strong>E-mail</strong><br>
-              <a href="mailto:prologiqon@gmail.com">prologiqon@gmail.com</a>
-            </p>
-
-            <p>
-              <strong>Pôsobnosť</strong><br>
-              Martin a okolie
-            </p>
+            <div>
+              <b>✉</b>
+              <span>
+                <small>E-MAIL</small>
+                <strong><a href="mailto:prologiqon@gmail.com">prologiqon@gmail.com</a></strong>
+              </span>
+            </div>
           </div>
         </div>
 
         <form id="contact-form">
+
+          <div class="form-head">
+            <strong>NAPÍŠTE NÁM</strong>
+            <span>NEZÁVÄZNÝ DOPYT</span>
+          </div>
+
           <input type="hidden" name="access_key" value="d778e264-7744-4181-adea-b26a5d6d48b6">
-          <input type="hidden" name="subject" value="Dopyt – Elektroinštalácie PrologIQon">
-          <input type="hidden" name="from_name" value="Web PrologIQon">
+          <input type="hidden" name="subject" value="Dopyt – elektroinštalácie PrologIQon">
 
           <label for="name">Meno</label>
           <input type="text" id="name" name="name" placeholder="Vaše meno" required>
-
-          <label for="reply">E-mail alebo telefón</label>
+          <label for="reply">Telefón alebo e-mail</label>
           <input type="text" id="reply" name="reply" placeholder="Ako vás môžeme kontaktovať?" required>
-
           <label for="kind">O akú službu máte záujem?</label>
           <select id="kind" name="kind" required>
             <option value="">Vyberte možnosť</option>
-            <option value="Elektroinštalácia v byte">Elektroinštalácia v byte</option>
-            <option value="Elektroinštalácia v rodinnom dome">Elektroinštalácia v rodinnom dome</option>
-            <option value="Rekonštrukcia elektroinštalácie">Rekonštrukcia elektroinštalácie</option>
-            <option value="Úprava alebo rozšírenie elektroinštalácie">Úprava alebo rozšírenie elektroinštalácie</option>
-            <option value="Iné">Iné</option>
+            <option>Elektroinštalácia v novostavbe</option>
+            <option>Rekonštrukcia elektroinštalácie</option>
+            <option>Úpravy a doplnenia elektroinštalácie</option>
+            <option>Iné</option>
           </select>
+          <label for="message">Informácie o projekte</label>
+          <textarea id="message" name="message" rows="4" placeholder="Napíšte nám niečo o vašom dome, byte, mieste realizácie alebo plánovaných prácach." required></textarea>
 
-          <label for="message">Správa</label>
-          <textarea id="message" name="message" rows="5" placeholder="Stručne opíšte, čo potrebujete..." required></textarea>
+          <button type="submit" class="btn">
+            Odoslať dopyt
+            <b>→</b>
+          </button>
 
-          <button type="submit" class="btn">Odoslať dopyt</button>
-          <p id="form-note" class="form-note"></p>
+          <p id="form-note" class="form-note" aria-live="polite"></p>
+
         </form>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-</main>
+  </main>
 
-<footer class="site-footer">
-  <div class="wrap">
 
-    <div class="footer-logo">
-      <a href="index.html">
+  <!-- PÄTIČKA -->
+  <footer>
+    <div class="wrap footer-top">
+
+      <a href="index.html" class="footer-logo">
         <img src="prologiqon logo final web.png" alt="PrologIQon">
       </a>
+
+      <p>
+        Elektroinštalácie a technológie<br>
+        Martin a okolie · celé Slovensko po dohode
+      </p>
+
+      <a href="ochrana-osobnych-udajov.html">
+        OCHRANA OSOBNÝCH ÚDAJOV
+      </a>
+
     </div>
 
-    <p>
-      Elektroinštalácie, zabezpečovacie a kamerové systémy.
-      Martin a okolie.
-    </p>
+    <div class="wrap footer-bottom">
+      <span>© 2026 PrologIQon. Všetky práva vyhradené.</span>
+      <span>Martin a okolie · zákazky v rámci SR po dohode</span>
+    </div>
+  </footer>
 
-    <p>
-      <a href="mailto:prologiqon@gmail.com">prologiqon@gmail.com</a>
-      ·
-      <a href="tel:+421905897303">+421 905 897 303</a>
-    </p>
-
-    <p class="footer-copy">© PrologIQon</p>
-
-  </div>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
